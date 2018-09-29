@@ -8,7 +8,7 @@ namespace Fahrzeugverwaltung
 {
     class Motorrad : Fahrzeug
     {
-        private int Hubraum { get; set; }
+        private int Hubraum { get; set; } 
 
         public Motorrad(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer, int hubraum)
             : base (hersteller, modell, kennzeichen, erstzulassung, preis, steuer)

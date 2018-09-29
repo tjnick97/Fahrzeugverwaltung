@@ -1,0 +1,82 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Fahrzeugverwaltung
+{
+    public partial class FFahrzeugSuchen : Form
+    {
+        public FFahrzeugSuchen()
+        {
+            InitializeComponent();
+            clearWindow();
+        }
+
+        private void clearWindow()
+        {
+            //Clear all elements in curretn window
+            pFahrzeugSuchen.Hide();
+            pFahrzeugHinzufügen.Hide();
+        }
+
+        private void FahrzeugartenAusgeben_Click(object sender, EventArgs e)
+        {
+            clearWindow();
+        }
+
+        private void ParkhausHinzufügen_Click(object sender, EventArgs e)
+        {
+            clearWindow();
+        }
+
+        private void fahrzeugHinzufügen_Click(object sender, EventArgs e)
+        {
+            clearWindow();
+            pFahrzeugHinzufügen.Show();
+        }
+
+        private void fahrzeugSuchen_Click(object sender, EventArgs e)
+        {
+            clearWindow();
+            pFahrzeugSuchen.Show();
+        }
+
+        private void ÜberprüfeSteuerlast_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ShowFahrzeugTypPanel(object sender, EventArgs e)
+        {
+            if (cBFahrzeugTyp.Text == "PKW")
+            {
+                PPKW.Show();
+                pMotorrad.Hide();
+                pLKW.Hide();
+            }
+            else if (cBFahrzeugTyp.Text == "Motorrad")
+            {
+                PPKW.Hide();
+                pMotorrad.Show();
+                pLKW.Hide();
+            }
+            else if (cBFahrzeugTyp.Text == "LKW")
+            {
+                PPKW.Hide();
+                pMotorrad.Hide();
+                pLKW.Show();
+            }
+        }
+
+        private void btnSaveNewFahrzeug_Click(object sender, EventArgs e)
+        {
+            //Call function to save input a new Vehicle
+        }
+    }
+}
