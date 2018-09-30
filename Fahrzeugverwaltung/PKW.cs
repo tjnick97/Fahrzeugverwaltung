@@ -18,7 +18,7 @@ namespace Fahrzeugverwaltung
             this.Hubraum = hubraum;
             this.Leistung = leistung;
             this.Schadstoffklasse = schadstoffklasse;
-        }
+        } //test
 
         public override void berechneSteuer()
         {
