@@ -23,6 +23,7 @@ namespace Fahrzeugverwaltung
             //Clear all elements in curretn window
             pFahrzeugSuchen.Hide();
             pFahrzeugHinzufügen.Hide();
+            pParkhausHinzufügen.Hide();
         }
 
         private void FahrzeugartenAusgeben_Click(object sender, EventArgs e)
@@ -33,6 +34,7 @@ namespace Fahrzeugverwaltung
         private void ParkhausHinzufügen_Click(object sender, EventArgs e)
         {
             clearWindow();
+            pParkhausHinzufügen.Show();
         }
 
         private void fahrzeugHinzufügen_Click(object sender, EventArgs e)
@@ -72,11 +74,28 @@ namespace Fahrzeugverwaltung
                 pMotorrad.Hide();
                 pLKW.Show();
             }
+
+            if (cBFahrzeugTyp.Text != "")
+            {
+                lblParkhaus.Show();
+                cBParkhaus.Show();
+            }
+
+            if (cBParkhaus.Text != "")
+            {
+                lblParkplatz.Show();
+                cBParkplatz.Show();
+            }
         }
 
         private void btnSaveNewFahrzeug_Click(object sender, EventArgs e)
         {
-            //Call function to save input a new Vehicle
+            //Call function to save input for new Vehicle
+        }
+
+        private void btnParkhaus_Click(object sender, EventArgs e)
+        {
+            //Call function to save input for new Parkhaus
         }
     }
 }
