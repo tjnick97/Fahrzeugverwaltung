@@ -222,7 +222,7 @@
             // 
             // btnSaveNewFahrzeug
             // 
-            this.btnSaveNewFahrzeug.Location = new System.Drawing.Point(261, 254);
+            this.btnSaveNewFahrzeug.Location = new System.Drawing.Point(350, 254);
             this.btnSaveNewFahrzeug.Name = "btnSaveNewFahrzeug";
             this.btnSaveNewFahrzeug.Size = new System.Drawing.Size(314, 113);
             this.btnSaveNewFahrzeug.TabIndex = 11;

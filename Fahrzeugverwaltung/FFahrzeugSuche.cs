@@ -95,7 +95,15 @@ namespace Fahrzeugverwaltung
 
         private void btnParkhaus_Click(object sender, EventArgs e)
         {
+            /** 
+             *  Parkplatzverbrauch: Auto (1), Motorrad (0,5), LKW (6)
+             *  LKW im Erdgeschoss max. 10
+             *  Parkplätze p. Etage = AnzLKW * 6 (Wenn keine LKW, dann 60)
+            **/
+
             //Call function to save input for new Parkhaus
+
+
         }
     }
 }
