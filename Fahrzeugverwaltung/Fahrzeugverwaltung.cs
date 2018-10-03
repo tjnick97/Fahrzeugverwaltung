@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Fahrzeugverwaltung
 {
-    public partial class FFahrzeugSuchen : Form
+    public partial class Fahrzeugverwaltung : Form
     {
-        public FFahrzeugSuchen()
+        public Fahrzeugverwaltung()
         {
             InitializeComponent();
             clearWindow();
@@ -102,8 +102,34 @@ namespace Fahrzeugverwaltung
             **/
 
             //Call function to save input for new Parkhaus
+            string Ort = tBOrt.Text;
+            int PLZ = Convert.ToInt32(tBPLZ.Text);
+            string Straße = tBStrasse.Text;
+            int anzPKW = Convert.ToInt32(tBPKW.Text);
+            int anzMotorrad = Convert.ToInt32(tBMotorrad.Text);
+            int anzLKW = Convert.ToInt32(tBLKW.Text);
 
 
-        }
+        }        
     }
 }
+
+/**
+ * Kennzeichen in 3 Teile splitten -> einfachere Überprüfung. 
+ * Dabei nach 2 bzw. 3 chars in das nächste Feld skippen
+ * 
+ * Erstellung einer übergeordneten Klasse, um bei der geEntered TextBox den Text zu löschen.
+ * 
+ * Genereller Filter für die Textboxen einbauen, auf Buchstaben & Zahlen
+ * 
+ * --> Dateispeicherung. Parkhaus, Fahrzeuge
+ * Bei Start der Anwendung alle Dateien laden und in GUI füllen.
+ * 
+ * Erstellung der Parkhäuser über GUI
+ * 
+ * Hinzufügen von Fahrzeugen
+ * 
+ * Fahrzeug zu Parkplatz hinzufügen (eigenes Panel/Menu)
+ * 
+ * 
+ **/ 

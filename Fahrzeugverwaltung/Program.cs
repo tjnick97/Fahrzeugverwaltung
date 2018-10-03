@@ -16,7 +16,7 @@ namespace Fahrzeugverwaltung
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FFahrzeugSuchen());
+            Application.Run(new Fahrzeugverwaltung());
         }
     }
 }
