@@ -15,7 +15,6 @@ namespace Fahrzeugverwaltung
         static void Main()
         {
             TestClass test = new TestClass();
-            /*
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Fahrzeugverwaltung());

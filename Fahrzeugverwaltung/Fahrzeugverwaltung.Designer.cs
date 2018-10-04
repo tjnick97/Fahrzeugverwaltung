@@ -58,7 +58,6 @@
             this.cBSchadstoffklasse = new System.Windows.Forms.ComboBox();
             this.tBAnschaffungspreis = new System.Windows.Forms.TextBox();
             this.tBErstzulassung = new System.Windows.Forms.TextBox();
-            this.tBKennzeichen = new System.Windows.Forms.TextBox();
             this.tBModell = new System.Windows.Forms.TextBox();
             this.tBHersteller = new System.Windows.Forms.TextBox();
             this.cBFahrzeugTyp = new System.Windows.Forms.ComboBox();
@@ -209,7 +208,6 @@
             this.pFahrzeugHinzufügen.Controls.Add(this.PPKW);
             this.pFahrzeugHinzufügen.Controls.Add(this.tBAnschaffungspreis);
             this.pFahrzeugHinzufügen.Controls.Add(this.tBErstzulassung);
-            this.pFahrzeugHinzufügen.Controls.Add(this.tBKennzeichen);
             this.pFahrzeugHinzufügen.Controls.Add(this.tBModell);
             this.pFahrzeugHinzufügen.Controls.Add(this.tBHersteller);
             this.pFahrzeugHinzufügen.Controls.Add(this.cBFahrzeugTyp);
@@ -376,14 +374,6 @@
             this.tBErstzulassung.Text = "Erstzulassung";
             this.tBErstzulassung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tBKennzeichen
-            // 
-            this.tBKennzeichen.Location = new System.Drawing.Point(22, 105);
-            this.tBKennzeichen.Name = "tBKennzeichen";
-            this.tBKennzeichen.Size = new System.Drawing.Size(183, 38);
-            this.tBKennzeichen.TabIndex = 4;
-            this.tBKennzeichen.Text = "Kennzeichen";
-            // 
             // tBModell
             // 
             this.tBModell.Location = new System.Drawing.Point(22, 61);
@@ -527,7 +517,7 @@
             // 
             // Fahrzeugverwaltung
             // 
-            this.ClientSize = new System.Drawing.Size(854, 882);
+            this.ClientSize = new System.Drawing.Size(854, 928);
             this.Controls.Add(this.pParkhausHinzufügen);
             this.Controls.Add(this.pFahrzeugHinzufügen);
             this.Controls.Add(this.pFahrzeugSuchen);
@@ -575,7 +565,6 @@
         private System.Windows.Forms.TextBox tBLeistung;
         private System.Windows.Forms.TextBox tBAnschaffungspreis;
         private System.Windows.Forms.TextBox tBErstzulassung;
-        private System.Windows.Forms.TextBox tBKennzeichen;
         private System.Windows.Forms.TextBox tBModell;
         private System.Windows.Forms.TextBox tBHersteller;
         private System.Windows.Forms.ComboBox cBSchadstoffklasse;
