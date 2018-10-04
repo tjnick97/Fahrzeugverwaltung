@@ -45,9 +45,7 @@ System.Console.ReadLine();  */
             
 
             // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW
-
-
-
+            fuhrpark.parkhausHinzufuegen(splitchar[0], splitchar[0], splitchar[0], splitchar[4], splitchar[4], splitchar[5])
         }
 
         private void clearWindow()
