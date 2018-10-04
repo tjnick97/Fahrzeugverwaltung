@@ -102,23 +102,69 @@ namespace Fahrzeugverwaltung
             **/
 
             //Call function to save input for new Parkhaus
-            string Ort = tBOrt.Text;
-            int PLZ = Convert.ToInt32(tBPLZ.Text);
-            string Straße = tBStrasse.Text;
-            int anzPKW = Convert.ToInt32(tBPKW.Text);
-            int anzMotorrad = Convert.ToInt32(tBMotorrad.Text);
-            int anzLKW = Convert.ToInt32(tBLKW.Text);
+            string Ort = tB_Ort.Text;
+            int PLZ = Convert.ToInt32(tB_PLZ.Text);
+            string Straße = tB_Strasse.Text;
+            int anzPKW = Convert.ToInt32(tB_PKW.Text);
+            int anzMotorrad = Convert.ToInt32(tB_Motorrad.Text);
+            int anzLKW = Convert.ToInt32(tB_LKW.Text);
 
 
-        }        
+        }
+
+        private void changeFocusToTBKZusatz(object sender, EventArgs e)
+        {
+            if (tBK_Ken.Text.Length == 3)
+            {
+                tBK_Zei.Focus();
+            }
+        }
+
+        private void changeFocusToTBKZahl(object sender, EventArgs e)
+        {
+            if (tBK_Zei.Text.Length == 2)
+            {
+                tBK_Hen.Focus();
+            }
+        }
+
+        private void deleteTextOnClick(object sender, EventArgs e)
+        {
+            ((TextBox)sender).Text = "";
+        }
+
+        private void filterIncomingString(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != (char)Keys.Back)  
+            {
+                e.Handled = true;
+            } 
+        }
+
+        private void filterIncomingDigits(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void setPreviousTextIfEmpty(object sender, EventArgs e)
+        {
+            if (((TextBox)sender).Text == "")
+            {
+                string[] help = ((TextBox)sender).Name.Split('_');
+                ((TextBox)sender).Text = help[1];
+            }
+        }
     }
 }
 
 /**
- * Kennzeichen in 3 Teile splitten -> einfachere Überprüfung. 
- * Dabei nach 2 bzw. 3 chars in das nächste Feld skippen
+ * -Kennzeichen in 3 Teile splitten -> einfachere Überprüfung. 
+ * -Dabei nach 2 bzw. 3 chars in das nächste Feld skippen
  * 
- * Erstellung einer übergeordneten Klasse, um bei der geEntered TextBox den Text zu löschen.
+ * -Erstellung einer übergeordneten Klasse, um bei der geEntered TextBox den Text zu löschen.
  * 
  * Genereller Filter für die Textboxen einbauen, auf Buchstaben & Zahlen
  * 

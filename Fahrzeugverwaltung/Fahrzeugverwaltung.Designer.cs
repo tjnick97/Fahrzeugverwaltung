@@ -42,36 +42,40 @@
             this.pFahrzeugSuchen = new System.Windows.Forms.Panel();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pFahrzeugHinzufügen = new System.Windows.Forms.Panel();
+            this.tBK_Hen = new System.Windows.Forms.TextBox();
+            this.tBK_Zei = new System.Windows.Forms.TextBox();
+            this.tBK_Ken = new System.Windows.Forms.TextBox();
             this.lblParkplatz = new System.Windows.Forms.Label();
             this.lblParkhaus = new System.Windows.Forms.Label();
             this.cBParkplatz = new System.Windows.Forms.ComboBox();
             this.cBParkhaus = new System.Windows.Forms.ComboBox();
             this.btnSaveNewFahrzeug = new System.Windows.Forms.Button();
             this.pLKW = new System.Windows.Forms.Panel();
-            this.Zuladung = new System.Windows.Forms.TextBox();
-            this.tBAnzAchsen = new System.Windows.Forms.TextBox();
+            this.tB_Zuladung = new System.Windows.Forms.TextBox();
+            this.tB_AnzAchsen = new System.Windows.Forms.TextBox();
             this.pMotorrad = new System.Windows.Forms.Panel();
-            this.tBHubraumMot = new System.Windows.Forms.TextBox();
+            this.tBM_Hubraum = new System.Windows.Forms.TextBox();
             this.PPKW = new System.Windows.Forms.FlowLayoutPanel();
-            this.tBHubraum = new System.Windows.Forms.TextBox();
-            this.tBLeistung = new System.Windows.Forms.TextBox();
+            this.tB_Hubraum = new System.Windows.Forms.TextBox();
+            this.tB_Leistung = new System.Windows.Forms.TextBox();
             this.cBSchadstoffklasse = new System.Windows.Forms.ComboBox();
-            this.tBAnschaffungspreis = new System.Windows.Forms.TextBox();
-            this.tBErstzulassung = new System.Windows.Forms.TextBox();
-            this.tBModell = new System.Windows.Forms.TextBox();
-            this.tBHersteller = new System.Windows.Forms.TextBox();
+            this.tB_Preis = new System.Windows.Forms.TextBox();
+            this.tB_Erstzulassung = new System.Windows.Forms.TextBox();
+            this.tB_Modell = new System.Windows.Forms.TextBox();
+            this.tB_Hersteller = new System.Windows.Forms.TextBox();
             this.cBFahrzeugTyp = new System.Windows.Forms.ComboBox();
             this.lblFahrzeugTyp = new System.Windows.Forms.Label();
             this.pParkhausHinzufügen = new System.Windows.Forms.Panel();
-            this.tBStrasse = new System.Windows.Forms.TextBox();
-            this.tBPLZ = new System.Windows.Forms.TextBox();
-            this.tBOrt = new System.Windows.Forms.TextBox();
+            this.tB_Strasse = new System.Windows.Forms.TextBox();
+            this.tB_PLZ = new System.Windows.Forms.TextBox();
+            this.tB_Ort = new System.Windows.Forms.TextBox();
             this.btnParkhaus = new System.Windows.Forms.Button();
             this.lblAnzParkplätze = new System.Windows.Forms.Label();
-            this.tBLKW = new System.Windows.Forms.TextBox();
-            this.tBMotorrad = new System.Windows.Forms.TextBox();
-            this.tBPKW = new System.Windows.Forms.TextBox();
+            this.tB_LKW = new System.Windows.Forms.TextBox();
+            this.tB_Motorrad = new System.Windows.Forms.TextBox();
+            this.tB_PKW = new System.Windows.Forms.TextBox();
             this.tBParkhaus = new System.Windows.Forms.TextBox();
+            this.fahrzeugEinenParkplatzZuordnenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.pFahrzeugSuchen.SuspendLayout();
             this.pFahrzeugHinzufügen.SuspendLayout();
@@ -99,7 +103,8 @@
             this.fahrzeugHinzufügenToolStripMenuItem,
             this.parkhausHinzufügenToolStripMenuItem,
             this.fahrzeugartenAusgebenToolStripMenuItem,
-            this.überprüfeSteuerlastToolStripMenuItem});
+            this.überprüfeSteuerlastToolStripMenuItem,
+            this.fahrzeugEinenParkplatzZuordnenToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(107, 45);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -107,35 +112,35 @@
             // fahrzeugSuchenToolStripMenuItem
             // 
             this.fahrzeugSuchenToolStripMenuItem.Name = "fahrzeugSuchenToolStripMenuItem";
-            this.fahrzeugSuchenToolStripMenuItem.Size = new System.Drawing.Size(459, 46);
+            this.fahrzeugSuchenToolStripMenuItem.Size = new System.Drawing.Size(597, 46);
             this.fahrzeugSuchenToolStripMenuItem.Text = "Fahrzeug suchen";
             this.fahrzeugSuchenToolStripMenuItem.Click += new System.EventHandler(this.fahrzeugSuchen_Click);
             // 
             // fahrzeugHinzufügenToolStripMenuItem
             // 
             this.fahrzeugHinzufügenToolStripMenuItem.Name = "fahrzeugHinzufügenToolStripMenuItem";
-            this.fahrzeugHinzufügenToolStripMenuItem.Size = new System.Drawing.Size(459, 46);
+            this.fahrzeugHinzufügenToolStripMenuItem.Size = new System.Drawing.Size(597, 46);
             this.fahrzeugHinzufügenToolStripMenuItem.Text = "Fahrzeug hinzufügen";
             this.fahrzeugHinzufügenToolStripMenuItem.Click += new System.EventHandler(this.fahrzeugHinzufügen_Click);
             // 
             // parkhausHinzufügenToolStripMenuItem
             // 
             this.parkhausHinzufügenToolStripMenuItem.Name = "parkhausHinzufügenToolStripMenuItem";
-            this.parkhausHinzufügenToolStripMenuItem.Size = new System.Drawing.Size(459, 46);
+            this.parkhausHinzufügenToolStripMenuItem.Size = new System.Drawing.Size(597, 46);
             this.parkhausHinzufügenToolStripMenuItem.Text = "Parkhaus hinzufügen";
             this.parkhausHinzufügenToolStripMenuItem.Click += new System.EventHandler(this.ParkhausHinzufügen_Click);
             // 
             // fahrzeugartenAusgebenToolStripMenuItem
             // 
             this.fahrzeugartenAusgebenToolStripMenuItem.Name = "fahrzeugartenAusgebenToolStripMenuItem";
-            this.fahrzeugartenAusgebenToolStripMenuItem.Size = new System.Drawing.Size(459, 46);
+            this.fahrzeugartenAusgebenToolStripMenuItem.Size = new System.Drawing.Size(597, 46);
             this.fahrzeugartenAusgebenToolStripMenuItem.Text = "Fahrzeugarten ausgeben";
             this.fahrzeugartenAusgebenToolStripMenuItem.Click += new System.EventHandler(this.FahrzeugartenAusgeben_Click);
             // 
             // überprüfeSteuerlastToolStripMenuItem
             // 
             this.überprüfeSteuerlastToolStripMenuItem.Name = "überprüfeSteuerlastToolStripMenuItem";
-            this.überprüfeSteuerlastToolStripMenuItem.Size = new System.Drawing.Size(459, 46);
+            this.überprüfeSteuerlastToolStripMenuItem.Size = new System.Drawing.Size(597, 46);
             this.überprüfeSteuerlastToolStripMenuItem.Text = "Überprüfe Steuerlast";
             this.überprüfeSteuerlastToolStripMenuItem.Click += new System.EventHandler(this.ÜberprüfeSteuerlast_Click);
             // 
@@ -160,6 +165,8 @@
             this.tBoxKennzOrt.Size = new System.Drawing.Size(67, 38);
             this.tBoxKennzOrt.TabIndex = 1;
             this.tBoxKennzOrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBoxKennzOrt.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tBoxKennzOrt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
             // 
             // tBoxKennzZus
             // 
@@ -170,6 +177,8 @@
             this.tBoxKennzZus.Size = new System.Drawing.Size(67, 38);
             this.tBoxKennzZus.TabIndex = 2;
             this.tBoxKennzZus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBoxKennzZus.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tBoxKennzZus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
             // 
             // tBoxKennzNum
             // 
@@ -180,6 +189,8 @@
             this.tBoxKennzNum.Size = new System.Drawing.Size(67, 38);
             this.tBoxKennzNum.TabIndex = 3;
             this.tBoxKennzNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBoxKennzNum.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tBoxKennzNum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
             // 
             // pFahrzeugSuchen
             // 
@@ -198,6 +209,9 @@
             // 
             // pFahrzeugHinzufügen
             // 
+            this.pFahrzeugHinzufügen.Controls.Add(this.tBK_Hen);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tBK_Zei);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tBK_Ken);
             this.pFahrzeugHinzufügen.Controls.Add(this.lblParkplatz);
             this.pFahrzeugHinzufügen.Controls.Add(this.lblParkhaus);
             this.pFahrzeugHinzufügen.Controls.Add(this.cBParkplatz);
@@ -206,10 +220,10 @@
             this.pFahrzeugHinzufügen.Controls.Add(this.pLKW);
             this.pFahrzeugHinzufügen.Controls.Add(this.pMotorrad);
             this.pFahrzeugHinzufügen.Controls.Add(this.PPKW);
-            this.pFahrzeugHinzufügen.Controls.Add(this.tBAnschaffungspreis);
-            this.pFahrzeugHinzufügen.Controls.Add(this.tBErstzulassung);
-            this.pFahrzeugHinzufügen.Controls.Add(this.tBModell);
-            this.pFahrzeugHinzufügen.Controls.Add(this.tBHersteller);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tB_Preis);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tB_Erstzulassung);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tB_Modell);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tB_Hersteller);
             this.pFahrzeugHinzufügen.Controls.Add(this.cBFahrzeugTyp);
             this.pFahrzeugHinzufügen.Controls.Add(this.lblFahrzeugTyp);
             this.pFahrzeugHinzufügen.Location = new System.Drawing.Point(12, 166);
@@ -217,6 +231,47 @@
             this.pFahrzeugHinzufügen.Size = new System.Drawing.Size(698, 401);
             this.pFahrzeugHinzufügen.TabIndex = 2;
             this.pFahrzeugHinzufügen.Visible = false;
+            // 
+            // tBK_Hen
+            // 
+            this.tBK_Hen.Location = new System.Drawing.Point(144, 105);
+            this.tBK_Hen.MaxLength = 4;
+            this.tBK_Hen.Name = "tBK_Hen";
+            this.tBK_Hen.Size = new System.Drawing.Size(61, 38);
+            this.tBK_Hen.TabIndex = 17;
+            this.tBK_Hen.Text = "hen";
+            this.tBK_Hen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBK_Hen.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tBK_Hen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tBK_Hen.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
+            // 
+            // tBK_Zei
+            // 
+            this.tBK_Zei.Location = new System.Drawing.Point(92, 105);
+            this.tBK_Zei.MaxLength = 2;
+            this.tBK_Zei.Name = "tBK_Zei";
+            this.tBK_Zei.Size = new System.Drawing.Size(46, 38);
+            this.tBK_Zei.TabIndex = 16;
+            this.tBK_Zei.Text = "zei";
+            this.tBK_Zei.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBK_Zei.TextChanged += new System.EventHandler(this.changeFocusToTBKZahl);
+            this.tBK_Zei.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tBK_Zei.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
+            this.tBK_Zei.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
+            // 
+            // tBK_Ken
+            // 
+            this.tBK_Ken.Location = new System.Drawing.Point(22, 105);
+            this.tBK_Ken.MaxLength = 3;
+            this.tBK_Ken.Name = "tBK_Ken";
+            this.tBK_Ken.Size = new System.Drawing.Size(63, 38);
+            this.tBK_Ken.TabIndex = 4;
+            this.tBK_Ken.Text = "Ken";
+            this.tBK_Ken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBK_Ken.TextChanged += new System.EventHandler(this.changeFocusToTBKZusatz);
+            this.tBK_Ken.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tBK_Ken.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
+            this.tBK_Ken.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // lblParkplatz
             // 
@@ -270,54 +325,64 @@
             // 
             // pLKW
             // 
-            this.pLKW.Controls.Add(this.Zuladung);
-            this.pLKW.Controls.Add(this.tBAnzAchsen);
+            this.pLKW.Controls.Add(this.tB_Zuladung);
+            this.pLKW.Controls.Add(this.tB_AnzAchsen);
             this.pLKW.Location = new System.Drawing.Point(106, 237);
             this.pLKW.Name = "pLKW";
             this.pLKW.Size = new System.Drawing.Size(200, 100);
             this.pLKW.TabIndex = 10;
             this.pLKW.Visible = false;
             // 
-            // Zuladung
+            // tB_Zuladung
             // 
-            this.Zuladung.Location = new System.Drawing.Point(3, 53);
-            this.Zuladung.Name = "Zuladung";
-            this.Zuladung.Size = new System.Drawing.Size(180, 38);
-            this.Zuladung.TabIndex = 7;
-            this.Zuladung.Text = "Zuladung";
-            this.Zuladung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Zuladung.Location = new System.Drawing.Point(3, 53);
+            this.tB_Zuladung.Name = "tB_Zuladung";
+            this.tB_Zuladung.Size = new System.Drawing.Size(180, 38);
+            this.tB_Zuladung.TabIndex = 7;
+            this.tB_Zuladung.Text = "Zuladung";
+            this.tB_Zuladung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Zuladung.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Zuladung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_Zuladung.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
-            // tBAnzAchsen
+            // tB_AnzAchsen
             // 
-            this.tBAnzAchsen.Location = new System.Drawing.Point(0, 9);
-            this.tBAnzAchsen.Name = "tBAnzAchsen";
-            this.tBAnzAchsen.Size = new System.Drawing.Size(180, 38);
-            this.tBAnzAchsen.TabIndex = 6;
-            this.tBAnzAchsen.Text = "Anz Achsen";
-            this.tBAnzAchsen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_AnzAchsen.Location = new System.Drawing.Point(0, 9);
+            this.tB_AnzAchsen.MaxLength = 1;
+            this.tB_AnzAchsen.Name = "tB_AnzAchsen";
+            this.tB_AnzAchsen.Size = new System.Drawing.Size(180, 38);
+            this.tB_AnzAchsen.TabIndex = 6;
+            this.tB_AnzAchsen.Text = "Anz Achsen";
+            this.tB_AnzAchsen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_AnzAchsen.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_AnzAchsen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_AnzAchsen.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // pMotorrad
             // 
-            this.pMotorrad.Controls.Add(this.tBHubraumMot);
+            this.pMotorrad.Controls.Add(this.tBM_Hubraum);
             this.pMotorrad.Location = new System.Drawing.Point(55, 237);
             this.pMotorrad.Name = "pMotorrad";
             this.pMotorrad.Size = new System.Drawing.Size(200, 56);
             this.pMotorrad.TabIndex = 9;
             this.pMotorrad.Visible = false;
             // 
-            // tBHubraumMot
+            // tBM_Hubraum
             // 
-            this.tBHubraumMot.Location = new System.Drawing.Point(3, 9);
-            this.tBHubraumMot.Name = "tBHubraumMot";
-            this.tBHubraumMot.Size = new System.Drawing.Size(180, 38);
-            this.tBHubraumMot.TabIndex = 5;
-            this.tBHubraumMot.Text = "Hubraum";
-            this.tBHubraumMot.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBM_Hubraum.Location = new System.Drawing.Point(3, 9);
+            this.tBM_Hubraum.Name = "tBM_Hubraum";
+            this.tBM_Hubraum.Size = new System.Drawing.Size(180, 38);
+            this.tBM_Hubraum.TabIndex = 5;
+            this.tBM_Hubraum.Text = "Hubraum";
+            this.tBM_Hubraum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBM_Hubraum.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tBM_Hubraum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tBM_Hubraum.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // PPKW
             // 
-            this.PPKW.Controls.Add(this.tBHubraum);
-            this.PPKW.Controls.Add(this.tBLeistung);
+            this.PPKW.Controls.Add(this.tB_Hubraum);
+            this.PPKW.Controls.Add(this.tB_Leistung);
             this.PPKW.Controls.Add(this.cBSchadstoffklasse);
             this.PPKW.Location = new System.Drawing.Point(22, 237);
             this.PPKW.Name = "PPKW";
@@ -325,23 +390,29 @@
             this.PPKW.TabIndex = 8;
             this.PPKW.Visible = false;
             // 
-            // tBHubraum
+            // tB_Hubraum
             // 
-            this.tBHubraum.Location = new System.Drawing.Point(3, 3);
-            this.tBHubraum.Name = "tBHubraum";
-            this.tBHubraum.Size = new System.Drawing.Size(180, 38);
-            this.tBHubraum.TabIndex = 4;
-            this.tBHubraum.Text = "Hubraum";
-            this.tBHubraum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Hubraum.Location = new System.Drawing.Point(3, 3);
+            this.tB_Hubraum.Name = "tB_Hubraum";
+            this.tB_Hubraum.Size = new System.Drawing.Size(180, 38);
+            this.tB_Hubraum.TabIndex = 4;
+            this.tB_Hubraum.Text = "Hubraum";
+            this.tB_Hubraum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Hubraum.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Hubraum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_Hubraum.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
-            // tBLeistung
+            // tB_Leistung
             // 
-            this.tBLeistung.Location = new System.Drawing.Point(3, 47);
-            this.tBLeistung.Name = "tBLeistung";
-            this.tBLeistung.Size = new System.Drawing.Size(180, 38);
-            this.tBLeistung.TabIndex = 5;
-            this.tBLeistung.Text = "Leistung";
-            this.tBLeistung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Leistung.Location = new System.Drawing.Point(3, 47);
+            this.tB_Leistung.Name = "tB_Leistung";
+            this.tB_Leistung.Size = new System.Drawing.Size(180, 38);
+            this.tB_Leistung.TabIndex = 5;
+            this.tB_Leistung.Text = "Leistung";
+            this.tB_Leistung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Leistung.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Leistung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_Leistung.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // cBSchadstoffklasse
             // 
@@ -351,46 +422,58 @@
             "1",
             "2"});
             this.cBSchadstoffklasse.Location = new System.Drawing.Point(3, 91);
+            this.cBSchadstoffklasse.MaxLength = 1;
             this.cBSchadstoffklasse.Name = "cBSchadstoffklasse";
             this.cBSchadstoffklasse.Size = new System.Drawing.Size(180, 39);
             this.cBSchadstoffklasse.TabIndex = 6;
             this.cBSchadstoffklasse.Text = "Schadstoff";
             // 
-            // tBAnschaffungspreis
+            // tB_Preis
             // 
-            this.tBAnschaffungspreis.Location = new System.Drawing.Point(22, 193);
-            this.tBAnschaffungspreis.Name = "tBAnschaffungspreis";
-            this.tBAnschaffungspreis.Size = new System.Drawing.Size(183, 38);
-            this.tBAnschaffungspreis.TabIndex = 6;
-            this.tBAnschaffungspreis.Text = "Preis";
-            this.tBAnschaffungspreis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Preis.Location = new System.Drawing.Point(22, 193);
+            this.tB_Preis.Name = "tB_Preis";
+            this.tB_Preis.Size = new System.Drawing.Size(183, 38);
+            this.tB_Preis.TabIndex = 6;
+            this.tB_Preis.Text = "Preis";
+            this.tB_Preis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Preis.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Preis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_Preis.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
-            // tBErstzulassung
+            // tB_Erstzulassung
             // 
-            this.tBErstzulassung.Location = new System.Drawing.Point(22, 149);
-            this.tBErstzulassung.Name = "tBErstzulassung";
-            this.tBErstzulassung.Size = new System.Drawing.Size(183, 38);
-            this.tBErstzulassung.TabIndex = 5;
-            this.tBErstzulassung.Text = "Erstzulassung";
-            this.tBErstzulassung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Erstzulassung.Location = new System.Drawing.Point(22, 149);
+            this.tB_Erstzulassung.Name = "tB_Erstzulassung";
+            this.tB_Erstzulassung.Size = new System.Drawing.Size(183, 38);
+            this.tB_Erstzulassung.TabIndex = 5;
+            this.tB_Erstzulassung.Text = "Erstzulassung";
+            this.tB_Erstzulassung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Erstzulassung.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Erstzulassung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_Erstzulassung.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
-            // tBModell
+            // tB_Modell
             // 
-            this.tBModell.Location = new System.Drawing.Point(22, 61);
-            this.tBModell.Name = "tBModell";
-            this.tBModell.Size = new System.Drawing.Size(183, 38);
-            this.tBModell.TabIndex = 3;
-            this.tBModell.Text = "Modell";
-            this.tBModell.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Modell.Location = new System.Drawing.Point(22, 61);
+            this.tB_Modell.Name = "tB_Modell";
+            this.tB_Modell.Size = new System.Drawing.Size(183, 38);
+            this.tB_Modell.TabIndex = 3;
+            this.tB_Modell.Text = "Modell";
+            this.tB_Modell.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Modell.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Modell.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
-            // tBHersteller
+            // tB_Hersteller
             // 
-            this.tBHersteller.Location = new System.Drawing.Point(22, 17);
-            this.tBHersteller.Name = "tBHersteller";
-            this.tBHersteller.Size = new System.Drawing.Size(183, 38);
-            this.tBHersteller.TabIndex = 2;
-            this.tBHersteller.Text = "Hersteller";
-            this.tBHersteller.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Hersteller.Location = new System.Drawing.Point(22, 17);
+            this.tB_Hersteller.Name = "tB_Hersteller";
+            this.tB_Hersteller.Size = new System.Drawing.Size(183, 38);
+            this.tB_Hersteller.TabIndex = 2;
+            this.tB_Hersteller.Text = "Hersteller";
+            this.tB_Hersteller.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Hersteller.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Hersteller.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
+            this.tB_Hersteller.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // cBFahrzeugTyp
             // 
@@ -417,14 +500,14 @@
             // 
             // pParkhausHinzufügen
             // 
-            this.pParkhausHinzufügen.Controls.Add(this.tBStrasse);
-            this.pParkhausHinzufügen.Controls.Add(this.tBPLZ);
-            this.pParkhausHinzufügen.Controls.Add(this.tBOrt);
+            this.pParkhausHinzufügen.Controls.Add(this.tB_Strasse);
+            this.pParkhausHinzufügen.Controls.Add(this.tB_PLZ);
+            this.pParkhausHinzufügen.Controls.Add(this.tB_Ort);
             this.pParkhausHinzufügen.Controls.Add(this.btnParkhaus);
             this.pParkhausHinzufügen.Controls.Add(this.lblAnzParkplätze);
-            this.pParkhausHinzufügen.Controls.Add(this.tBLKW);
-            this.pParkhausHinzufügen.Controls.Add(this.tBMotorrad);
-            this.pParkhausHinzufügen.Controls.Add(this.tBPKW);
+            this.pParkhausHinzufügen.Controls.Add(this.tB_LKW);
+            this.pParkhausHinzufügen.Controls.Add(this.tB_Motorrad);
+            this.pParkhausHinzufügen.Controls.Add(this.tB_PKW);
             this.pParkhausHinzufügen.Controls.Add(this.tBParkhaus);
             this.pParkhausHinzufügen.Location = new System.Drawing.Point(34, 573);
             this.pParkhausHinzufügen.Name = "pParkhausHinzufügen";
@@ -432,32 +515,41 @@
             this.pParkhausHinzufügen.TabIndex = 3;
             this.pParkhausHinzufügen.Visible = false;
             // 
-            // tBStrasse
+            // tB_Strasse
             // 
-            this.tBStrasse.Location = new System.Drawing.Point(301, 177);
-            this.tBStrasse.Name = "tBStrasse";
-            this.tBStrasse.Size = new System.Drawing.Size(204, 38);
-            this.tBStrasse.TabIndex = 8;
-            this.tBStrasse.Text = "Straße";
-            this.tBStrasse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Strasse.Location = new System.Drawing.Point(301, 177);
+            this.tB_Strasse.Name = "tB_Strasse";
+            this.tB_Strasse.Size = new System.Drawing.Size(204, 38);
+            this.tB_Strasse.TabIndex = 8;
+            this.tB_Strasse.Text = "Straße";
+            this.tB_Strasse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Strasse.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Strasse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
+            this.tB_Strasse.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
-            // tBPLZ
+            // tB_PLZ
             // 
-            this.tBPLZ.Location = new System.Drawing.Point(301, 133);
-            this.tBPLZ.Name = "tBPLZ";
-            this.tBPLZ.Size = new System.Drawing.Size(204, 38);
-            this.tBPLZ.TabIndex = 7;
-            this.tBPLZ.Text = "PLZ";
-            this.tBPLZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_PLZ.Location = new System.Drawing.Point(301, 133);
+            this.tB_PLZ.Name = "tB_PLZ";
+            this.tB_PLZ.Size = new System.Drawing.Size(204, 38);
+            this.tB_PLZ.TabIndex = 7;
+            this.tB_PLZ.Text = "PLZ";
+            this.tB_PLZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_PLZ.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_PLZ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_PLZ.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
-            // tBOrt
+            // tB_Ort
             // 
-            this.tBOrt.Location = new System.Drawing.Point(301, 89);
-            this.tBOrt.Name = "tBOrt";
-            this.tBOrt.Size = new System.Drawing.Size(204, 38);
-            this.tBOrt.TabIndex = 6;
-            this.tBOrt.Text = "Ort";
-            this.tBOrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Ort.Location = new System.Drawing.Point(301, 89);
+            this.tB_Ort.Name = "tB_Ort";
+            this.tB_Ort.Size = new System.Drawing.Size(204, 38);
+            this.tB_Ort.TabIndex = 6;
+            this.tB_Ort.Text = "Ort";
+            this.tB_Ort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Ort.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Ort.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
+            this.tB_Ort.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // btnParkhaus
             // 
@@ -478,32 +570,41 @@
             this.lblAnzParkplätze.TabIndex = 4;
             this.lblAnzParkplätze.Text = "Anzahl der Parkplätze:";
             // 
-            // tBLKW
+            // tB_LKW
             // 
-            this.tBLKW.Location = new System.Drawing.Point(82, 177);
-            this.tBLKW.Name = "tBLKW";
-            this.tBLKW.Size = new System.Drawing.Size(150, 38);
-            this.tBLKW.TabIndex = 3;
-            this.tBLKW.Text = "LKW";
-            this.tBLKW.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_LKW.Location = new System.Drawing.Point(82, 177);
+            this.tB_LKW.Name = "tB_LKW";
+            this.tB_LKW.Size = new System.Drawing.Size(150, 38);
+            this.tB_LKW.TabIndex = 3;
+            this.tB_LKW.Text = "LKW";
+            this.tB_LKW.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_LKW.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_LKW.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_LKW.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
-            // tBMotorrad
+            // tB_Motorrad
             // 
-            this.tBMotorrad.Location = new System.Drawing.Point(82, 133);
-            this.tBMotorrad.Name = "tBMotorrad";
-            this.tBMotorrad.Size = new System.Drawing.Size(150, 38);
-            this.tBMotorrad.TabIndex = 2;
-            this.tBMotorrad.Text = "Motorrad";
-            this.tBMotorrad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Motorrad.Location = new System.Drawing.Point(82, 133);
+            this.tB_Motorrad.Name = "tB_Motorrad";
+            this.tB_Motorrad.Size = new System.Drawing.Size(150, 38);
+            this.tB_Motorrad.TabIndex = 2;
+            this.tB_Motorrad.Text = "Motorrad";
+            this.tB_Motorrad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Motorrad.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Motorrad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_Motorrad.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
-            // tBPKW
+            // tB_PKW
             // 
-            this.tBPKW.Location = new System.Drawing.Point(82, 89);
-            this.tBPKW.Name = "tBPKW";
-            this.tBPKW.Size = new System.Drawing.Size(150, 38);
-            this.tBPKW.TabIndex = 1;
-            this.tBPKW.Text = "PKW";
-            this.tBPKW.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_PKW.Location = new System.Drawing.Point(82, 89);
+            this.tB_PKW.Name = "tB_PKW";
+            this.tB_PKW.Size = new System.Drawing.Size(150, 38);
+            this.tB_PKW.TabIndex = 1;
+            this.tB_PKW.Text = "PKW";
+            this.tB_PKW.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_PKW.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_PKW.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_PKW.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // tBParkhaus
             // 
@@ -514,6 +615,12 @@
             this.tBParkhaus.TabIndex = 0;
             this.tBParkhaus.Text = "Parkhaus ";
             this.tBParkhaus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // fahrzeugEinenParkplatzZuordnenToolStripMenuItem
+            // 
+            this.fahrzeugEinenParkplatzZuordnenToolStripMenuItem.Name = "fahrzeugEinenParkplatzZuordnenToolStripMenuItem";
+            this.fahrzeugEinenParkplatzZuordnenToolStripMenuItem.Size = new System.Drawing.Size(597, 46);
+            this.fahrzeugEinenParkplatzZuordnenToolStripMenuItem.Text = "Fahrzeug einen Parkplatz zuordnen";
             // 
             // Fahrzeugverwaltung
             // 
@@ -562,18 +669,18 @@
         private System.Windows.Forms.ComboBox cBFahrzeugTyp;
         private System.Windows.Forms.Label lblFahrzeugTyp;
         private System.Windows.Forms.FlowLayoutPanel PPKW;
-        private System.Windows.Forms.TextBox tBLeistung;
-        private System.Windows.Forms.TextBox tBAnschaffungspreis;
-        private System.Windows.Forms.TextBox tBErstzulassung;
-        private System.Windows.Forms.TextBox tBModell;
-        private System.Windows.Forms.TextBox tBHersteller;
+        private System.Windows.Forms.TextBox tB_Leistung;
+        private System.Windows.Forms.TextBox tB_Preis;
+        private System.Windows.Forms.TextBox tB_Erstzulassung;
+        private System.Windows.Forms.TextBox tB_Modell;
+        private System.Windows.Forms.TextBox tB_Hersteller;
         private System.Windows.Forms.ComboBox cBSchadstoffklasse;
         private System.Windows.Forms.Panel pLKW;
-        private System.Windows.Forms.TextBox Zuladung;
-        private System.Windows.Forms.TextBox tBAnzAchsen;
+        private System.Windows.Forms.TextBox tB_Zuladung;
+        private System.Windows.Forms.TextBox tB_AnzAchsen;
         private System.Windows.Forms.Panel pMotorrad;
-        private System.Windows.Forms.TextBox tBHubraumMot;
-        private System.Windows.Forms.TextBox tBHubraum;
+        private System.Windows.Forms.TextBox tBM_Hubraum;
+        private System.Windows.Forms.TextBox tB_Hubraum;
         private System.Windows.Forms.Button btnSaveNewFahrzeug;
         private System.Windows.Forms.Label lblParkplatz;
         private System.Windows.Forms.Label lblParkhaus;
@@ -581,14 +688,18 @@
         private System.Windows.Forms.ComboBox cBParkhaus;
         private System.Windows.Forms.Panel pParkhausHinzufügen;
         private System.Windows.Forms.Label lblAnzParkplätze;
-        private System.Windows.Forms.TextBox tBLKW;
-        private System.Windows.Forms.TextBox tBMotorrad;
-        private System.Windows.Forms.TextBox tBPKW;
+        private System.Windows.Forms.TextBox tB_LKW;
+        private System.Windows.Forms.TextBox tB_Motorrad;
+        private System.Windows.Forms.TextBox tB_PKW;
         private System.Windows.Forms.TextBox tBParkhaus;
-        private System.Windows.Forms.TextBox tBStrasse;
-        private System.Windows.Forms.TextBox tBPLZ;
-        private System.Windows.Forms.TextBox tBOrt;
+        private System.Windows.Forms.TextBox tB_Strasse;
+        private System.Windows.Forms.TextBox tB_PLZ;
+        private System.Windows.Forms.TextBox tB_Ort;
         private System.Windows.Forms.Button btnParkhaus;
+        private System.Windows.Forms.TextBox tBK_Hen;
+        private System.Windows.Forms.TextBox tBK_Zei;
+        private System.Windows.Forms.TextBox tBK_Ken;
+        private System.Windows.Forms.ToolStripMenuItem fahrzeugEinenParkplatzZuordnenToolStripMenuItem;
     }
 }
 
