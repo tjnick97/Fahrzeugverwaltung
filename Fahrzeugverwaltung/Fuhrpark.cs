@@ -26,9 +26,59 @@ namespace Fahrzeugverwaltung
             // Parkhaus1 (Ort, Plz, Straße): Köln, 51105, Westerwaldstr. 99
         }
 
-        public void parkhausHinzufuegen(string ort, int plz, string straße, int anzPKW, int anzMotorrad, int anzLKW)
+        // Methode zum Laden der gespeicherten Parkhäuser
+        public void loadParkhaus(Fuhrpark fuhrpark)
+        {
+            // Dateipfad noch ändern
+            System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeugverwaltung\Fahrzeugverwaltung\Daten_Parkhaus.txt");
+            string line = Convert.ToString(file.ReadLine());
+            string[] splitchar = line.Split(';');
+
+            // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW
+            parkhaeuser.Add(new Parkhaus(splitchar[0], Convert.ToInt32(splitchar[1]), splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToInt32(splitchar[4]), Convert.ToInt32(splitchar[5])));
+        }
+
+        // Methode zum Laden der gespeicherten Fahrzeuge
+        public void loadFahrzeuge(Fuhrpark fuhrpark)
+        {
+            // Dateipfad noch ändern
+            System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeugverwaltung\Fahrzeugverwaltung\Daten_Fahrzeug.txt");
+            string line = Convert.ToString(file.ReadLine());
+            string[] splitchar = line.Split(';');
+
+            if (splitchar.Length == 7)
+            {
+                fahrzeuge.Add(new Motorrad(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToBoolean(splitchar[5]), Convert.ToInt32(splitchar[6]));
+            }
+            else if (splitchar.Length == 8)
+            {
+                 fahrzeuge.Add(new LKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToBoolean(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToDouble(splitchar[7]));
+            }
+            else
+            {
+                fahrzeuge.Add(new PKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToBoolean(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToInt32(splitchar[7]), Convert.ToInt32(splitchar[8]));
+            }
+        }
+
+        /*
+        // Methode zur Erstellung der Parkhäuser
+        private void parkhausHinzufuegen(string ort, int plz, string straße, int anzPKW, int anzMotorrad, int anzLKW)
         {
             parkhaeuser.Add(new Parkhaus(ort, plz, straße, anzPKW, anzMotorrad, anzLKW));
         }
+
+        // Methoden zur Erstellung der Fahrzeuge
+        private void fahrzeugHinzufügen(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer, int hubraum)
+        {
+            fahrzeuge.Add(new Motorrad(hersteller, modell, kennzeichen, erstzulassung, preis, steuer, hubraum));
+        }
+        public void fahrzeugHinzufügen(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer, int achsen, double nutzlast)
+        {
+            fahrzeuge.Add(new LKW(hersteller, modell, kennzeichen, erstzulassung, preis, steuer, achsen, nutzlast));
+        }
+        public void fahrzeugHinzufügen(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer, int hubraum, int leistung, int schadstoffklasse)
+        {
+            fahrzeuge.Add(new PKW(hersteller, modell, kennzeichen, erstzulassung, preis, steuer, hubraum, leistung, schadstoffklasse));
+        }*/
     }
 }
