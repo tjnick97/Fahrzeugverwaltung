@@ -11,12 +11,15 @@ namespace Fahrzeugverwaltung
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
-        [STAThread]
+       [STAThread]
         static void Main()
         {
+            TestClass test = new TestClass();
+            /*
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            */
         }
     }
 }
