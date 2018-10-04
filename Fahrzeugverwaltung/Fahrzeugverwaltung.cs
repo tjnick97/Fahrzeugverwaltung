@@ -17,8 +17,8 @@ namespace Fahrzeugverwaltung
             InitializeComponent();
             // Laden der bisherigen Daten
             Fuhrpark fuhrpark = new Fuhrpark();
-            fuhrpark.loadParkhaus(fuhrpark);
-            fuhrpark.loadFahrzeuge(fuhrpark);
+            //fuhrpark.loadParkhaus(fuhrpark);
+            //fuhrpark.loadFahrzeuge(fuhrpark);
             clearWindow();
         }
 
@@ -113,7 +113,8 @@ namespace Fahrzeugverwaltung
             int anzMotorrad = Convert.ToInt32(tB_Motorrad.Text);
             int anzLKW = Convert.ToInt32(tB_LKW.Text);
 
-
+            Fuhrpark FP = new Fuhrpark();
+            FP.newParkhaus(Ort, PLZ, Straße, anzPKW, anzMotorrad, anzLKW);
         }
 
         private void changeFocusToTBKZusatz(object sender, EventArgs e)
