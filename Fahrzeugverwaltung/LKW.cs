@@ -21,16 +21,16 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur Berechnung der Steuern
-        public override void berechneSteuer()
+        public override string berechneSteuer()
         {
             double Steuern = zuladungInTonnen * 100;
-            Console.WriteLine("Die Steuern für den LKW " + base.Kennzeichen + " betragen " + Steuern + " Euro.");
+            return "Die Steuern für den LKW " + base.Kennzeichen + " betragen " + Steuern + " Euro.";
         }
 
         // Methode zur Ausgabe der LKWdaten
-        public override void ToString()
+        public override string ToString()
         {
-             Console.WriteLine("Hersteller: " + base.Herseller + ", Modell: " + base.Modell + ", Kennzeichen: " + base.Kennzeichen + ", Erstzulassung: " + base.jahrDerErstzulassung + ", Preis: " + base.Anschaffungspreis + ", Steuer bezahlt? " + base.steuerBezahlt + ", Anzahl der Achsen: " + anzahlDerAchsen + ", Nutzlast in Tonnen: "  + zuladungInTonnen);
+             return "Hersteller: " + base.Herseller + ", Modell: " + base.Modell + ", Kennzeichen: " + base.Kennzeichen + ", Erstzulassung: " + base.jahrDerErstzulassung + ", Preis: " + base.Anschaffungspreis + ", Steuer bezahlt? " + base.steuerBezahlt + ", Anzahl der Achsen: " + anzahlDerAchsen + ", Nutzlast in Tonnen: "  + zuladungInTonnen;
         }
     }
 }

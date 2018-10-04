@@ -23,16 +23,16 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur Berechnung der Steuern
-        public override void berechneSteuer()
+        public override string berechneSteuer()
         {
             double Steuern = (Hubraum + 99) / 100 * 10 * (Schadstoffklasse + 1);
-            Console.WriteLine("Die Steuern für den PKW " + base.Kennzeichen + " beträgt " + Steuern + " Euro.");
+            return "Die Steuern für den PKW " + base.Kennzeichen + " beträgt " + Steuern + " Euro.";
         }
 
         // Methode zur Ausgabe der PKWdaten
-        public override void ToString()
+        public override string ToString()
         {
-             Console.WriteLine("Hersteller: " + base.Herseller + ", Modell: " + base.Modell + ", Kennzeichen: " + base.Kennzeichen + ", Erstzulassung: " + base.jahrDerErstzulassung + ", Preis: " + base.Anschaffungspreis + ", Steuer bezahlt? " + base.steuerBezahlt + ", Hubraum: " + Hubraum + ", Leistung in PS: " + Leistung + ", Schadstoffklasse: " + Schadstoffklasse);
+             return "Hersteller: " + base.Herseller + ", Modell: " + base.Modell + ", Kennzeichen: " + base.Kennzeichen + ", Erstzulassung: " + base.jahrDerErstzulassung + ", Preis: " + base.Anschaffungspreis + ", Steuer bezahlt? " + base.steuerBezahlt + ", Hubraum: " + Hubraum + ", Leistung in PS: " + Leistung + ", Schadstoffklasse: " + Schadstoffklasse;
         }
     }
 }

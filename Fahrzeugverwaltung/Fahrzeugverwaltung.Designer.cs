@@ -88,7 +88,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(854, 49);
+            this.menuStrip1.Size = new System.Drawing.Size(854, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -101,41 +101,41 @@
             this.fahrzeugartenAusgebenToolStripMenuItem,
             this.überprüfeSteuerlastToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(107, 45);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // fahrzeugSuchenToolStripMenuItem
             // 
             this.fahrzeugSuchenToolStripMenuItem.Name = "fahrzeugSuchenToolStripMenuItem";
-            this.fahrzeugSuchenToolStripMenuItem.Size = new System.Drawing.Size(459, 46);
+            this.fahrzeugSuchenToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.fahrzeugSuchenToolStripMenuItem.Text = "Fahrzeug suchen";
             this.fahrzeugSuchenToolStripMenuItem.Click += new System.EventHandler(this.fahrzeugSuchen_Click);
             // 
             // fahrzeugHinzufügenToolStripMenuItem
             // 
             this.fahrzeugHinzufügenToolStripMenuItem.Name = "fahrzeugHinzufügenToolStripMenuItem";
-            this.fahrzeugHinzufügenToolStripMenuItem.Size = new System.Drawing.Size(459, 46);
+            this.fahrzeugHinzufügenToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.fahrzeugHinzufügenToolStripMenuItem.Text = "Fahrzeug hinzufügen";
             this.fahrzeugHinzufügenToolStripMenuItem.Click += new System.EventHandler(this.fahrzeugHinzufügen_Click);
             // 
             // parkhausHinzufügenToolStripMenuItem
             // 
             this.parkhausHinzufügenToolStripMenuItem.Name = "parkhausHinzufügenToolStripMenuItem";
-            this.parkhausHinzufügenToolStripMenuItem.Size = new System.Drawing.Size(459, 46);
+            this.parkhausHinzufügenToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.parkhausHinzufügenToolStripMenuItem.Text = "Parkhaus hinzufügen";
             this.parkhausHinzufügenToolStripMenuItem.Click += new System.EventHandler(this.ParkhausHinzufügen_Click);
             // 
             // fahrzeugartenAusgebenToolStripMenuItem
             // 
             this.fahrzeugartenAusgebenToolStripMenuItem.Name = "fahrzeugartenAusgebenToolStripMenuItem";
-            this.fahrzeugartenAusgebenToolStripMenuItem.Size = new System.Drawing.Size(459, 46);
+            this.fahrzeugartenAusgebenToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.fahrzeugartenAusgebenToolStripMenuItem.Text = "Fahrzeugarten ausgeben";
             this.fahrzeugartenAusgebenToolStripMenuItem.Click += new System.EventHandler(this.FahrzeugartenAusgeben_Click);
             // 
             // überprüfeSteuerlastToolStripMenuItem
             // 
             this.überprüfeSteuerlastToolStripMenuItem.Name = "überprüfeSteuerlastToolStripMenuItem";
-            this.überprüfeSteuerlastToolStripMenuItem.Size = new System.Drawing.Size(459, 46);
+            this.überprüfeSteuerlastToolStripMenuItem.Size = new System.Drawing.Size(245, 26);
             this.überprüfeSteuerlastToolStripMenuItem.Text = "Überprüfe Steuerlast";
             this.überprüfeSteuerlastToolStripMenuItem.Click += new System.EventHandler(this.ÜberprüfeSteuerlast_Click);
             // 
@@ -146,7 +146,7 @@
             this.labKennz.AutoSize = true;
             this.labKennz.Location = new System.Drawing.Point(14, 16);
             this.labKennz.Name = "labKennz";
-            this.labKennz.Size = new System.Drawing.Size(189, 32);
+            this.labKennz.Size = new System.Drawing.Size(94, 17);
             this.labKennz.TabIndex = 0;
             this.labKennz.Text = "Kennzeichen:";
             this.labKennz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -157,7 +157,7 @@
             this.tBoxKennzOrt.Location = new System.Drawing.Point(275, 14);
             this.tBoxKennzOrt.MaxLength = 3;
             this.tBoxKennzOrt.Name = "tBoxKennzOrt";
-            this.tBoxKennzOrt.Size = new System.Drawing.Size(67, 38);
+            this.tBoxKennzOrt.Size = new System.Drawing.Size(67, 22);
             this.tBoxKennzOrt.TabIndex = 1;
             this.tBoxKennzOrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -167,7 +167,7 @@
             this.tBoxKennzZus.Location = new System.Drawing.Point(348, 14);
             this.tBoxKennzZus.MaxLength = 2;
             this.tBoxKennzZus.Name = "tBoxKennzZus";
-            this.tBoxKennzZus.Size = new System.Drawing.Size(67, 38);
+            this.tBoxKennzZus.Size = new System.Drawing.Size(67, 22);
             this.tBoxKennzZus.TabIndex = 2;
             this.tBoxKennzZus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -177,7 +177,7 @@
             this.tBoxKennzNum.Location = new System.Drawing.Point(421, 14);
             this.tBoxKennzNum.MaxLength = 4;
             this.tBoxKennzNum.Name = "tBoxKennzNum";
-            this.tBoxKennzNum.Size = new System.Drawing.Size(67, 38);
+            this.tBoxKennzNum.Size = new System.Drawing.Size(67, 22);
             this.tBoxKennzNum.TabIndex = 3;
             this.tBoxKennzNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -223,7 +223,7 @@
             this.lblParkplatz.AutoSize = true;
             this.lblParkplatz.Location = new System.Drawing.Point(219, 113);
             this.lblParkplatz.Name = "lblParkplatz";
-            this.lblParkplatz.Size = new System.Drawing.Size(142, 32);
+            this.lblParkplatz.Size = new System.Drawing.Size(71, 17);
             this.lblParkplatz.TabIndex = 15;
             this.lblParkplatz.Text = "Parkplatz:";
             this.lblParkplatz.Visible = false;
@@ -233,7 +233,7 @@
             this.lblParkhaus.AutoSize = true;
             this.lblParkhaus.Location = new System.Drawing.Point(220, 68);
             this.lblParkhaus.Name = "lblParkhaus";
-            this.lblParkhaus.Size = new System.Drawing.Size(143, 32);
+            this.lblParkhaus.Size = new System.Drawing.Size(72, 17);
             this.lblParkhaus.TabIndex = 14;
             this.lblParkhaus.Text = "Parkhaus:";
             this.lblParkhaus.Visible = false;
@@ -244,7 +244,7 @@
             this.cBParkplatz.FormattingEnabled = true;
             this.cBParkplatz.Location = new System.Drawing.Point(406, 110);
             this.cBParkplatz.Name = "cBParkplatz";
-            this.cBParkplatz.Size = new System.Drawing.Size(121, 39);
+            this.cBParkplatz.Size = new System.Drawing.Size(121, 24);
             this.cBParkplatz.TabIndex = 13;
             this.cBParkplatz.Visible = false;
             // 
@@ -254,7 +254,7 @@
             this.cBParkhaus.FormattingEnabled = true;
             this.cBParkhaus.Location = new System.Drawing.Point(406, 65);
             this.cBParkhaus.Name = "cBParkhaus";
-            this.cBParkhaus.Size = new System.Drawing.Size(121, 39);
+            this.cBParkhaus.Size = new System.Drawing.Size(121, 24);
             this.cBParkhaus.TabIndex = 12;
             this.cBParkhaus.Visible = false;
             // 
@@ -282,7 +282,7 @@
             // 
             this.Zuladung.Location = new System.Drawing.Point(3, 53);
             this.Zuladung.Name = "Zuladung";
-            this.Zuladung.Size = new System.Drawing.Size(180, 38);
+            this.Zuladung.Size = new System.Drawing.Size(180, 22);
             this.Zuladung.TabIndex = 7;
             this.Zuladung.Text = "Zuladung";
             this.Zuladung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -291,7 +291,7 @@
             // 
             this.tBAnzAchsen.Location = new System.Drawing.Point(0, 9);
             this.tBAnzAchsen.Name = "tBAnzAchsen";
-            this.tBAnzAchsen.Size = new System.Drawing.Size(180, 38);
+            this.tBAnzAchsen.Size = new System.Drawing.Size(180, 22);
             this.tBAnzAchsen.TabIndex = 6;
             this.tBAnzAchsen.Text = "Anz Achsen";
             this.tBAnzAchsen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -309,7 +309,7 @@
             // 
             this.tBHubraumMot.Location = new System.Drawing.Point(3, 9);
             this.tBHubraumMot.Name = "tBHubraumMot";
-            this.tBHubraumMot.Size = new System.Drawing.Size(180, 38);
+            this.tBHubraumMot.Size = new System.Drawing.Size(180, 22);
             this.tBHubraumMot.TabIndex = 5;
             this.tBHubraumMot.Text = "Hubraum";
             this.tBHubraumMot.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -329,16 +329,16 @@
             // 
             this.tBHubraum.Location = new System.Drawing.Point(3, 3);
             this.tBHubraum.Name = "tBHubraum";
-            this.tBHubraum.Size = new System.Drawing.Size(180, 38);
+            this.tBHubraum.Size = new System.Drawing.Size(180, 22);
             this.tBHubraum.TabIndex = 4;
             this.tBHubraum.Text = "Hubraum";
             this.tBHubraum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tBLeistung
             // 
-            this.tBLeistung.Location = new System.Drawing.Point(3, 47);
+            this.tBLeistung.Location = new System.Drawing.Point(3, 31);
             this.tBLeistung.Name = "tBLeistung";
-            this.tBLeistung.Size = new System.Drawing.Size(180, 38);
+            this.tBLeistung.Size = new System.Drawing.Size(180, 22);
             this.tBLeistung.TabIndex = 5;
             this.tBLeistung.Text = "Leistung";
             this.tBLeistung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -350,9 +350,9 @@
             "0",
             "1",
             "2"});
-            this.cBSchadstoffklasse.Location = new System.Drawing.Point(3, 91);
+            this.cBSchadstoffklasse.Location = new System.Drawing.Point(3, 59);
             this.cBSchadstoffklasse.Name = "cBSchadstoffklasse";
-            this.cBSchadstoffklasse.Size = new System.Drawing.Size(180, 39);
+            this.cBSchadstoffklasse.Size = new System.Drawing.Size(180, 24);
             this.cBSchadstoffklasse.TabIndex = 6;
             this.cBSchadstoffklasse.Text = "Schadstoff";
             // 
@@ -360,7 +360,7 @@
             // 
             this.tBAnschaffungspreis.Location = new System.Drawing.Point(22, 193);
             this.tBAnschaffungspreis.Name = "tBAnschaffungspreis";
-            this.tBAnschaffungspreis.Size = new System.Drawing.Size(183, 38);
+            this.tBAnschaffungspreis.Size = new System.Drawing.Size(183, 22);
             this.tBAnschaffungspreis.TabIndex = 6;
             this.tBAnschaffungspreis.Text = "Preis";
             this.tBAnschaffungspreis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -369,7 +369,7 @@
             // 
             this.tBErstzulassung.Location = new System.Drawing.Point(22, 149);
             this.tBErstzulassung.Name = "tBErstzulassung";
-            this.tBErstzulassung.Size = new System.Drawing.Size(183, 38);
+            this.tBErstzulassung.Size = new System.Drawing.Size(183, 22);
             this.tBErstzulassung.TabIndex = 5;
             this.tBErstzulassung.Text = "Erstzulassung";
             this.tBErstzulassung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -378,7 +378,7 @@
             // 
             this.tBModell.Location = new System.Drawing.Point(22, 61);
             this.tBModell.Name = "tBModell";
-            this.tBModell.Size = new System.Drawing.Size(183, 38);
+            this.tBModell.Size = new System.Drawing.Size(183, 22);
             this.tBModell.TabIndex = 3;
             this.tBModell.Text = "Modell";
             this.tBModell.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -387,7 +387,7 @@
             // 
             this.tBHersteller.Location = new System.Drawing.Point(22, 17);
             this.tBHersteller.Name = "tBHersteller";
-            this.tBHersteller.Size = new System.Drawing.Size(183, 38);
+            this.tBHersteller.Size = new System.Drawing.Size(183, 22);
             this.tBHersteller.TabIndex = 2;
             this.tBHersteller.Text = "Hersteller";
             this.tBHersteller.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -402,7 +402,7 @@
             "LKW"});
             this.cBFahrzeugTyp.Location = new System.Drawing.Point(406, 20);
             this.cBFahrzeugTyp.Name = "cBFahrzeugTyp";
-            this.cBFahrzeugTyp.Size = new System.Drawing.Size(121, 39);
+            this.cBFahrzeugTyp.Size = new System.Drawing.Size(121, 24);
             this.cBFahrzeugTyp.TabIndex = 1;
             this.cBFahrzeugTyp.SelectedValueChanged += new System.EventHandler(this.ShowFahrzeugTypPanel);
             // 
@@ -411,7 +411,7 @@
             this.lblFahrzeugTyp.AutoSize = true;
             this.lblFahrzeugTyp.Location = new System.Drawing.Point(219, 20);
             this.lblFahrzeugTyp.Name = "lblFahrzeugTyp";
-            this.lblFahrzeugTyp.Size = new System.Drawing.Size(181, 32);
+            this.lblFahrzeugTyp.Size = new System.Drawing.Size(91, 17);
             this.lblFahrzeugTyp.TabIndex = 0;
             this.lblFahrzeugTyp.Text = "Fahrzeugtyp:";
             // 
@@ -436,7 +436,7 @@
             // 
             this.tBStrasse.Location = new System.Drawing.Point(301, 177);
             this.tBStrasse.Name = "tBStrasse";
-            this.tBStrasse.Size = new System.Drawing.Size(204, 38);
+            this.tBStrasse.Size = new System.Drawing.Size(204, 22);
             this.tBStrasse.TabIndex = 8;
             this.tBStrasse.Text = "Straße";
             this.tBStrasse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -445,7 +445,7 @@
             // 
             this.tBPLZ.Location = new System.Drawing.Point(301, 133);
             this.tBPLZ.Name = "tBPLZ";
-            this.tBPLZ.Size = new System.Drawing.Size(204, 38);
+            this.tBPLZ.Size = new System.Drawing.Size(204, 22);
             this.tBPLZ.TabIndex = 7;
             this.tBPLZ.Text = "PLZ";
             this.tBPLZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -454,7 +454,7 @@
             // 
             this.tBOrt.Location = new System.Drawing.Point(301, 89);
             this.tBOrt.Name = "tBOrt";
-            this.tBOrt.Size = new System.Drawing.Size(204, 38);
+            this.tBOrt.Size = new System.Drawing.Size(204, 22);
             this.tBOrt.TabIndex = 6;
             this.tBOrt.Text = "Ort";
             this.tBOrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -474,7 +474,7 @@
             this.lblAnzParkplätze.AutoSize = true;
             this.lblAnzParkplätze.Location = new System.Drawing.Point(14, 54);
             this.lblAnzParkplätze.Name = "lblAnzParkplätze";
-            this.lblAnzParkplätze.Size = new System.Drawing.Size(301, 32);
+            this.lblAnzParkplätze.Size = new System.Drawing.Size(151, 17);
             this.lblAnzParkplätze.TabIndex = 4;
             this.lblAnzParkplätze.Text = "Anzahl der Parkplätze:";
             // 
@@ -482,7 +482,7 @@
             // 
             this.tBLKW.Location = new System.Drawing.Point(82, 177);
             this.tBLKW.Name = "tBLKW";
-            this.tBLKW.Size = new System.Drawing.Size(150, 38);
+            this.tBLKW.Size = new System.Drawing.Size(150, 22);
             this.tBLKW.TabIndex = 3;
             this.tBLKW.Text = "LKW";
             this.tBLKW.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -491,7 +491,7 @@
             // 
             this.tBMotorrad.Location = new System.Drawing.Point(82, 133);
             this.tBMotorrad.Name = "tBMotorrad";
-            this.tBMotorrad.Size = new System.Drawing.Size(150, 38);
+            this.tBMotorrad.Size = new System.Drawing.Size(150, 22);
             this.tBMotorrad.TabIndex = 2;
             this.tBMotorrad.Text = "Motorrad";
             this.tBMotorrad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -500,7 +500,7 @@
             // 
             this.tBPKW.Location = new System.Drawing.Point(82, 89);
             this.tBPKW.Name = "tBPKW";
-            this.tBPKW.Size = new System.Drawing.Size(150, 38);
+            this.tBPKW.Size = new System.Drawing.Size(150, 22);
             this.tBPKW.TabIndex = 1;
             this.tBPKW.Text = "PKW";
             this.tBPKW.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -510,7 +510,7 @@
             this.tBParkhaus.Location = new System.Drawing.Point(20, 13);
             this.tBParkhaus.Name = "tBParkhaus";
             this.tBParkhaus.ReadOnly = true;
-            this.tBParkhaus.Size = new System.Drawing.Size(512, 38);
+            this.tBParkhaus.Size = new System.Drawing.Size(512, 22);
             this.tBParkhaus.TabIndex = 0;
             this.tBParkhaus.Text = "Parkhaus ";
             this.tBParkhaus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

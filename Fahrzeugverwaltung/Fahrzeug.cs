@@ -28,15 +28,15 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur berechnung der Steuern (wird von allen erbenden Klassen überschrieben)
-        public virtual void berechneSteuer()
+        public virtual string berechneSteuer()
         {
-
+            return "";
         }
 
         // Methode, die die Daten eines Fahrzeuges ausgibt
-        public virtual void ToString()
-        {   
-
+        public virtual string ToString()
+        {
+            return "";
         }
 
 

@@ -15,7 +15,39 @@ namespace Fahrzeugverwaltung
         public Fahrzeugverwaltung()
         {
             InitializeComponent();
+            // Laden der bisherigen Daten
+            Fuhrpark fuhrpark = new Fuhrpark();
+            loadParkhaus(fuhrpark);
             clearWindow();
+        }
+        /*// Read the file and display it line by line.  
+System.IO.StreamReader file =   
+    new System.IO.StreamReader(@"c:\test.txt");  
+while((line = file.ReadLine()) != null)  
+{  
+    System.Console.WriteLine(line);  
+    counter++;  
+}  
+
+file.Close();  
+System.Console.WriteLine("There were {0} lines.", counter);  
+// Suspend the screen.  
+System.Console.ReadLine();  */
+
+        private void loadParkhaus(Fuhrpark fuhrpark)
+        {
+            // Dateipfad noch ändern
+            System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeugverwaltung\Fahrzeugverwaltung\Daten_Parkhaus.txt");
+
+
+            string line = Convert.ToString(file.ReadLine());
+            string[] splitchar = line.Split(';');
+            
+
+            // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW
+
+
+
         }
 
         private void clearWindow()
@@ -101,8 +133,8 @@ namespace Fahrzeugverwaltung
              *  Parkplätze p. Etage = AnzLKW * 6 (Wenn keine LKW, dann 60)
             **/
 
-            //Call function to save input for new Parkhaus
-            string Ort = tBOrt.Text;
+        //Call function to save input for new Parkhaus
+        string Ort = tBOrt.Text;
             int PLZ = Convert.ToInt32(tBPLZ.Text);
             string Straße = tBStrasse.Text;
             int anzPKW = Convert.ToInt32(tBPKW.Text);
@@ -110,7 +142,7 @@ namespace Fahrzeugverwaltung
             int anzLKW = Convert.ToInt32(tBLKW.Text);
 
 
-        }        
+        }
     }
 }
 

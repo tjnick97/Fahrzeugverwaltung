@@ -19,16 +19,16 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur Berechnung der Steuern
-        public override void berechneSteuer()
+        public override string berechneSteuer()
         {
             double Steuern = (Hubraum * 99) / 100 * 20;
-            Console.WriteLine("Die Steuern für das Motorrad " + base.Kennzeichen + " betragen " + Steuern + " Euro.");
+            return "Die Steuern für das Motorrad " + base.Kennzeichen + " betragen " + Steuern + " Euro.";
         }
 
         // Methode zur Ausgabe der Motorraddaten
-        public override void ToString()
+        public override string ToString()
         {
-            Console.WriteLine("Hersteller: " + base.Herseller + ", Modell: " + base.Modell + ", Kennzeichen: " + base.Kennzeichen + ", Erstzulassung: " + base.jahrDerErstzulassung + ", Preis: " + base.Anschaffungspreis + ", Steuer bezahlt? " + base.steuerBezahlt + ", Hubraum: " + Hubraum);
+            return "Hersteller: " + base.Herseller + ", Modell: " + base.Modell + ", Kennzeichen: " + base.Kennzeichen + ", Erstzulassung: " + base.jahrDerErstzulassung + ", Preis: " + base.Anschaffungspreis + ", Steuer bezahlt? " + base.steuerBezahlt + ", Hubraum: " + Hubraum;
         }
     }
 }
