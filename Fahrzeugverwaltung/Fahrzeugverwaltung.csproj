@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fahrzeug.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Fahrzeugverwaltung.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Fahrzeugverwaltung.Designer.cs">
+      <DependentUpon>Fahrzeugverwaltung.cs</DependentUpon>
     </Compile>
     <Compile Include="Fuhrpark.cs" />
     <Compile Include="LKW.cs" />
@@ -62,8 +62,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestClass.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Fahrzeugverwaltung.resx">
+      <DependentUpon>Fahrzeugverwaltung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

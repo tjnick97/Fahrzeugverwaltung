@@ -8,23 +8,24 @@ namespace Fahrzeugverwaltung
 {
     class Parkplaetze
     {
-        // Attribute
-        private int ParkplatzID {get; set;}
-        private string Parkplatztyp {get; set;}
-        private string Kennzeichen{get; set;}
-
-        // Kunstruktor
-        public Parkplaetze(int parkplatzID, string parkplatztyp)
+        private int Parkplatz { get; set; }
+        private int Stellplatztyp { get; set; }
+        private string Kennzeichen { get; set; }
+        
+        public Parkplaetze(int Parkplatz, int Stellplatztyp)
         {
-            this.ParkplatzID = parkplatzID;
-            this.Parkplatztyp = parkplatztyp;
+            this.Parkplatz = Parkplatz;
+            this.Stellplatztyp = Stellplatztyp;
+        }
+        
+        public void parkplatzZuweisen (string Kennzeichen)
+        {
+            this.Kennzeichen = Kennzeichen;
         }
 
-        // Konstruktor für die zuweisung eines Fahrzeuges für einen Stellplatz
-        public Parkplaetze(string kennzeichen)
-        {   
-            this.Kennzeichen = kennzeichen;
-        }           
-
+        public void parkplatzZuweisungLöschen ()
+        {
+            Kennzeichen = "";
+        }
     }
 }
