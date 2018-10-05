@@ -30,30 +30,38 @@ namespace Fahrzeugverwaltung
             pParkhausHinzufügen.Hide();
         }
 
-        private void FahrzeugartenAusgeben_Click(object sender, EventArgs e)
+        private void fahrzeugartenAusgeben_Click(object sender, EventArgs e)
         {
             clearWindow();
         }
 
-        private void ParkhausHinzufügen_Click(object sender, EventArgs e)
+        private void parkhausHinzufügen_Click(object sender, EventArgs e)
         {
             clearWindow();
+            pParkhausHinzufügen.BringToFront();
             pParkhausHinzufügen.Show();
         }
 
         private void fahrzeugHinzufügen_Click(object sender, EventArgs e)
         {
             clearWindow();
+            pParkhausHinzufügen.BringToFront();
             pFahrzeugHinzufügen.Show();
         }
 
         private void fahrzeugSuchen_Click(object sender, EventArgs e)
         {
             clearWindow();
+            pParkhausHinzufügen.BringToFront();
             pFahrzeugSuchen.Show();
         }
 
-        private void ÜberprüfeSteuerlast_Click(object sender, EventArgs e)
+        private void überprüfeSteuerlast_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fahrzeugZuweisen_Click(object sender, EventArgs e)
         {
 
         }
@@ -162,6 +170,11 @@ namespace Fahrzeugverwaltung
                 ((TextBox)sender).Text = help[1];
             }
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
 
@@ -171,7 +184,7 @@ namespace Fahrzeugverwaltung
  * 
  * -Erstellung einer übergeordneten Klasse, um bei der geEntered TextBox den Text zu löschen.
  * 
- * Genereller Filter für die Textboxen einbauen, auf Buchstaben & Zahlen
+ * -Genereller Filter für die Textboxen einbauen, auf Buchstaben & Zahlen
  * 
  * --> Dateispeicherung. Parkhaus, Fahrzeuge
  * Bei Start der Anwendung alle Dateien laden und in GUI füllen.

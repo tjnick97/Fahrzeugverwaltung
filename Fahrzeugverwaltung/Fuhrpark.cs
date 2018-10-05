@@ -27,10 +27,15 @@ namespace Fahrzeugverwaltung
         // Methode zum Erstellen und Speichern von neuangelgegten Parkhäusern
         public void newParkhaus(string ort, int plz, string straße, int anzpkw, int anzmotorrad, int anzlkw)
         {
-            parkhaeuser.Add(new Parkhaus(ort, plz, straße, anzpkw, anzmotorrad, anzlkw));
+            //parkhaeuser.Add(new Parkhaus(ort, plz, straße, anzpkw, anzmotorrad, anzlkw));
+            string line = ort + ";" + plz + ";" + straße + ";" + anzpkw + ";" + anzmotorrad + ";" + anzlkw;
 
-
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Parkhaus.txt",true))
+            {
+                file.WriteLine(line);
+            }
         }
+
 
         // Methode zum Laden der gespeicherten Parkhäuser
         /*public void loadParkhaus(Fuhrpark fuhrpark)
