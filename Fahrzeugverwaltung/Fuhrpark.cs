@@ -39,16 +39,19 @@ namespace Fahrzeugverwaltung
 
 
         // Methode zum Laden der gespeicherten Parkhäuser
-        /*public void loadParkhaus(Fuhrpark fuhrpark)
+        public void loadParkhaus()
         {
             // Dateipfad noch ändern
-            System.IO.StreamReader file = new System.IO.StreamReader(@"Daten_Parkhaus.txt");
-            string line = Convert.ToString(file.ReadLine());
-            string[] splitchar = line.Split(';');
-
-            // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW
-            parkhaeuser.Add(new Parkhaus(splitchar[0], Convert.ToInt32(splitchar[1]), splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToInt32(splitchar[4]), Convert.ToInt32(splitchar[5])));
-        }*/
+            System.IO.StreamReader file = new System.IO.StreamReader(@"Parkhaus.txt", true);
+            string line = "";
+            while((line = Convert.ToString(file.ReadLine())) != "")
+            {
+                string[] splitchar = line.Split(';');
+                // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW
+                parkhaeuser.Add(new Parkhaus(splitchar[0], Convert.ToInt32(splitchar[1]), splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToInt32(splitchar[4]), Convert.ToInt32(splitchar[5])));
+            }
+            
+        }
 
         // Methode zum Laden der gespeicherten Fahrzeuge
         /*public void loadFahrzeuge(Fuhrpark fuhrpark)

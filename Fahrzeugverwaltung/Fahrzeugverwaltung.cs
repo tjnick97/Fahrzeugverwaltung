@@ -12,12 +12,13 @@ namespace Fahrzeugverwaltung
 {
     public partial class Fahrzeugverwaltung : Form
     {
+        Fuhrpark FP = new Fuhrpark();
         public Fahrzeugverwaltung()
         {
             InitializeComponent();
             // Laden der bisherigen Daten
             Fuhrpark fuhrpark = new Fuhrpark();
-            //fuhrpark.loadParkhaus(fuhrpark);
+            FP.loadParkhaus();
             //fuhrpark.loadFahrzeuge(fuhrpark);
             clearWindow();
         }
@@ -121,7 +122,11 @@ namespace Fahrzeugverwaltung
             int anzMotorrad = Convert.ToInt32(tB_Motorrad.Text);
             int anzLKW = Convert.ToInt32(tB_LKW.Text);
 
-            Fuhrpark FP = new Fuhrpark();
+            //Fuhrpark FP = new Fuhrpark();
+
+            // TEST für das einlesen
+            FP.loadParkhaus();
+
             FP.newParkhaus(Ort, PLZ, Straße, anzPKW, anzMotorrad, anzLKW);
         }
 
