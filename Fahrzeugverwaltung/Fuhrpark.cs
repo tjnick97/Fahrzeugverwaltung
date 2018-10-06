@@ -27,10 +27,9 @@ namespace Fahrzeugverwaltung
         // Methode zum Erstellen und Speichern von neuangelgegten Parkhäusern
         public void newParkhaus(string ort, int plz, string straße, int anzpkw, int anzmotorrad, int anzlkw)
         {
-            //parkhaeuser.Add(new Parkhaus(ort, plz, straße, anzpkw, anzmotorrad, anzlkw));
             string line = ort + ";" + plz + ";" + straße + ";" + anzpkw + ";" + anzmotorrad + ";" + anzlkw;
 
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Parkhaus.txt",true))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Parkhaus.txt", true))
             {
                 file.WriteLine(line);
             }
@@ -45,26 +44,46 @@ namespace Fahrzeugverwaltung
             // Dateipfad noch ändern
             System.IO.StreamReader file = new System.IO.StreamReader(@"Parkhaus.txt", true);
             string line = "";
-            while((line = Convert.ToString(file.ReadLine())) != null)
+            while ((line = Convert.ToString(file.ReadLine())) != null)
             {
                 string[] splitchar = line.Split(';');
                 // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW
                 parkhaeuser.Add(new Parkhaus(splitchar[0], Convert.ToInt32(splitchar[1]), splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToInt32(splitchar[4]), Convert.ToInt32(splitchar[5])));
             }
-            
+
         }
 
-        // Methode zur Erstellung neuer Fahrzeuge
-        public void newFahrzeug()
+        // Methode zur Erstellung neuer Fahrzeuge des Types PKW
+        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int hubraum, int leistung, int schadstoffklasse)
         {
-            string line = "";
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + false + ";" + hubraum + ";" + leistung + ";" + schadstoffklasse;
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
                 file.WriteLine(line);
             }
+        }
 
+        // Methode zur Erstellung neuer Fahrzeuge des Types LKW
+        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int achse, int nutzlast)
+        {
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + false + ";" + achse + ";" + nutzlast;
 
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
+            {
+                file.WriteLine(line);
+            }
+        }
+
+        // Methode zur Erstellung neuer Fahrzeuge des Types Motorrad
+        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int hubraum)
+        {
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + false + ";" + hubraum;
+
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
+            {
+                file.WriteLine(line);
+            }
         }
 
         // Methode zum Laden der gespeicherten Fahrzeuge
