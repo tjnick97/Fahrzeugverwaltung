@@ -44,7 +44,7 @@ namespace Fahrzeugverwaltung
             // Dateipfad noch ändern
             System.IO.StreamReader file = new System.IO.StreamReader(@"Parkhaus.txt", true);
             string line = "";
-            while((line = Convert.ToString(file.ReadLine())) != "")
+            while((line = Convert.ToString(file.ReadLine())) != null)
             {
                 string[] splitchar = line.Split(';');
                 // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW

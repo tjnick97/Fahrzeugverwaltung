@@ -11,7 +11,7 @@ namespace Fahrzeugverwaltung
         private string Ort { get; set; }
         private int PLZ { get; set; }
         private string Straße { get; set; }
-        private List<Parkplaetze> Parkplätze { get; set; }
+        List<Parkplaetze> parkplaetze = new List<Parkplaetze>();
 
         public Parkhaus(string Ort, int PLZ, string Straße, int anzPKW, int anzMotorrad, int anzLKW)
         {
@@ -24,17 +24,21 @@ namespace Fahrzeugverwaltung
 
         private void addFahrzeugeToParkplatz(int anzPKW, int anzMotorrad, int anzLKW)
         {
+            int helper = 0;
             for (int i = 0; i < anzLKW; i++)
             {
-                Parkplätze.Add(new Parkplaetze(i, 2));
+                parkplaetze.Add(new Parkplaetze(helper, 2)); //LKW
+                helper++;
             }
             for (int i = 0; i < anzMotorrad; i++)
             {
-                Parkplätze.Add(new Parkplaetze(i, 1));
+                parkplaetze.Add(new Parkplaetze(helper, 1)); //Motorrad
+                helper++;
             }
             for (int i = 0; i < anzPKW; i++)
             {
-                Parkplätze.Add(new Parkplaetze(i, 0));
+                parkplaetze.Add(new Parkplaetze(helper, 0)); //PKW
+                helper++;
             }
         }
     }
