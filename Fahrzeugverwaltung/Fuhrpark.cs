@@ -33,7 +33,6 @@ namespace Fahrzeugverwaltung
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Parkhaus.txt",true))
             {
                 file.WriteLine(line);
-                //Test
             }
         }
 
@@ -55,27 +54,42 @@ namespace Fahrzeugverwaltung
             
         }
 
-        // Methode zum Laden der gespeicherten Fahrzeuge
-        /*public void loadFahrzeuge(Fuhrpark fuhrpark)
+        // Methode zur Erstellung neuer Fahrzeuge
+        public void newFahrzeug()
         {
-            // Dateipfad noch ändern
-            System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeugverwaltung\Fahrzeugverwaltung\Daten_Fahrzeug.txt");
-            string line = Convert.ToString(file.ReadLine());
-            string[] splitchar = line.Split(';');
+            string line = "";
 
-            if (splitchar.Length == 7)
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
-                fahrzeuge.Add(new Motorrad(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToBoolean(splitchar[5]), Convert.ToInt32(splitchar[6])));
+                file.WriteLine(line);
             }
-            else if (splitchar.Length == 8)
+
+
+        }
+
+        // Methode zum Laden der gespeicherten Fahrzeuge
+        public void loadFahrzeuge(Fuhrpark fuhrpark)
+        {
+            System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeuge.txt", true);
+            string line = "";
+            while((line = Convert.ToString(file.ReadLine())) != null)
             {
-                 fahrzeuge.Add(new LKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToBoolean(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToDouble(splitchar[7])));
+                string[] splitchar = line.Split(';');
+
+                if (splitchar.Length == 7)
+                {
+                    fahrzeuge.Add(new Motorrad(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToBoolean(splitchar[5]), Convert.ToInt32(splitchar[6])));
+                }
+                else if (splitchar.Length == 8)
+                {
+                    fahrzeuge.Add(new LKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToBoolean(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToDouble(splitchar[7])));
+                }
+                else
+                {
+                    fahrzeuge.Add(new PKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToBoolean(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToInt32(splitchar[7]), Convert.ToInt32(splitchar[8])));
+                }
             }
-            else
-            {
-                fahrzeuge.Add(new PKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToBoolean(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToInt32(splitchar[7]), Convert.ToInt32(splitchar[8])));
-            }
-        }*/
+        }
 
         // Methode für die Suche nach einem Fahrzeug
         /*public string sucheFahrzeug(string kennzeichen)
