@@ -41,6 +41,8 @@ namespace Fahrzeugverwaltung
         // Methode zum Laden der gespeicherten Parkhäuser
         public void loadParkhaus()
         {
+            //clear for init
+            parkhaeuser.Clear();
             // Dateipfad noch ändern
             System.IO.StreamReader file = new System.IO.StreamReader(@"Parkhaus.txt", true);
             string line = "";
