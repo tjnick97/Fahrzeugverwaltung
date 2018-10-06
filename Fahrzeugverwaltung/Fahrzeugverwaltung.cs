@@ -18,7 +18,14 @@ namespace Fahrzeugverwaltung
             InitializeComponent();
             // Laden der bisherigen Daten
             Fuhrpark fuhrpark = new Fuhrpark();
-            FP.loadParkhaus();
+            try
+            {
+                FP.loadParkhaus();
+                FP.loadFahrzeuge();
+            } catch (Exception e)
+            {
+                Console.WriteLine("No information found!");
+            }
             //fuhrpark.loadFahrzeuge(fuhrpark);
             clearWindow();
         }
@@ -104,6 +111,34 @@ namespace Fahrzeugverwaltung
         private void btnSaveNewFahrzeug_Click(object sender, EventArgs e)
         {
             //Call function to save input for new Vehicle
+            string hersteller = tB_Hersteller.Text;
+            string modell = tB_Modell.Text;
+            string ken = tBK_Ken.Text;
+            string zei = tBK_Zei.Text;
+            string hen = tBK_Hen.Text;
+            string erstzulassung = tB_Erstzulassung.Text;
+            string preis = tB_Preis.Text;
+            // PKW
+            if (cBFahrzeugTyp.Text == "PKW")
+            {
+                string hubraumA = tB_Hubraum.Text;
+                string leistung = tB_Leistung.Text;
+                string schadstoff = cBSchadstoffklasse.Text;
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
+            }
+            //Motorrad
+            else if (cBFahrzeugTyp.Text == "Motorrad")
+            {
+                string hubraumM = tBM_Hubraum.Text;
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), Convert.ToInt32(hubraumM));
+            }
+            //LKW
+            else if (cBFahrzeugTyp.Text == "LKW")
+            {
+                string anzAchsen = tB_AnzAchsen.Text;
+                string zuladung = tB_Zuladung.Text;
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), Convert.ToInt32(anzAchsen), Convert.ToInt32(zuladung));
+            }
         }
 
         private void btnParkhaus_Click(object sender, EventArgs e)
@@ -182,23 +217,3 @@ namespace Fahrzeugverwaltung
         }
     }
 }
-
-/**
- * -Kennzeichen in 3 Teile splitten -> einfachere Überprüfung. 
- * -Dabei nach 2 bzw. 3 chars in das nächste Feld skippen
- * 
- * -Erstellung einer übergeordneten Klasse, um bei der geEntered TextBox den Text zu löschen.
- * 
- * -Genereller Filter für die Textboxen einbauen, auf Buchstaben & Zahlen
- * 
- * --> Dateispeicherung. Parkhaus, Fahrzeuge
- * Bei Start der Anwendung alle Dateien laden und in GUI füllen.
- * 
- * Erstellung der Parkhäuser über GUI
- * 
- * Hinzufügen von Fahrzeugen
- * 
- * Fahrzeug zu Parkplatz hinzufügen (eigenes Panel/Menu)
- * 
- * 
- **/ 

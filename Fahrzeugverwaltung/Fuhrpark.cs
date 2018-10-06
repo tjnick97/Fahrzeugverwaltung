@@ -87,8 +87,9 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zum Laden der gespeicherten Fahrzeuge
-        public void loadFahrzeuge(Fuhrpark fuhrpark)
+        public void loadFahrzeuge()
         {
+            fahrzeuge.Clear();
             System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeuge.txt", true);
             string line = "";
             while((line = Convert.ToString(file.ReadLine())) != null)
