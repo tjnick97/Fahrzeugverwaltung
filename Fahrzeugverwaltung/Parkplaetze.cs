@@ -27,5 +27,13 @@ namespace Fahrzeugverwaltung
         {
             Kennzeichen = "";
         }
+        public string getKennzeichen()
+        {
+            return Kennzeichen;
+        }
+        public int getParkplatz()
+        {
+            return Parkplatz;
+        }
     }
 }

@@ -41,5 +41,31 @@ namespace Fahrzeugverwaltung
                 helper++;
             }
         }
+
+        public string searchForFahrzeug(string kennzeichen)
+        {
+            string result = null;
+            foreach(Parkplaetze parkplatz in parkplaetze)
+            {
+                if(kennzeichen == parkplatz.getKennzeichen())
+                {
+                    result = "Parkplatz Nummer: " + parkplatz.getParkplatz();
+                    break;
+                }
+            }
+            return result;
+        }
+
+        public string toString()
+        {
+            return Straße + ", " + PLZ + " " + Ort;
+        }
+
+        public void weiseParkplatzZu(int parkplatznummer, string kennzeichen)
+        {
+            // Die Parkplatznummer wird interm mit 1 subtrahiert, wegen der position in der Liste
+            parkplaetze[parkplatznummer - 1].parkplatzZuweisen(kennzeichen);
+            return;
+        }
     }
 }

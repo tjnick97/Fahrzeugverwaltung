@@ -112,14 +112,48 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode für die Suche nach einem Fahrzeug
-        /*public string sucheFahrzeug(string kennzeichen)
+        public string sucheFahrzeug(string kennzeichen)
         {
             string ergebnis = "";
-            foreach(Parkhaus parkhaus in parkhaeuser)
+            string stellplatz = "";
+            for(int i = 0; i < parkhaeuser.Count(); i++)
             {
-                foreach(Parkplaetze parkplatz in parkhaus.)
+                if((stellplatz = parkhaeuser[i].searchForFahrzeug(kennzeichen)) != null)
+                {
+                    ergebnis = "Parkhaus Nummer: " + i + " (" + parkhaeuser[i].toString() + ") " + stellplatz;
+                    break;
+                }
             }
-        }*/
+            return ergebnis;
+        }
+
+        // Methode für die zu zahlende Steuer eines Fahrzeuges
+        public string steuerEinzeln(string kennzeichen)
+        {
+            int stelle = fahrzeugstelleInListe(kennzeichen);
+            return fahrzeuge[stelle].berechneSteuer();
+        }
+        // Methode zum durchsuchen der Fahrzeugliste mit einem Kennzeichen
+        public int fahrzeugstelleInListe(string kennzeichen)
+        {
+            int stelle = 0;
+            for(int i = 0; i < fahrzeuge.Count(); i++)
+            {
+                if(kennzeichen == fahrzeuge[i].kennzeichen())
+                {
+                    break;
+                }
+            }
+            return stelle;
+        }
+
+        // Methode für das zuweisen eines Stellplatzes
+        public void weiseStellplatzZu(string kennzeichen, int parkhaus, int stellplatz)
+        {
+            // Parkhaus wird intern mit 1 subtrahiert, wegen der Stelle in der Liste
+            parkhaeuser[parkhaus - 1].weiseParkplatzZu(stellplatz, kennzeichen);
+            return;
+        }
         /*
         // Methode zur Erstellung der Parkhäuser
         private void parkhausHinzufuegen(string ort, int plz, string straße, int anzPKW, int anzMotorrad, int anzLKW)

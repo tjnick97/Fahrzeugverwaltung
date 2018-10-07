@@ -39,6 +39,11 @@ namespace Fahrzeugverwaltung
             return "";
         }
 
+        // Methode zur Rückgabe des Kennzeichens
+        public string kennzeichen()
+        {
+            return Kennzeichen;
+        }
 
         
     }
