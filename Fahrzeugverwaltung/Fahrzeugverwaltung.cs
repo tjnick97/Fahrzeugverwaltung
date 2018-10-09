@@ -15,7 +15,7 @@ namespace Fahrzeugverwaltung
         Fuhrpark FP = new Fuhrpark();
         public Fahrzeugverwaltung()
         {
-            // sucheFahrzeug(string kennzeichen) rückgabe: string mit dem parkhaus und der nummer des stellplatzes
+            // --sucheFahrzeug(string kennzeichen) rückgabe: string mit dem parkhaus und der nummer des stellplatzes
 
             // steuerEinzeln(string kennzeichen) rückgabe: string mit der zu zahlenden summe: (Die steuer beträgt xx Euro)
 
@@ -79,13 +79,17 @@ namespace Fahrzeugverwaltung
 
         private void fahrzeugZuweisen_Click(object sender, EventArgs e)
         {
-
+            clearWindow();
+            loadInformations();
+            pFahrzeugZuweisen.BringToFront();
+            pFahrzeugZuweisen.Show();
         }
 
         private void ShowFahrzeugTypPanel(object sender, EventArgs e)
         {
             if (cBFahrzeugTyp.Text == "PKW")
             {
+                PPKW.BringToFront();
                 PPKW.Show();
                 pMotorrad.Hide();
                 pLKW.Hide();
@@ -100,19 +104,8 @@ namespace Fahrzeugverwaltung
             {
                 PPKW.Hide();
                 pMotorrad.Hide();
+                pLKW.BringToFront();
                 pLKW.Show();
-            }
-
-            if (cBFahrzeugTyp.Text != "")
-            {
-                lblParkhaus.Show();
-                cBParkhaus.Show();
-            }
-
-            if (cBParkhaus.Text != "")
-            {
-                lblParkplatz.Show();
-                cBParkplatz.Show();
             }
         }
 
@@ -148,6 +141,13 @@ namespace Fahrzeugverwaltung
                 FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), Convert.ToInt32(anzAchsen), Convert.ToInt32(zuladung));
             }
         }
+        
+        private void sucheFahrzeug_Click(object sender, EventArgs e)
+        {
+            string foundFahrzeug = FP.sucheFahrzeug(tbs_Ken.Text + "-" + tbs_Zei.Text + "-" + tbs_Hen.Text);
+
+            rtbFahrzeugOutput.Text = foundFahrzeug;
+        }
 
         private void btnParkhaus_Click(object sender, EventArgs e)
         {
@@ -164,11 +164,6 @@ namespace Fahrzeugverwaltung
             int anzPKW = Convert.ToInt32(tB_PKW.Text);
             int anzMotorrad = Convert.ToInt32(tB_Motorrad.Text);
             int anzLKW = Convert.ToInt32(tB_LKW.Text);
-
-            //Fuhrpark FP = new Fuhrpark();
-
-            // TEST für das einlesen
-            FP.loadParkhaus();
 
             FP.newParkhaus(Ort, PLZ, Straße, anzPKW, anzMotorrad, anzLKW);
         }
@@ -219,9 +214,34 @@ namespace Fahrzeugverwaltung
             }
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void loadInformations()
         {
+            //Load info to ComboBoxes
+            List<Fahrzeug> fahrzeug = FP.getFahrzeuge();
+            List<Parkhaus> parkhaus = FP.getParkhaus();
 
+            foreach (var item in fahrzeug)
+            {
+                cBKennzeichen.Items.Add(item.Kennzeichen);
+            }
+
+            for (int i = 0; i < parkhaus.Count(); i++)
+            {
+                cBParkhaus.Items.Add(i+1);
+            }
+        }
+
+        private void loadParkplaetze(object sender, EventArgs e)
+        {
+            List<Parkhaus> parkhaus = FP.getParkhaus();
+            int id = Convert.ToInt32(cBParkhaus.Text) - 1;
+            List<Parkplaetze> parkplatz = parkhaus[id].getParkplatz();
+
+            //Differenzierung, welcher Fahrzeugtyp das ausgewählte Kennzeichen in cbKennzeichen hat, fehlt noch.
+            foreach (var item in parkplatz)
+            {
+                cBParkplatz.Items.Add(item.getParkplatz() + 1);
+            }
         }
     }
 }

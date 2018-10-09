@@ -114,6 +114,8 @@ namespace Fahrzeugverwaltung
         // Methode für die Suche nach einem Fahrzeug
         public string sucheFahrzeug(string kennzeichen)
         {
+            loadParkhaus();//init
+            loadFahrzeuge();//init
             string ergebnis = "";
             string stellplatz = "";
             for(int i = 0; i < parkhaeuser.Count(); i++)
@@ -154,6 +156,19 @@ namespace Fahrzeugverwaltung
             parkhaeuser[parkhaus - 1].weiseParkplatzZu(stellplatz, kennzeichen);
             return;
         }
+
+        public List<Fahrzeug> getFahrzeuge()
+        {
+            loadFahrzeuge();
+            return fahrzeuge;
+        }
+
+        public List<Parkhaus> getParkhaus()
+        {
+            loadParkhaus();
+            return parkhaeuser;
+        }
+
         /*
         // Methode zur Erstellung der Parkhäuser
         private void parkhausHinzufuegen(string ort, int plz, string straße, int anzPKW, int anzMotorrad, int anzLKW)

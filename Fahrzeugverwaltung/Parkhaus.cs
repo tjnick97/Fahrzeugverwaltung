@@ -67,5 +67,10 @@ namespace Fahrzeugverwaltung
             parkplaetze[parkplatznummer - 1].parkplatzZuweisen(kennzeichen);
             return;
         }
+
+        public List<Parkplaetze> getParkplatz ()
+        {
+            return parkplaetze;
+        }
     }
 }
