@@ -15,6 +15,14 @@ namespace Fahrzeugverwaltung
         Fuhrpark FP = new Fuhrpark();
         public Fahrzeugverwaltung()
         {
+            // sucheFahrzeug(string kennzeichen) rückgabe: string mit dem parkhaus und der nummer des stellplatzes
+
+            // steuerEinzeln(string kennzeichen) rückgabe: string mit der zu zahlenden summe: (Die steuer beträgt xx Euro)
+
+            // weiseStellplatzZu(string kennzeichen, int parkhaus, int stellplatz) rückgabe: nix
+
+            // fahrzeugstelleInListe(string kennzeichen) rückgabe: stelle in der liste mit den fahrzeugen. hab ich für die steuer gemacht, falls du das noch brauchen solltest
+
             InitializeComponent();
             // Laden der bisherigen Daten
             Fuhrpark fuhrpark = new Fuhrpark();
