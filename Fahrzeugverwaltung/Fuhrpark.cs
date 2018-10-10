@@ -169,6 +169,25 @@ namespace Fahrzeugverwaltung
             return parkhaeuser;
         }
 
+        public string getParkplatzParkhausForKennzeichen(string kennzeichen)
+        {
+            foreach(var item1 in parkhaeuser)
+            {
+                int count = 1;
+                List<Parkplaetze> parkplaetze = item1.getParkplatz();
+                foreach(var item2 in parkplaetze)
+                {
+                    if (kennzeichen == item2.getKennzeichen())
+                    {
+                        int helper = item2.getParkplatz();
+                        return count.ToString() +"\t" + helper.ToString();
+                    }
+                }
+                count++;
+            }
+            return "\t\t";
+        }
+
         /*
         // Methode zur Erstellung der Parkhäuser
         private void parkhausHinzufuegen(string ort, int plz, string straße, int anzPKW, int anzMotorrad, int anzLKW)

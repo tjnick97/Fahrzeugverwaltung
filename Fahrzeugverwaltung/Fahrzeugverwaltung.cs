@@ -30,7 +30,7 @@ namespace Fahrzeugverwaltung
             {
                 FP.loadParkhaus();
                 FP.loadFahrzeuge();
-            } catch (Exception e)
+            } catch (Exception)
             {
                 Console.WriteLine("No information found!");
             }
@@ -70,6 +70,19 @@ namespace Fahrzeugverwaltung
             clearWindow();
             pParkhausHinzufügen.BringToFront();
             pFahrzeugSuchen.Show();
+
+            FP.loadFahrzeuge();
+            FP.loadParkhaus();
+            List<Fahrzeug> fahrzeuge = FP.getFahrzeuge();
+            List<Parkhaus> parkhaus = FP.getParkhaus();
+            lBFahrzeugInformationen.Items.Clear();
+
+            foreach (var item in fahrzeuge)
+            {
+                string stellplatz = FP.getParkplatzParkhausForKennzeichen(item.Kennzeichen);
+                string textOutput = item.Kennzeichen + "\t" + stellplatz + "\t" + item.Herseller + "\t" + item.Modell;
+                lBFahrzeugInformationen.Items.Add(textOutput);
+            }
         }
 
         private void überprüfeSteuerlast_Click(object sender, EventArgs e)
@@ -81,8 +94,6 @@ namespace Fahrzeugverwaltung
         {
             clearWindow();
             loadInformations();
-            pFahrzeugZuweisen.BringToFront();
-            pFahrzeugZuweisen.Show();
         }
 
         private void ShowFahrzeugTypPanel(object sender, EventArgs e)
@@ -140,13 +151,6 @@ namespace Fahrzeugverwaltung
                 string zuladung = tB_Zuladung.Text;
                 FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), Convert.ToInt32(anzAchsen), Convert.ToInt32(zuladung));
             }
-        }
-        
-        private void sucheFahrzeug_Click(object sender, EventArgs e)
-        {
-            string foundFahrzeug = FP.sucheFahrzeug(tbs_Ken.Text + "-" + tbs_Zei.Text + "-" + tbs_Hen.Text);
-
-            rtbFahrzeugOutput.Text = foundFahrzeug;
         }
 
         private void btnParkhaus_Click(object sender, EventArgs e)
@@ -217,14 +221,8 @@ namespace Fahrzeugverwaltung
         private void loadInformations()
         {
             //Load info to ComboBoxes
-            List<Fahrzeug> fahrzeug = FP.getFahrzeuge();
             List<Parkhaus> parkhaus = FP.getParkhaus();
-
-            foreach (var item in fahrzeug)
-            {
-                cBKennzeichen.Items.Add(item.Kennzeichen);
-            }
-
+            
             for (int i = 0; i < parkhaus.Count(); i++)
             {
                 cBParkhaus.Items.Add(i+1);
@@ -233,6 +231,10 @@ namespace Fahrzeugverwaltung
 
         private void loadParkplaetze(object sender, EventArgs e)
         {
+            FP.loadFahrzeuge();
+            FP.loadParkhaus();
+
+            cBParkplatz.Items.Clear();
             List<Parkhaus> parkhaus = FP.getParkhaus();
             int id = Convert.ToInt32(cBParkhaus.Text) - 1;
             List<Parkplaetze> parkplatz = parkhaus[id].getParkplatz();
@@ -242,6 +244,36 @@ namespace Fahrzeugverwaltung
             {
                 cBParkplatz.Items.Add(item.getParkplatz() + 1);
             }
+        }
+
+        private void changeStellplatz_Click(object sender, EventArgs e)
+        {
+            cBParkhaus.Show();
+            cBParkplatz.Show();
+            btnSaveParkplatz.Show();
+
+            List<Parkhaus> parkhaus = FP.getParkhaus();
+            for (int i = 0; i < parkhaus.Count(); i++)
+            {
+                cBParkhaus.Items.Add(i + 1);
+            }
+        }
+
+        private void btnSaveParkplatz_Click(object sender, EventArgs e)
+        {
+            cBParkhaus.Hide();
+            cBParkplatz.Hide();
+            btnSaveParkplatz.Hide();
+            string selectedKennzeichen = lBFahrzeugInformationen.SelectedItem.ToString();
+            string[] helper = selectedKennzeichen.Split('\t');
+            selectedKennzeichen = helper[0];
+
+            FP.weiseStellplatzZu(selectedKennzeichen, Convert.ToInt32(cBParkhaus.Text), Convert.ToInt32(cBParkplatz.Text));
+            loadInformations();
+            //MessageBox.Show(lBFahrzeugInformationen.SelectedItem.ToString());
+            //lBFahrzeugInformationen.SelectedItem.ToString()
+
+            //FP.weiseStellplatzZu(((ListBox)sender).SelectedItem.ToString());
         }
     }
 }

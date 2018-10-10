@@ -28,21 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.labKennz = new System.Windows.Forms.Label();
-            this.tbs_Ken = new System.Windows.Forms.TextBox();
-            this.tbs_Zei = new System.Windows.Forms.TextBox();
-            this.tbs_Hen = new System.Windows.Forms.TextBox();
-            this.pFahrzeugSuchen = new System.Windows.Forms.Panel();
             this.pFahrzeugHinzufügen = new System.Windows.Forms.Panel();
+            this.pMotorrad = new System.Windows.Forms.Panel();
+            this.tBM_Hubraum = new System.Windows.Forms.TextBox();
+            this.pLKW = new System.Windows.Forms.Panel();
+            this.tB_Zuladung = new System.Windows.Forms.TextBox();
+            this.tB_AnzAchsen = new System.Windows.Forms.TextBox();
             this.tBK_Hen = new System.Windows.Forms.TextBox();
             this.tBK_Zei = new System.Windows.Forms.TextBox();
             this.tBK_Ken = new System.Windows.Forms.TextBox();
             this.btnSaveNewFahrzeug = new System.Windows.Forms.Button();
-            this.pLKW = new System.Windows.Forms.Panel();
-            this.tB_Zuladung = new System.Windows.Forms.TextBox();
-            this.tB_AnzAchsen = new System.Windows.Forms.TextBox();
-            this.pMotorrad = new System.Windows.Forms.Panel();
-            this.tBM_Hubraum = new System.Windows.Forms.TextBox();
             this.PPKW = new System.Windows.Forms.FlowLayoutPanel();
             this.tB_Hubraum = new System.Windows.Forms.TextBox();
             this.tB_Leistung = new System.Windows.Forms.TextBox();
@@ -71,84 +66,23 @@
             this.parkhausHinzufügenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fahrzeugeAusgebenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.steuerlastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rtbFahrzeugOutput = new System.Windows.Forms.RichTextBox();
-            this.btnSearchFahrzeug = new System.Windows.Forms.Button();
-            this.pFahrzeugZuweisen = new System.Windows.Forms.Panel();
-            this.cBKennzeichen = new System.Windows.Forms.ComboBox();
-            this.cBParkhaus = new System.Windows.Forms.ComboBox();
-            this.cBParkplatz = new System.Windows.Forms.ComboBox();
             this.btnSaveParkplatz = new System.Windows.Forms.Button();
-            this.pFahrzeugSuchen.SuspendLayout();
+            this.cBParkplatz = new System.Windows.Forms.ComboBox();
+            this.cBParkhaus = new System.Windows.Forms.ComboBox();
+            this.labKennz = new System.Windows.Forms.Label();
+            this.tbs_Ken = new System.Windows.Forms.TextBox();
+            this.tbs_Zei = new System.Windows.Forms.TextBox();
+            this.tbs_Hen = new System.Windows.Forms.TextBox();
+            this.pFahrzeugSuchen = new System.Windows.Forms.Panel();
+            this.lBFahrzeugInformationen = new System.Windows.Forms.ListBox();
             this.pFahrzeugHinzufügen.SuspendLayout();
-            this.pLKW.SuspendLayout();
             this.pMotorrad.SuspendLayout();
+            this.pLKW.SuspendLayout();
             this.PPKW.SuspendLayout();
             this.pParkhausHinzufügen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.pFahrzeugZuweisen.SuspendLayout();
+            this.pFahrzeugSuchen.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // labKennz
-            // 
-            this.labKennz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.labKennz.AutoSize = true;
-            this.labKennz.Location = new System.Drawing.Point(14, 16);
-            this.labKennz.Name = "labKennz";
-            this.labKennz.Size = new System.Drawing.Size(72, 13);
-            this.labKennz.TabIndex = 0;
-            this.labKennz.Text = "Kennzeichen:";
-            this.labKennz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbs_Ken
-            // 
-            this.tbs_Ken.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbs_Ken.Location = new System.Drawing.Point(94, 15);
-            this.tbs_Ken.MaxLength = 3;
-            this.tbs_Ken.Name = "tbs_Ken";
-            this.tbs_Ken.Size = new System.Drawing.Size(67, 20);
-            this.tbs_Ken.TabIndex = 1;
-            this.tbs_Ken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbs_Ken.Enter += new System.EventHandler(this.deleteTextOnClick);
-            this.tbs_Ken.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
-            // 
-            // tbs_Zei
-            // 
-            this.tbs_Zei.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbs_Zei.Location = new System.Drawing.Point(166, 15);
-            this.tbs_Zei.MaxLength = 2;
-            this.tbs_Zei.Name = "tbs_Zei";
-            this.tbs_Zei.Size = new System.Drawing.Size(67, 20);
-            this.tbs_Zei.TabIndex = 2;
-            this.tbs_Zei.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbs_Zei.Enter += new System.EventHandler(this.deleteTextOnClick);
-            this.tbs_Zei.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
-            // 
-            // tbs_Hen
-            // 
-            this.tbs_Hen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbs_Hen.Location = new System.Drawing.Point(239, 15);
-            this.tbs_Hen.MaxLength = 4;
-            this.tbs_Hen.Name = "tbs_Hen";
-            this.tbs_Hen.Size = new System.Drawing.Size(67, 20);
-            this.tbs_Hen.TabIndex = 3;
-            this.tbs_Hen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbs_Hen.Enter += new System.EventHandler(this.deleteTextOnClick);
-            this.tbs_Hen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
-            // 
-            // pFahrzeugSuchen
-            // 
-            this.pFahrzeugSuchen.Controls.Add(this.btnSearchFahrzeug);
-            this.pFahrzeugSuchen.Controls.Add(this.rtbFahrzeugOutput);
-            this.pFahrzeugSuchen.Controls.Add(this.tbs_Hen);
-            this.pFahrzeugSuchen.Controls.Add(this.tbs_Zei);
-            this.pFahrzeugSuchen.Controls.Add(this.tbs_Ken);
-            this.pFahrzeugSuchen.Controls.Add(this.labKennz);
-            this.pFahrzeugSuchen.Location = new System.Drawing.Point(12, 52);
-            this.pFahrzeugSuchen.Name = "pFahrzeugSuchen";
-            this.pFahrzeugSuchen.Size = new System.Drawing.Size(423, 108);
-            this.pFahrzeugSuchen.TabIndex = 0;
-            this.pFahrzeugSuchen.Visible = false;
             // 
             // pFahrzeugHinzufügen
             // 
@@ -166,11 +100,67 @@
             this.pFahrzeugHinzufügen.Controls.Add(this.tB_Hersteller);
             this.pFahrzeugHinzufügen.Controls.Add(this.cBFahrzeugTyp);
             this.pFahrzeugHinzufügen.Controls.Add(this.lblFahrzeugTyp);
-            this.pFahrzeugHinzufügen.Location = new System.Drawing.Point(12, 166);
+            this.pFahrzeugHinzufügen.Location = new System.Drawing.Point(268, 257);
             this.pFahrzeugHinzufügen.Name = "pFahrzeugHinzufügen";
             this.pFahrzeugHinzufügen.Size = new System.Drawing.Size(698, 401);
-            this.pFahrzeugHinzufügen.TabIndex = 2;
+            this.pFahrzeugHinzufügen.TabIndex = 1;
             this.pFahrzeugHinzufügen.Visible = false;
+            // 
+            // pMotorrad
+            // 
+            this.pMotorrad.Controls.Add(this.tBM_Hubraum);
+            this.pMotorrad.Location = new System.Drawing.Point(406, 51);
+            this.pMotorrad.Name = "pMotorrad";
+            this.pMotorrad.Size = new System.Drawing.Size(188, 30);
+            this.pMotorrad.TabIndex = 9;
+            this.pMotorrad.Visible = false;
+            // 
+            // tBM_Hubraum
+            // 
+            this.tBM_Hubraum.Location = new System.Drawing.Point(0, 0);
+            this.tBM_Hubraum.Name = "tBM_Hubraum";
+            this.tBM_Hubraum.Size = new System.Drawing.Size(183, 20);
+            this.tBM_Hubraum.TabIndex = 5;
+            this.tBM_Hubraum.Text = "Hubraum";
+            this.tBM_Hubraum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBM_Hubraum.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tBM_Hubraum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tBM_Hubraum.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
+            // 
+            // pLKW
+            // 
+            this.pLKW.Controls.Add(this.tB_Zuladung);
+            this.pLKW.Controls.Add(this.tB_AnzAchsen);
+            this.pLKW.Location = new System.Drawing.Point(406, 77);
+            this.pLKW.Name = "pLKW";
+            this.pLKW.Size = new System.Drawing.Size(200, 57);
+            this.pLKW.TabIndex = 10;
+            this.pLKW.Visible = false;
+            // 
+            // tB_Zuladung
+            // 
+            this.tB_Zuladung.Location = new System.Drawing.Point(3, 29);
+            this.tB_Zuladung.Name = "tB_Zuladung";
+            this.tB_Zuladung.Size = new System.Drawing.Size(183, 20);
+            this.tB_Zuladung.TabIndex = 7;
+            this.tB_Zuladung.Text = "Zuladung";
+            this.tB_Zuladung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Zuladung.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Zuladung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_Zuladung.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
+            // 
+            // tB_AnzAchsen
+            // 
+            this.tB_AnzAchsen.Location = new System.Drawing.Point(3, 3);
+            this.tB_AnzAchsen.MaxLength = 1;
+            this.tB_AnzAchsen.Name = "tB_AnzAchsen";
+            this.tB_AnzAchsen.Size = new System.Drawing.Size(183, 20);
+            this.tB_AnzAchsen.TabIndex = 6;
+            this.tB_AnzAchsen.Text = "Anz Achsen";
+            this.tB_AnzAchsen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_AnzAchsen.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_AnzAchsen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_AnzAchsen.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // tBK_Hen
             // 
@@ -222,62 +212,6 @@
             this.btnSaveNewFahrzeug.Text = "Fahrzeug speichern";
             this.btnSaveNewFahrzeug.UseVisualStyleBackColor = true;
             this.btnSaveNewFahrzeug.Click += new System.EventHandler(this.btnSaveNewFahrzeug_Click);
-            // 
-            // pLKW
-            // 
-            this.pLKW.Controls.Add(this.tB_Zuladung);
-            this.pLKW.Controls.Add(this.tB_AnzAchsen);
-            this.pLKW.Location = new System.Drawing.Point(406, 77);
-            this.pLKW.Name = "pLKW";
-            this.pLKW.Size = new System.Drawing.Size(200, 57);
-            this.pLKW.TabIndex = 10;
-            this.pLKW.Visible = false;
-            // 
-            // tB_Zuladung
-            // 
-            this.tB_Zuladung.Location = new System.Drawing.Point(3, 29);
-            this.tB_Zuladung.Name = "tB_Zuladung";
-            this.tB_Zuladung.Size = new System.Drawing.Size(183, 20);
-            this.tB_Zuladung.TabIndex = 7;
-            this.tB_Zuladung.Text = "Zuladung";
-            this.tB_Zuladung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tB_Zuladung.Enter += new System.EventHandler(this.deleteTextOnClick);
-            this.tB_Zuladung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
-            this.tB_Zuladung.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
-            // 
-            // tB_AnzAchsen
-            // 
-            this.tB_AnzAchsen.Location = new System.Drawing.Point(3, 3);
-            this.tB_AnzAchsen.MaxLength = 1;
-            this.tB_AnzAchsen.Name = "tB_AnzAchsen";
-            this.tB_AnzAchsen.Size = new System.Drawing.Size(183, 20);
-            this.tB_AnzAchsen.TabIndex = 6;
-            this.tB_AnzAchsen.Text = "Anz Achsen";
-            this.tB_AnzAchsen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tB_AnzAchsen.Enter += new System.EventHandler(this.deleteTextOnClick);
-            this.tB_AnzAchsen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
-            this.tB_AnzAchsen.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
-            // 
-            // pMotorrad
-            // 
-            this.pMotorrad.Controls.Add(this.tBM_Hubraum);
-            this.pMotorrad.Location = new System.Drawing.Point(406, 51);
-            this.pMotorrad.Name = "pMotorrad";
-            this.pMotorrad.Size = new System.Drawing.Size(188, 30);
-            this.pMotorrad.TabIndex = 9;
-            this.pMotorrad.Visible = false;
-            // 
-            // tBM_Hubraum
-            // 
-            this.tBM_Hubraum.Location = new System.Drawing.Point(0, 0);
-            this.tBM_Hubraum.Name = "tBM_Hubraum";
-            this.tBM_Hubraum.Size = new System.Drawing.Size(183, 20);
-            this.tBM_Hubraum.TabIndex = 5;
-            this.tBM_Hubraum.Text = "Hubraum";
-            this.tBM_Hubraum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tBM_Hubraum.Enter += new System.EventHandler(this.deleteTextOnClick);
-            this.tBM_Hubraum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
-            this.tBM_Hubraum.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // PPKW
             // 
@@ -409,10 +343,10 @@
             this.pParkhausHinzufügen.Controls.Add(this.tB_Motorrad);
             this.pParkhausHinzufügen.Controls.Add(this.tB_PKW);
             this.pParkhausHinzufügen.Controls.Add(this.tBParkhaus);
-            this.pParkhausHinzufügen.Location = new System.Drawing.Point(758, 166);
+            this.pParkhausHinzufügen.Location = new System.Drawing.Point(51, 279);
             this.pParkhausHinzufügen.Name = "pParkhausHinzufügen";
             this.pParkhausHinzufügen.Size = new System.Drawing.Size(553, 297);
-            this.pParkhausHinzufügen.TabIndex = 3;
+            this.pParkhausHinzufügen.TabIndex = 1;
             this.pParkhausHinzufügen.Visible = false;
             // 
             // tB_Strasse
@@ -523,7 +457,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1415, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(471, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -582,110 +516,145 @@
             this.steuerlastToolStripMenuItem.Text = "Steuerlast";
             this.steuerlastToolStripMenuItem.Click += new System.EventHandler(this.überprüfeSteuerlast_Click);
             // 
-            // rtbFahrzeugOutput
-            // 
-            this.rtbFahrzeugOutput.Location = new System.Drawing.Point(17, 41);
-            this.rtbFahrzeugOutput.Name = "rtbFahrzeugOutput";
-            this.rtbFahrzeugOutput.Size = new System.Drawing.Size(370, 27);
-            this.rtbFahrzeugOutput.TabIndex = 4;
-            this.rtbFahrzeugOutput.Text = "";
-            // 
-            // btnSearchFahrzeug
-            // 
-            this.btnSearchFahrzeug.Location = new System.Drawing.Point(312, 13);
-            this.btnSearchFahrzeug.Name = "btnSearchFahrzeug";
-            this.btnSearchFahrzeug.Size = new System.Drawing.Size(75, 23);
-            this.btnSearchFahrzeug.TabIndex = 5;
-            this.btnSearchFahrzeug.Text = "suchen";
-            this.btnSearchFahrzeug.UseVisualStyleBackColor = true;
-            this.btnSearchFahrzeug.Click += new System.EventHandler(this.sucheFahrzeug_Click);
-            // 
-            // pFahrzeugZuweisen
-            // 
-            this.pFahrzeugZuweisen.Controls.Add(this.btnSaveParkplatz);
-            this.pFahrzeugZuweisen.Controls.Add(this.cBParkplatz);
-            this.pFahrzeugZuweisen.Controls.Add(this.cBParkhaus);
-            this.pFahrzeugZuweisen.Controls.Add(this.cBKennzeichen);
-            this.pFahrzeugZuweisen.Location = new System.Drawing.Point(465, 38);
-            this.pFahrzeugZuweisen.Name = "pFahrzeugZuweisen";
-            this.pFahrzeugZuweisen.Size = new System.Drawing.Size(296, 111);
-            this.pFahrzeugZuweisen.TabIndex = 4;
-            this.pFahrzeugZuweisen.Visible = false;
-            // 
-            // cBKennzeichen
-            // 
-            this.cBKennzeichen.FormattingEnabled = true;
-            this.cBKennzeichen.Location = new System.Drawing.Point(30, 29);
-            this.cBKennzeichen.Name = "cBKennzeichen";
-            this.cBKennzeichen.Size = new System.Drawing.Size(121, 21);
-            this.cBKennzeichen.TabIndex = 0;
-            this.cBKennzeichen.Text = "Kennzeichen";
-            // 
-            // cBParkhaus
-            // 
-            this.cBParkhaus.FormattingEnabled = true;
-            this.cBParkhaus.Location = new System.Drawing.Point(157, 29);
-            this.cBParkhaus.Name = "cBParkhaus";
-            this.cBParkhaus.Size = new System.Drawing.Size(121, 21);
-            this.cBParkhaus.TabIndex = 1;
-            this.cBParkhaus.Text = "Parkhaus";
-            this.cBParkhaus.SelectedValueChanged += new System.EventHandler(this.loadParkplaetze);
-            // 
-            // cBParkplatz
-            // 
-            this.cBParkplatz.FormattingEnabled = true;
-            this.cBParkplatz.Location = new System.Drawing.Point(157, 55);
-            this.cBParkplatz.Name = "cBParkplatz";
-            this.cBParkplatz.Size = new System.Drawing.Size(121, 21);
-            this.cBParkplatz.TabIndex = 2;
-            this.cBParkplatz.Text = "Parkplatz";
-            // 
             // btnSaveParkplatz
             // 
-            this.btnSaveParkplatz.Location = new System.Drawing.Point(30, 55);
+            this.btnSaveParkplatz.Location = new System.Drawing.Point(308, 221);
             this.btnSaveParkplatz.Name = "btnSaveParkplatz";
             this.btnSaveParkplatz.Size = new System.Drawing.Size(121, 21);
             this.btnSaveParkplatz.TabIndex = 3;
             this.btnSaveParkplatz.Text = "speichern";
             this.btnSaveParkplatz.UseVisualStyleBackColor = true;
+            this.btnSaveParkplatz.Visible = false;
+            this.btnSaveParkplatz.Click += new System.EventHandler(this.btnSaveParkplatz_Click);
+            // 
+            // cBParkplatz
+            // 
+            this.cBParkplatz.FormattingEnabled = true;
+            this.cBParkplatz.Location = new System.Drawing.Point(170, 221);
+            this.cBParkplatz.Name = "cBParkplatz";
+            this.cBParkplatz.Size = new System.Drawing.Size(121, 21);
+            this.cBParkplatz.TabIndex = 2;
+            this.cBParkplatz.Text = "Parkplatz";
+            this.cBParkplatz.Visible = false;
+            // 
+            // cBParkhaus
+            // 
+            this.cBParkhaus.FormattingEnabled = true;
+            this.cBParkhaus.Location = new System.Drawing.Point(33, 221);
+            this.cBParkhaus.Name = "cBParkhaus";
+            this.cBParkhaus.Size = new System.Drawing.Size(121, 21);
+            this.cBParkhaus.TabIndex = 1;
+            this.cBParkhaus.Text = "Parkhaus";
+            this.cBParkhaus.Visible = false;
+            this.cBParkhaus.SelectedValueChanged += new System.EventHandler(this.loadParkplaetze);
+            // 
+            // labKennz
+            // 
+            this.labKennz.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.labKennz.AutoSize = true;
+            this.labKennz.Location = new System.Drawing.Point(82, 16);
+            this.labKennz.Name = "labKennz";
+            this.labKennz.Size = new System.Drawing.Size(72, 13);
+            this.labKennz.TabIndex = 0;
+            this.labKennz.Text = "Kennzeichen:";
+            this.labKennz.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tbs_Ken
+            // 
+            this.tbs_Ken.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbs_Ken.Location = new System.Drawing.Point(160, 12);
+            this.tbs_Ken.MaxLength = 3;
+            this.tbs_Ken.Name = "tbs_Ken";
+            this.tbs_Ken.Size = new System.Drawing.Size(67, 20);
+            this.tbs_Ken.TabIndex = 1;
+            this.tbs_Ken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbs_Ken.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tbs_Ken.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
+            // 
+            // tbs_Zei
+            // 
+            this.tbs_Zei.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbs_Zei.Location = new System.Drawing.Point(233, 12);
+            this.tbs_Zei.MaxLength = 2;
+            this.tbs_Zei.Name = "tbs_Zei";
+            this.tbs_Zei.Size = new System.Drawing.Size(67, 20);
+            this.tbs_Zei.TabIndex = 2;
+            this.tbs_Zei.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbs_Zei.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tbs_Zei.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
+            // 
+            // tbs_Hen
+            // 
+            this.tbs_Hen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbs_Hen.Location = new System.Drawing.Point(307, 12);
+            this.tbs_Hen.MaxLength = 4;
+            this.tbs_Hen.Name = "tbs_Hen";
+            this.tbs_Hen.Size = new System.Drawing.Size(67, 20);
+            this.tbs_Hen.TabIndex = 3;
+            this.tbs_Hen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbs_Hen.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tbs_Hen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            // 
+            // pFahrzeugSuchen
+            // 
+            this.pFahrzeugSuchen.Controls.Add(this.btnSaveParkplatz);
+            this.pFahrzeugSuchen.Controls.Add(this.lBFahrzeugInformationen);
+            this.pFahrzeugSuchen.Controls.Add(this.cBParkplatz);
+            this.pFahrzeugSuchen.Controls.Add(this.pFahrzeugHinzufügen);
+            this.pFahrzeugSuchen.Controls.Add(this.cBParkhaus);
+            this.pFahrzeugSuchen.Controls.Add(this.pParkhausHinzufügen);
+            this.pFahrzeugSuchen.Controls.Add(this.tbs_Hen);
+            this.pFahrzeugSuchen.Controls.Add(this.tbs_Zei);
+            this.pFahrzeugSuchen.Controls.Add(this.tbs_Ken);
+            this.pFahrzeugSuchen.Controls.Add(this.labKennz);
+            this.pFahrzeugSuchen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pFahrzeugSuchen.Location = new System.Drawing.Point(0, 24);
+            this.pFahrzeugSuchen.Name = "pFahrzeugSuchen";
+            this.pFahrzeugSuchen.Size = new System.Drawing.Size(471, 565);
+            this.pFahrzeugSuchen.TabIndex = 0;
+            this.pFahrzeugSuchen.Visible = false;
+            // 
+            // lBFahrzeugInformationen
+            // 
+            this.lBFahrzeugInformationen.FormattingEnabled = true;
+            this.lBFahrzeugInformationen.Items.AddRange(new object[] {
+            ""});
+            this.lBFahrzeugInformationen.Location = new System.Drawing.Point(17, 42);
+            this.lBFahrzeugInformationen.Name = "lBFahrzeugInformationen";
+            this.lBFahrzeugInformationen.ScrollAlwaysVisible = true;
+            this.lBFahrzeugInformationen.Size = new System.Drawing.Size(431, 173);
+            this.lBFahrzeugInformationen.TabIndex = 6;
+            this.lBFahrzeugInformationen.SelectedValueChanged += new System.EventHandler(this.changeStellplatz_Click);
             // 
             // Fahrzeugverwaltung
             // 
-            this.ClientSize = new System.Drawing.Size(1415, 914);
-            this.Controls.Add(this.pFahrzeugZuweisen);
-            this.Controls.Add(this.pParkhausHinzufügen);
-            this.Controls.Add(this.pFahrzeugHinzufügen);
+            this.ClientSize = new System.Drawing.Size(471, 589);
             this.Controls.Add(this.pFahrzeugSuchen);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Fahrzeugverwaltung";
             this.Text = "Fahrzeug verwalten";
-            this.pFahrzeugSuchen.ResumeLayout(false);
-            this.pFahrzeugSuchen.PerformLayout();
             this.pFahrzeugHinzufügen.ResumeLayout(false);
             this.pFahrzeugHinzufügen.PerformLayout();
-            this.pLKW.ResumeLayout(false);
-            this.pLKW.PerformLayout();
             this.pMotorrad.ResumeLayout(false);
             this.pMotorrad.PerformLayout();
+            this.pLKW.ResumeLayout(false);
+            this.pLKW.PerformLayout();
             this.PPKW.ResumeLayout(false);
             this.PPKW.PerformLayout();
             this.pParkhausHinzufügen.ResumeLayout(false);
             this.pParkhausHinzufügen.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.pFahrzeugZuweisen.ResumeLayout(false);
+            this.pFahrzeugSuchen.ResumeLayout(false);
+            this.pFahrzeugSuchen.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label labKennz;
-        private System.Windows.Forms.TextBox tbs_Ken;
-        private System.Windows.Forms.TextBox tbs_Zei;
-        private System.Windows.Forms.TextBox tbs_Hen;
-        private System.Windows.Forms.Panel pFahrzeugSuchen;
         private System.Windows.Forms.Panel pFahrzeugHinzufügen;
         private System.Windows.Forms.ComboBox cBFahrzeugTyp;
         private System.Windows.Forms.Label lblFahrzeugTyp;
@@ -724,13 +693,15 @@
         private System.Windows.Forms.ToolStripMenuItem parkhausHinzufügenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fahrzeugeAusgebenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem steuerlastToolStripMenuItem;
-        private System.Windows.Forms.Button btnSearchFahrzeug;
-        private System.Windows.Forms.RichTextBox rtbFahrzeugOutput;
-        private System.Windows.Forms.Panel pFahrzeugZuweisen;
         private System.Windows.Forms.ComboBox cBParkplatz;
         private System.Windows.Forms.ComboBox cBParkhaus;
-        private System.Windows.Forms.ComboBox cBKennzeichen;
         private System.Windows.Forms.Button btnSaveParkplatz;
+        private System.Windows.Forms.Label labKennz;
+        private System.Windows.Forms.TextBox tbs_Ken;
+        private System.Windows.Forms.TextBox tbs_Zei;
+        private System.Windows.Forms.TextBox tbs_Hen;
+        private System.Windows.Forms.Panel pFahrzeugSuchen;
+        private System.Windows.Forms.ListBox lBFahrzeugInformationen;
     }
 }
 
