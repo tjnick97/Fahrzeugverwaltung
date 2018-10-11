@@ -66,7 +66,7 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur Erstellung neuer Fahrzeuge des Types LKW
-        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int achse, int nutzlast)
+        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int achse, double nutzlast)
         {
             string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + false + ";" + achse + ";" + nutzlast;
 
