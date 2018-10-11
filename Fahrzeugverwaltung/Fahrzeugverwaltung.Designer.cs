@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             this.pFahrzeugHinzufügen = new System.Windows.Forms.Panel();
-            this.pMotorrad = new System.Windows.Forms.Panel();
             this.tBM_Hubraum = new System.Windows.Forms.TextBox();
-            this.pLKW = new System.Windows.Forms.Panel();
             this.tB_Zuladung = new System.Windows.Forms.TextBox();
             this.tB_AnzAchsen = new System.Windows.Forms.TextBox();
             this.tBK_Hen = new System.Windows.Forms.TextBox();
             this.tBK_Zei = new System.Windows.Forms.TextBox();
             this.tBK_Ken = new System.Windows.Forms.TextBox();
             this.btnSaveNewFahrzeug = new System.Windows.Forms.Button();
-            this.PPKW = new System.Windows.Forms.FlowLayoutPanel();
             this.tB_Hubraum = new System.Windows.Forms.TextBox();
             this.tB_Leistung = new System.Windows.Forms.TextBox();
             this.cBSchadstoffklasse = new System.Windows.Forms.ComboBox();
@@ -47,7 +44,6 @@
             this.tB_Modell = new System.Windows.Forms.TextBox();
             this.tB_Hersteller = new System.Windows.Forms.TextBox();
             this.cBFahrzeugTyp = new System.Windows.Forms.ComboBox();
-            this.lblFahrzeugTyp = new System.Windows.Forms.Label();
             this.pParkhausHinzufügen = new System.Windows.Forms.Panel();
             this.tB_Strasse = new System.Windows.Forms.TextBox();
             this.tB_PLZ = new System.Windows.Forms.TextBox();
@@ -75,10 +71,10 @@
             this.tbs_Hen = new System.Windows.Forms.TextBox();
             this.pFahrzeugSuchen = new System.Windows.Forms.Panel();
             this.lBFahrzeugInformationen = new System.Windows.Forms.ListBox();
+            this.lblStellplatzZuweisen = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.pFahrzeugHinzufügen.SuspendLayout();
-            this.pMotorrad.SuspendLayout();
-            this.pLKW.SuspendLayout();
-            this.PPKW.SuspendLayout();
             this.pParkhausHinzufügen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.pFahrzeugSuchen.SuspendLayout();
@@ -87,37 +83,33 @@
             // pFahrzeugHinzufügen
             // 
             this.pFahrzeugHinzufügen.AutoSize = true;
-            this.pFahrzeugHinzufügen.Controls.Add(this.pMotorrad);
-            this.pFahrzeugHinzufügen.Controls.Add(this.pLKW);
+            this.pFahrzeugHinzufügen.Controls.Add(this.label2);
+            this.pFahrzeugHinzufügen.Controls.Add(this.label1);
+            this.pFahrzeugHinzufügen.Controls.Add(this.cBSchadstoffklasse);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tB_Leistung);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tB_Hubraum);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tB_Zuladung);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tBM_Hubraum);
+            this.pFahrzeugHinzufügen.Controls.Add(this.tB_AnzAchsen);
             this.pFahrzeugHinzufügen.Controls.Add(this.tBK_Hen);
             this.pFahrzeugHinzufügen.Controls.Add(this.tBK_Zei);
             this.pFahrzeugHinzufügen.Controls.Add(this.tBK_Ken);
             this.pFahrzeugHinzufügen.Controls.Add(this.btnSaveNewFahrzeug);
-            this.pFahrzeugHinzufügen.Controls.Add(this.PPKW);
             this.pFahrzeugHinzufügen.Controls.Add(this.tB_Preis);
             this.pFahrzeugHinzufügen.Controls.Add(this.tB_Erstzulassung);
             this.pFahrzeugHinzufügen.Controls.Add(this.tB_Modell);
             this.pFahrzeugHinzufügen.Controls.Add(this.tB_Hersteller);
             this.pFahrzeugHinzufügen.Controls.Add(this.cBFahrzeugTyp);
-            this.pFahrzeugHinzufügen.Controls.Add(this.lblFahrzeugTyp);
-            this.pFahrzeugHinzufügen.Location = new System.Drawing.Point(268, 257);
+            this.pFahrzeugHinzufügen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pFahrzeugHinzufügen.Location = new System.Drawing.Point(0, 0);
             this.pFahrzeugHinzufügen.Name = "pFahrzeugHinzufügen";
-            this.pFahrzeugHinzufügen.Size = new System.Drawing.Size(698, 401);
+            this.pFahrzeugHinzufügen.Size = new System.Drawing.Size(589, 589);
             this.pFahrzeugHinzufügen.TabIndex = 1;
             this.pFahrzeugHinzufügen.Visible = false;
             // 
-            // pMotorrad
-            // 
-            this.pMotorrad.Controls.Add(this.tBM_Hubraum);
-            this.pMotorrad.Location = new System.Drawing.Point(406, 51);
-            this.pMotorrad.Name = "pMotorrad";
-            this.pMotorrad.Size = new System.Drawing.Size(188, 30);
-            this.pMotorrad.TabIndex = 9;
-            this.pMotorrad.Visible = false;
-            // 
             // tBM_Hubraum
             // 
-            this.tBM_Hubraum.Location = new System.Drawing.Point(0, 0);
+            this.tBM_Hubraum.Location = new System.Drawing.Point(285, 83);
             this.tBM_Hubraum.Name = "tBM_Hubraum";
             this.tBM_Hubraum.Size = new System.Drawing.Size(183, 20);
             this.tBM_Hubraum.TabIndex = 5;
@@ -127,19 +119,9 @@
             this.tBM_Hubraum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
             this.tBM_Hubraum.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
-            // pLKW
-            // 
-            this.pLKW.Controls.Add(this.tB_Zuladung);
-            this.pLKW.Controls.Add(this.tB_AnzAchsen);
-            this.pLKW.Location = new System.Drawing.Point(406, 77);
-            this.pLKW.Name = "pLKW";
-            this.pLKW.Size = new System.Drawing.Size(200, 57);
-            this.pLKW.TabIndex = 10;
-            this.pLKW.Visible = false;
-            // 
             // tB_Zuladung
             // 
-            this.tB_Zuladung.Location = new System.Drawing.Point(3, 29);
+            this.tB_Zuladung.Location = new System.Drawing.Point(285, 127);
             this.tB_Zuladung.Name = "tB_Zuladung";
             this.tB_Zuladung.Size = new System.Drawing.Size(183, 20);
             this.tB_Zuladung.TabIndex = 7;
@@ -151,7 +133,7 @@
             // 
             // tB_AnzAchsen
             // 
-            this.tB_AnzAchsen.Location = new System.Drawing.Point(3, 3);
+            this.tB_AnzAchsen.Location = new System.Drawing.Point(285, 83);
             this.tB_AnzAchsen.MaxLength = 1;
             this.tB_AnzAchsen.Name = "tB_AnzAchsen";
             this.tB_AnzAchsen.Size = new System.Drawing.Size(183, 20);
@@ -164,7 +146,7 @@
             // 
             // tBK_Hen
             // 
-            this.tBK_Hen.Location = new System.Drawing.Point(144, 105);
+            this.tBK_Hen.Location = new System.Drawing.Point(151, 127);
             this.tBK_Hen.MaxLength = 4;
             this.tBK_Hen.Name = "tBK_Hen";
             this.tBK_Hen.Size = new System.Drawing.Size(61, 20);
@@ -177,7 +159,7 @@
             // 
             // tBK_Zei
             // 
-            this.tBK_Zei.Location = new System.Drawing.Point(92, 105);
+            this.tBK_Zei.Location = new System.Drawing.Point(99, 127);
             this.tBK_Zei.MaxLength = 2;
             this.tBK_Zei.Name = "tBK_Zei";
             this.tBK_Zei.Size = new System.Drawing.Size(46, 20);
@@ -191,7 +173,7 @@
             // 
             // tBK_Ken
             // 
-            this.tBK_Ken.Location = new System.Drawing.Point(22, 105);
+            this.tBK_Ken.Location = new System.Drawing.Point(29, 127);
             this.tBK_Ken.MaxLength = 3;
             this.tBK_Ken.Name = "tBK_Ken";
             this.tBK_Ken.Size = new System.Drawing.Size(63, 20);
@@ -205,28 +187,17 @@
             // 
             // btnSaveNewFahrzeug
             // 
-            this.btnSaveNewFahrzeug.Location = new System.Drawing.Point(350, 254);
+            this.btnSaveNewFahrzeug.Location = new System.Drawing.Point(285, 209);
             this.btnSaveNewFahrzeug.Name = "btnSaveNewFahrzeug";
-            this.btnSaveNewFahrzeug.Size = new System.Drawing.Size(314, 113);
+            this.btnSaveNewFahrzeug.Size = new System.Drawing.Size(183, 30);
             this.btnSaveNewFahrzeug.TabIndex = 11;
             this.btnSaveNewFahrzeug.Text = "Fahrzeug speichern";
             this.btnSaveNewFahrzeug.UseVisualStyleBackColor = true;
             this.btnSaveNewFahrzeug.Click += new System.EventHandler(this.btnSaveNewFahrzeug_Click);
             // 
-            // PPKW
-            // 
-            this.PPKW.Controls.Add(this.tB_Hubraum);
-            this.PPKW.Controls.Add(this.tB_Leistung);
-            this.PPKW.Controls.Add(this.cBSchadstoffklasse);
-            this.PPKW.Location = new System.Drawing.Point(406, 140);
-            this.PPKW.Name = "PPKW";
-            this.PPKW.Size = new System.Drawing.Size(198, 81);
-            this.PPKW.TabIndex = 8;
-            this.PPKW.Visible = false;
-            // 
             // tB_Hubraum
             // 
-            this.tB_Hubraum.Location = new System.Drawing.Point(3, 3);
+            this.tB_Hubraum.Location = new System.Drawing.Point(285, 83);
             this.tB_Hubraum.Name = "tB_Hubraum";
             this.tB_Hubraum.Size = new System.Drawing.Size(183, 20);
             this.tB_Hubraum.TabIndex = 4;
@@ -238,7 +209,7 @@
             // 
             // tB_Leistung
             // 
-            this.tB_Leistung.Location = new System.Drawing.Point(3, 29);
+            this.tB_Leistung.Location = new System.Drawing.Point(285, 127);
             this.tB_Leistung.Name = "tB_Leistung";
             this.tB_Leistung.Size = new System.Drawing.Size(183, 20);
             this.tB_Leistung.TabIndex = 5;
@@ -250,21 +221,21 @@
             // 
             // cBSchadstoffklasse
             // 
+            this.cBSchadstoffklasse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBSchadstoffklasse.FormattingEnabled = true;
             this.cBSchadstoffklasse.Items.AddRange(new object[] {
-            "0",
             "1",
-            "2"});
-            this.cBSchadstoffklasse.Location = new System.Drawing.Point(3, 55);
+            "2",
+            "3"});
+            this.cBSchadstoffklasse.Location = new System.Drawing.Point(350, 171);
             this.cBSchadstoffklasse.MaxLength = 1;
             this.cBSchadstoffklasse.Name = "cBSchadstoffklasse";
-            this.cBSchadstoffklasse.Size = new System.Drawing.Size(183, 21);
+            this.cBSchadstoffklasse.Size = new System.Drawing.Size(118, 21);
             this.cBSchadstoffklasse.TabIndex = 6;
-            this.cBSchadstoffklasse.Text = "Schadstoff";
             // 
             // tB_Preis
             // 
-            this.tB_Preis.Location = new System.Drawing.Point(22, 193);
+            this.tB_Preis.Location = new System.Drawing.Point(29, 215);
             this.tB_Preis.Name = "tB_Preis";
             this.tB_Preis.Size = new System.Drawing.Size(183, 20);
             this.tB_Preis.TabIndex = 6;
@@ -276,7 +247,7 @@
             // 
             // tB_Erstzulassung
             // 
-            this.tB_Erstzulassung.Location = new System.Drawing.Point(22, 149);
+            this.tB_Erstzulassung.Location = new System.Drawing.Point(29, 171);
             this.tB_Erstzulassung.Name = "tB_Erstzulassung";
             this.tB_Erstzulassung.Size = new System.Drawing.Size(183, 20);
             this.tB_Erstzulassung.TabIndex = 5;
@@ -288,7 +259,7 @@
             // 
             // tB_Modell
             // 
-            this.tB_Modell.Location = new System.Drawing.Point(22, 61);
+            this.tB_Modell.Location = new System.Drawing.Point(29, 83);
             this.tB_Modell.Name = "tB_Modell";
             this.tB_Modell.Size = new System.Drawing.Size(183, 20);
             this.tB_Modell.TabIndex = 3;
@@ -299,7 +270,7 @@
             // 
             // tB_Hersteller
             // 
-            this.tB_Hersteller.Location = new System.Drawing.Point(22, 17);
+            this.tB_Hersteller.Location = new System.Drawing.Point(29, 39);
             this.tB_Hersteller.Name = "tB_Hersteller";
             this.tB_Hersteller.Size = new System.Drawing.Size(183, 20);
             this.tB_Hersteller.TabIndex = 2;
@@ -317,20 +288,11 @@
             "PKW",
             "Motorrad",
             "LKW"});
-            this.cBFahrzeugTyp.Location = new System.Drawing.Point(406, 20);
+            this.cBFahrzeugTyp.Location = new System.Drawing.Point(350, 39);
             this.cBFahrzeugTyp.Name = "cBFahrzeugTyp";
-            this.cBFahrzeugTyp.Size = new System.Drawing.Size(121, 21);
+            this.cBFahrzeugTyp.Size = new System.Drawing.Size(118, 21);
             this.cBFahrzeugTyp.TabIndex = 1;
             this.cBFahrzeugTyp.SelectedValueChanged += new System.EventHandler(this.ShowFahrzeugTypPanel);
-            // 
-            // lblFahrzeugTyp
-            // 
-            this.lblFahrzeugTyp.AutoSize = true;
-            this.lblFahrzeugTyp.Location = new System.Drawing.Point(219, 20);
-            this.lblFahrzeugTyp.Name = "lblFahrzeugTyp";
-            this.lblFahrzeugTyp.Size = new System.Drawing.Size(68, 13);
-            this.lblFahrzeugTyp.TabIndex = 0;
-            this.lblFahrzeugTyp.Text = "Fahrzeugtyp:";
             // 
             // pParkhausHinzufügen
             // 
@@ -343,15 +305,16 @@
             this.pParkhausHinzufügen.Controls.Add(this.tB_Motorrad);
             this.pParkhausHinzufügen.Controls.Add(this.tB_PKW);
             this.pParkhausHinzufügen.Controls.Add(this.tBParkhaus);
-            this.pParkhausHinzufügen.Location = new System.Drawing.Point(51, 279);
+            this.pParkhausHinzufügen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pParkhausHinzufügen.Location = new System.Drawing.Point(0, 0);
             this.pParkhausHinzufügen.Name = "pParkhausHinzufügen";
-            this.pParkhausHinzufügen.Size = new System.Drawing.Size(553, 297);
+            this.pParkhausHinzufügen.Size = new System.Drawing.Size(589, 589);
             this.pParkhausHinzufügen.TabIndex = 1;
             this.pParkhausHinzufügen.Visible = false;
             // 
             // tB_Strasse
             // 
-            this.tB_Strasse.Location = new System.Drawing.Point(301, 177);
+            this.tB_Strasse.Location = new System.Drawing.Point(300, 214);
             this.tB_Strasse.Name = "tB_Strasse";
             this.tB_Strasse.Size = new System.Drawing.Size(204, 20);
             this.tB_Strasse.TabIndex = 8;
@@ -363,7 +326,7 @@
             // 
             // tB_PLZ
             // 
-            this.tB_PLZ.Location = new System.Drawing.Point(301, 133);
+            this.tB_PLZ.Location = new System.Drawing.Point(300, 170);
             this.tB_PLZ.Name = "tB_PLZ";
             this.tB_PLZ.Size = new System.Drawing.Size(204, 20);
             this.tB_PLZ.TabIndex = 7;
@@ -375,7 +338,7 @@
             // 
             // tB_Ort
             // 
-            this.tB_Ort.Location = new System.Drawing.Point(301, 89);
+            this.tB_Ort.Location = new System.Drawing.Point(300, 126);
             this.tB_Ort.Name = "tB_Ort";
             this.tB_Ort.Size = new System.Drawing.Size(204, 20);
             this.tB_Ort.TabIndex = 6;
@@ -387,7 +350,7 @@
             // 
             // btnParkhaus
             // 
-            this.btnParkhaus.Location = new System.Drawing.Point(13, 233);
+            this.btnParkhaus.Location = new System.Drawing.Point(12, 270);
             this.btnParkhaus.Name = "btnParkhaus";
             this.btnParkhaus.Size = new System.Drawing.Size(519, 47);
             this.btnParkhaus.TabIndex = 5;
@@ -398,7 +361,7 @@
             // lblAnzParkplätze
             // 
             this.lblAnzParkplätze.AutoSize = true;
-            this.lblAnzParkplätze.Location = new System.Drawing.Point(14, 54);
+            this.lblAnzParkplätze.Location = new System.Drawing.Point(13, 91);
             this.lblAnzParkplätze.Name = "lblAnzParkplätze";
             this.lblAnzParkplätze.Size = new System.Drawing.Size(113, 13);
             this.lblAnzParkplätze.TabIndex = 4;
@@ -406,7 +369,7 @@
             // 
             // tB_LKW
             // 
-            this.tB_LKW.Location = new System.Drawing.Point(82, 177);
+            this.tB_LKW.Location = new System.Drawing.Point(81, 214);
             this.tB_LKW.Name = "tB_LKW";
             this.tB_LKW.Size = new System.Drawing.Size(150, 20);
             this.tB_LKW.TabIndex = 3;
@@ -418,7 +381,7 @@
             // 
             // tB_Motorrad
             // 
-            this.tB_Motorrad.Location = new System.Drawing.Point(82, 133);
+            this.tB_Motorrad.Location = new System.Drawing.Point(81, 170);
             this.tB_Motorrad.Name = "tB_Motorrad";
             this.tB_Motorrad.Size = new System.Drawing.Size(150, 20);
             this.tB_Motorrad.TabIndex = 2;
@@ -430,7 +393,7 @@
             // 
             // tB_PKW
             // 
-            this.tB_PKW.Location = new System.Drawing.Point(82, 89);
+            this.tB_PKW.Location = new System.Drawing.Point(81, 126);
             this.tB_PKW.Name = "tB_PKW";
             this.tB_PKW.Size = new System.Drawing.Size(150, 20);
             this.tB_PKW.TabIndex = 1;
@@ -442,7 +405,7 @@
             // 
             // tBParkhaus
             // 
-            this.tBParkhaus.Location = new System.Drawing.Point(20, 13);
+            this.tBParkhaus.Location = new System.Drawing.Point(19, 50);
             this.tBParkhaus.Name = "tBParkhaus";
             this.tBParkhaus.ReadOnly = true;
             this.tBParkhaus.Size = new System.Drawing.Size(512, 20);
@@ -457,7 +420,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(471, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(589, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -563,7 +526,7 @@
             // tbs_Ken
             // 
             this.tbs_Ken.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbs_Ken.Location = new System.Drawing.Point(160, 12);
+            this.tbs_Ken.Location = new System.Drawing.Point(219, 12);
             this.tbs_Ken.MaxLength = 3;
             this.tbs_Ken.Name = "tbs_Ken";
             this.tbs_Ken.Size = new System.Drawing.Size(67, 20);
@@ -575,7 +538,7 @@
             // tbs_Zei
             // 
             this.tbs_Zei.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbs_Zei.Location = new System.Drawing.Point(233, 12);
+            this.tbs_Zei.Location = new System.Drawing.Point(292, 12);
             this.tbs_Zei.MaxLength = 2;
             this.tbs_Zei.Name = "tbs_Zei";
             this.tbs_Zei.Size = new System.Drawing.Size(67, 20);
@@ -587,7 +550,7 @@
             // tbs_Hen
             // 
             this.tbs_Hen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbs_Hen.Location = new System.Drawing.Point(307, 12);
+            this.tbs_Hen.Location = new System.Drawing.Point(366, 12);
             this.tbs_Hen.MaxLength = 4;
             this.tbs_Hen.Name = "tbs_Hen";
             this.tbs_Hen.Size = new System.Drawing.Size(67, 20);
@@ -598,12 +561,11 @@
             // 
             // pFahrzeugSuchen
             // 
+            this.pFahrzeugSuchen.Controls.Add(this.lblStellplatzZuweisen);
             this.pFahrzeugSuchen.Controls.Add(this.btnSaveParkplatz);
             this.pFahrzeugSuchen.Controls.Add(this.lBFahrzeugInformationen);
             this.pFahrzeugSuchen.Controls.Add(this.cBParkplatz);
-            this.pFahrzeugSuchen.Controls.Add(this.pFahrzeugHinzufügen);
             this.pFahrzeugSuchen.Controls.Add(this.cBParkhaus);
-            this.pFahrzeugSuchen.Controls.Add(this.pParkhausHinzufügen);
             this.pFahrzeugSuchen.Controls.Add(this.tbs_Hen);
             this.pFahrzeugSuchen.Controls.Add(this.tbs_Zei);
             this.pFahrzeugSuchen.Controls.Add(this.tbs_Ken);
@@ -611,7 +573,7 @@
             this.pFahrzeugSuchen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pFahrzeugSuchen.Location = new System.Drawing.Point(0, 24);
             this.pFahrzeugSuchen.Name = "pFahrzeugSuchen";
-            this.pFahrzeugSuchen.Size = new System.Drawing.Size(471, 565);
+            this.pFahrzeugSuchen.Size = new System.Drawing.Size(589, 565);
             this.pFahrzeugSuchen.TabIndex = 0;
             this.pFahrzeugSuchen.Visible = false;
             // 
@@ -623,26 +585,50 @@
             this.lBFahrzeugInformationen.Location = new System.Drawing.Point(17, 42);
             this.lBFahrzeugInformationen.Name = "lBFahrzeugInformationen";
             this.lBFahrzeugInformationen.ScrollAlwaysVisible = true;
-            this.lBFahrzeugInformationen.Size = new System.Drawing.Size(431, 173);
+            this.lBFahrzeugInformationen.Size = new System.Drawing.Size(431, 147);
             this.lBFahrzeugInformationen.TabIndex = 6;
             this.lBFahrzeugInformationen.SelectedValueChanged += new System.EventHandler(this.changeStellplatz_Click);
             // 
+            // lblStellplatzZuweisen
+            // 
+            this.lblStellplatzZuweisen.AutoSize = true;
+            this.lblStellplatzZuweisen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStellplatzZuweisen.Location = new System.Drawing.Point(161, 202);
+            this.lblStellplatzZuweisen.Name = "lblStellplatzZuweisen";
+            this.lblStellplatzZuweisen.Size = new System.Drawing.Size(139, 16);
+            this.lblStellplatzZuweisen.TabIndex = 7;
+            this.lblStellplatzZuweisen.Text = "Stellplatz zuweisen";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(276, 174);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Schadstoff:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(276, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Fahrzeugtyp:";
+            // 
             // Fahrzeugverwaltung
             // 
-            this.ClientSize = new System.Drawing.Size(471, 589);
+            this.ClientSize = new System.Drawing.Size(589, 589);
             this.Controls.Add(this.pFahrzeugSuchen);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pFahrzeugHinzufügen);
+            this.Controls.Add(this.pParkhausHinzufügen);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Fahrzeugverwaltung";
             this.Text = "Fahrzeug verwalten";
             this.pFahrzeugHinzufügen.ResumeLayout(false);
             this.pFahrzeugHinzufügen.PerformLayout();
-            this.pMotorrad.ResumeLayout(false);
-            this.pMotorrad.PerformLayout();
-            this.pLKW.ResumeLayout(false);
-            this.pLKW.PerformLayout();
-            this.PPKW.ResumeLayout(false);
-            this.PPKW.PerformLayout();
             this.pParkhausHinzufügen.ResumeLayout(false);
             this.pParkhausHinzufügen.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -657,18 +643,14 @@
         #endregion
         private System.Windows.Forms.Panel pFahrzeugHinzufügen;
         private System.Windows.Forms.ComboBox cBFahrzeugTyp;
-        private System.Windows.Forms.Label lblFahrzeugTyp;
-        private System.Windows.Forms.FlowLayoutPanel PPKW;
         private System.Windows.Forms.TextBox tB_Leistung;
         private System.Windows.Forms.TextBox tB_Preis;
         private System.Windows.Forms.TextBox tB_Erstzulassung;
         private System.Windows.Forms.TextBox tB_Modell;
         private System.Windows.Forms.TextBox tB_Hersteller;
         private System.Windows.Forms.ComboBox cBSchadstoffklasse;
-        private System.Windows.Forms.Panel pLKW;
         private System.Windows.Forms.TextBox tB_Zuladung;
         private System.Windows.Forms.TextBox tB_AnzAchsen;
-        private System.Windows.Forms.Panel pMotorrad;
         private System.Windows.Forms.TextBox tBM_Hubraum;
         private System.Windows.Forms.TextBox tB_Hubraum;
         private System.Windows.Forms.Button btnSaveNewFahrzeug;
@@ -702,6 +684,9 @@
         private System.Windows.Forms.TextBox tbs_Hen;
         private System.Windows.Forms.Panel pFahrzeugSuchen;
         private System.Windows.Forms.ListBox lBFahrzeugInformationen;
+        private System.Windows.Forms.Label lblStellplatzZuweisen;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

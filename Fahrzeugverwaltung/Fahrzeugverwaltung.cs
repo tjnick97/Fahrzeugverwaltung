@@ -61,6 +61,7 @@ namespace Fahrzeugverwaltung
         private void fahrzeugHinzufügen_Click(object sender, EventArgs e)
         {
             clearWindow();
+            clearFahrzeugtyp();
             pParkhausHinzufügen.BringToFront();
             pFahrzeugHinzufügen.Show();
         }
@@ -100,24 +101,35 @@ namespace Fahrzeugverwaltung
         {
             if (cBFahrzeugTyp.Text == "PKW")
             {
-                PPKW.BringToFront();
-                PPKW.Show();
-                pMotorrad.Hide();
-                pLKW.Hide();
+                clearFahrzeugtyp();
+                tBM_Hubraum.BringToFront();
+                tBM_Hubraum.Show();
             }
             else if (cBFahrzeugTyp.Text == "Motorrad")
             {
-                PPKW.Hide();
-                pMotorrad.Show();
-                pLKW.Hide();
+                clearFahrzeugtyp();
+                tB_Hubraum.BringToFront();
+                tB_Leistung.BringToFront();
+                tB_Hubraum.Show();
+                tB_Leistung.Show();
             }
             else if (cBFahrzeugTyp.Text == "LKW")
             {
-                PPKW.Hide();
-                pMotorrad.Hide();
-                pLKW.BringToFront();
-                pLKW.Show();
+                clearFahrzeugtyp();
+                tB_AnzAchsen.BringToFront();
+                tB_Zuladung.BringToFront();
+                tB_AnzAchsen.Show();
+                tB_Zuladung.Show();
             }
+        }
+
+        private void clearFahrzeugtyp()
+        {
+            tBM_Hubraum.Hide();
+            tB_Hubraum.Hide();
+            tB_Leistung.Hide();
+            tB_AnzAchsen.Hide();
+            tB_Zuladung.Hide();
         }
 
         private void btnSaveNewFahrzeug_Click(object sender, EventArgs e)
