@@ -23,7 +23,7 @@ namespace Fahrzeugverwaltung
             // Mercedes, LG 315, K-GS-04, 1960, 23000, 2, 5.5t, Parkhaus 1, Stellplatz 300
 
             // Parkhaus1 (Ort, Plz, Straße): Köln, 51105, Westerwaldstr. 99
-            erstelleAnfangsDaten();
+            //erstelleAnfangsDaten(); -BUGGY
 
         }
 
@@ -36,7 +36,7 @@ namespace Fahrzeugverwaltung
                 fahrzeuge[0] = "VW;Käfer;K-GS-01;1965;9999;1000;30;1;1;100";
                 fahrzeuge[1] = "Opel;Kadett;K-GS-02;1964;12000;1600;60;2;1;101";
                 fahrzeuge[2] = "BMW;R1200r;K-GS-03;1999;6000;1170;1;200";
-                fahrzeuge[3] = "Mercedes;LG 315;K-GS-04;1960;23000;2;5,5t;1;300";
+                fahrzeuge[3] = "Mercedes;LG 315;K-GS-04;1960;23000;2;5,5;1;300";
 
                 string parkhaus = "Köln;51105;Westerwaldstr. 99;500;100;50";
 

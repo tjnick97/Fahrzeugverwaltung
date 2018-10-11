@@ -59,11 +59,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fahrzeugSuchenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fahrzeugZuweisenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fahrzeugHinzufügenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parkhausHinzufügenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fahrzeugeAusgebenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.steuerlastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSaveParkplatz = new System.Windows.Forms.Button();
             this.cBParkplatz = new System.Windows.Forms.ComboBox();
             this.cBParkhaus = new System.Windows.Forms.ComboBox();
@@ -72,8 +69,36 @@
             this.tbs_Zei = new System.Windows.Forms.TextBox();
             this.tbs_Hen = new System.Windows.Forms.TextBox();
             this.pFahrzeugSuchen = new System.Windows.Forms.Panel();
-            this.lblStellplatzZuweisen = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblStellplatz = new System.Windows.Forms.Label();
+            this.lblStraße = new System.Windows.Forms.Label();
+            this.lblPLZ = new System.Windows.Forms.Label();
+            this.lblOrt = new System.Windows.Forms.Label();
+            this.lblParkhaus = new System.Windows.Forms.Label();
+            this.lblZuladung = new System.Windows.Forms.Label();
+            this.lblAnzAchsen = new System.Windows.Forms.Label();
+            this.lblSchadstoffklasse = new System.Windows.Forms.Label();
+            this.lblLeistung = new System.Windows.Forms.Label();
+            this.lblHubraum = new System.Windows.Forms.Label();
+            this.lblPreis = new System.Windows.Forms.Label();
+            this.lblZulassung = new System.Windows.Forms.Label();
+            this.lblKennzeichen = new System.Windows.Forms.Label();
+            this.lblModell = new System.Windows.Forms.Label();
+            this.lblHersteller = new System.Windows.Forms.Label();
             this.lBFahrzeugInformationen = new System.Windows.Forms.ListBox();
+            this.lblStellplatzÄndern = new System.Windows.Forms.Label();
             this.pFahrzeugHinzufügen.SuspendLayout();
             this.pParkhausHinzufügen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -445,11 +470,8 @@
             // 
             this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fahrzeugSuchenToolStripMenuItem,
-            this.fahrzeugZuweisenToolStripMenuItem,
             this.fahrzeugHinzufügenToolStripMenuItem,
-            this.parkhausHinzufügenToolStripMenuItem,
-            this.fahrzeugeAusgebenToolStripMenuItem,
-            this.steuerlastToolStripMenuItem});
+            this.parkhausHinzufügenToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.menuToolStripMenuItem.Text = "Menu";
@@ -460,13 +482,6 @@
             this.fahrzeugSuchenToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.fahrzeugSuchenToolStripMenuItem.Text = "Fahrzeug suchen";
             this.fahrzeugSuchenToolStripMenuItem.Click += new System.EventHandler(this.fahrzeugSuchen_Click);
-            // 
-            // fahrzeugZuweisenToolStripMenuItem
-            // 
-            this.fahrzeugZuweisenToolStripMenuItem.Name = "fahrzeugZuweisenToolStripMenuItem";
-            this.fahrzeugZuweisenToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.fahrzeugZuweisenToolStripMenuItem.Text = "Fahrzeug zuweisen";
-            this.fahrzeugZuweisenToolStripMenuItem.Click += new System.EventHandler(this.fahrzeugZuweisen_Click);
             // 
             // fahrzeugHinzufügenToolStripMenuItem
             // 
@@ -482,23 +497,9 @@
             this.parkhausHinzufügenToolStripMenuItem.Text = "Parkhaus hinzufügen";
             this.parkhausHinzufügenToolStripMenuItem.Click += new System.EventHandler(this.parkhausHinzufügen_Click);
             // 
-            // fahrzeugeAusgebenToolStripMenuItem
-            // 
-            this.fahrzeugeAusgebenToolStripMenuItem.Name = "fahrzeugeAusgebenToolStripMenuItem";
-            this.fahrzeugeAusgebenToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.fahrzeugeAusgebenToolStripMenuItem.Text = "Fahrzeuge ausgeben";
-            this.fahrzeugeAusgebenToolStripMenuItem.Click += new System.EventHandler(this.fahrzeugartenAusgeben_Click);
-            // 
-            // steuerlastToolStripMenuItem
-            // 
-            this.steuerlastToolStripMenuItem.Name = "steuerlastToolStripMenuItem";
-            this.steuerlastToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.steuerlastToolStripMenuItem.Text = "Steuerlast";
-            this.steuerlastToolStripMenuItem.Click += new System.EventHandler(this.überprüfeSteuerlast_Click);
-            // 
             // btnSaveParkplatz
             // 
-            this.btnSaveParkplatz.Location = new System.Drawing.Point(308, 221);
+            this.btnSaveParkplatz.Location = new System.Drawing.Point(279, 444);
             this.btnSaveParkplatz.Name = "btnSaveParkplatz";
             this.btnSaveParkplatz.Size = new System.Drawing.Size(121, 21);
             this.btnSaveParkplatz.TabIndex = 3;
@@ -510,7 +511,7 @@
             // cBParkplatz
             // 
             this.cBParkplatz.FormattingEnabled = true;
-            this.cBParkplatz.Location = new System.Drawing.Point(170, 221);
+            this.cBParkplatz.Location = new System.Drawing.Point(279, 417);
             this.cBParkplatz.Name = "cBParkplatz";
             this.cBParkplatz.Size = new System.Drawing.Size(121, 21);
             this.cBParkplatz.TabIndex = 2;
@@ -520,7 +521,7 @@
             // cBParkhaus
             // 
             this.cBParkhaus.FormattingEnabled = true;
-            this.cBParkhaus.Location = new System.Drawing.Point(33, 221);
+            this.cBParkhaus.Location = new System.Drawing.Point(279, 388);
             this.cBParkhaus.Name = "cBParkhaus";
             this.cBParkhaus.Size = new System.Drawing.Size(121, 21);
             this.cBParkhaus.TabIndex = 1;
@@ -580,7 +581,35 @@
             // 
             // pFahrzeugSuchen
             // 
-            this.pFahrzeugSuchen.Controls.Add(this.lblStellplatzZuweisen);
+            this.pFahrzeugSuchen.Controls.Add(this.lblStellplatzÄndern);
+            this.pFahrzeugSuchen.Controls.Add(this.label13);
+            this.pFahrzeugSuchen.Controls.Add(this.label12);
+            this.pFahrzeugSuchen.Controls.Add(this.label11);
+            this.pFahrzeugSuchen.Controls.Add(this.label5);
+            this.pFahrzeugSuchen.Controls.Add(this.label4);
+            this.pFahrzeugSuchen.Controls.Add(this.label3);
+            this.pFahrzeugSuchen.Controls.Add(this.label2);
+            this.pFahrzeugSuchen.Controls.Add(this.label1);
+            this.pFahrzeugSuchen.Controls.Add(this.label10);
+            this.pFahrzeugSuchen.Controls.Add(this.label9);
+            this.pFahrzeugSuchen.Controls.Add(this.label8);
+            this.pFahrzeugSuchen.Controls.Add(this.label7);
+            this.pFahrzeugSuchen.Controls.Add(this.label6);
+            this.pFahrzeugSuchen.Controls.Add(this.lblStellplatz);
+            this.pFahrzeugSuchen.Controls.Add(this.lblStraße);
+            this.pFahrzeugSuchen.Controls.Add(this.lblPLZ);
+            this.pFahrzeugSuchen.Controls.Add(this.lblOrt);
+            this.pFahrzeugSuchen.Controls.Add(this.lblParkhaus);
+            this.pFahrzeugSuchen.Controls.Add(this.lblZuladung);
+            this.pFahrzeugSuchen.Controls.Add(this.lblAnzAchsen);
+            this.pFahrzeugSuchen.Controls.Add(this.lblSchadstoffklasse);
+            this.pFahrzeugSuchen.Controls.Add(this.lblLeistung);
+            this.pFahrzeugSuchen.Controls.Add(this.lblHubraum);
+            this.pFahrzeugSuchen.Controls.Add(this.lblPreis);
+            this.pFahrzeugSuchen.Controls.Add(this.lblZulassung);
+            this.pFahrzeugSuchen.Controls.Add(this.lblKennzeichen);
+            this.pFahrzeugSuchen.Controls.Add(this.lblModell);
+            this.pFahrzeugSuchen.Controls.Add(this.lblHersteller);
             this.pFahrzeugSuchen.Controls.Add(this.btnSaveParkplatz);
             this.pFahrzeugSuchen.Controls.Add(this.lBFahrzeugInformationen);
             this.pFahrzeugSuchen.Controls.Add(this.cBParkplatz);
@@ -596,15 +625,257 @@
             this.pFahrzeugSuchen.TabIndex = 0;
             this.pFahrzeugSuchen.Visible = false;
             // 
-            // lblStellplatzZuweisen
+            // label13
             // 
-            this.lblStellplatzZuweisen.AutoSize = true;
-            this.lblStellplatzZuweisen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStellplatzZuweisen.Location = new System.Drawing.Point(161, 202);
-            this.lblStellplatzZuweisen.Name = "lblStellplatzZuweisen";
-            this.lblStellplatzZuweisen.Size = new System.Drawing.Size(139, 16);
-            this.lblStellplatzZuweisen.TabIndex = 7;
-            this.lblStellplatzZuweisen.Text = "Stellplatz zuweisen";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(380, 291);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 41;
+            this.label13.Text = "label13";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(380, 258);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.TabIndex = 40;
+            this.label12.Text = "label12";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(380, 230);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(41, 13);
+            this.label11.TabIndex = 39;
+            this.label11.Text = "label11";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(110, 326);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(110, 296);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "label4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(110, 263);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "label3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(110, 230);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(110, 202);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "label1";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(110, 484);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 33;
+            this.label10.Text = "label10";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(110, 454);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "label9";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(110, 425);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 31;
+            this.label8.Text = "label8";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(110, 396);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "label7";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(110, 369);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "label6";
+            // 
+            // lblStellplatz
+            // 
+            this.lblStellplatz.AutoSize = true;
+            this.lblStellplatz.Location = new System.Drawing.Point(26, 484);
+            this.lblStellplatz.Name = "lblStellplatz";
+            this.lblStellplatz.Size = new System.Drawing.Size(52, 13);
+            this.lblStellplatz.TabIndex = 28;
+            this.lblStellplatz.Text = "Stellplatz:";
+            // 
+            // lblStraße
+            // 
+            this.lblStraße.AutoSize = true;
+            this.lblStraße.Location = new System.Drawing.Point(26, 454);
+            this.lblStraße.Name = "lblStraße";
+            this.lblStraße.Size = new System.Drawing.Size(41, 13);
+            this.lblStraße.TabIndex = 27;
+            this.lblStraße.Text = "Straße:";
+            // 
+            // lblPLZ
+            // 
+            this.lblPLZ.AutoSize = true;
+            this.lblPLZ.Location = new System.Drawing.Point(26, 425);
+            this.lblPLZ.Name = "lblPLZ";
+            this.lblPLZ.Size = new System.Drawing.Size(30, 13);
+            this.lblPLZ.TabIndex = 26;
+            this.lblPLZ.Text = "PLZ:";
+            // 
+            // lblOrt
+            // 
+            this.lblOrt.AutoSize = true;
+            this.lblOrt.Location = new System.Drawing.Point(26, 396);
+            this.lblOrt.Name = "lblOrt";
+            this.lblOrt.Size = new System.Drawing.Size(24, 13);
+            this.lblOrt.TabIndex = 25;
+            this.lblOrt.Text = "Ort:";
+            // 
+            // lblParkhaus
+            // 
+            this.lblParkhaus.AutoSize = true;
+            this.lblParkhaus.Location = new System.Drawing.Point(26, 369);
+            this.lblParkhaus.Name = "lblParkhaus";
+            this.lblParkhaus.Size = new System.Drawing.Size(55, 13);
+            this.lblParkhaus.TabIndex = 24;
+            this.lblParkhaus.Text = "Parkhaus:";
+            // 
+            // lblZuladung
+            // 
+            this.lblZuladung.AutoSize = true;
+            this.lblZuladung.Location = new System.Drawing.Point(276, 258);
+            this.lblZuladung.Name = "lblZuladung";
+            this.lblZuladung.Size = new System.Drawing.Size(61, 13);
+            this.lblZuladung.TabIndex = 23;
+            this.lblZuladung.Text = "Zuladung t:";
+            // 
+            // lblAnzAchsen
+            // 
+            this.lblAnzAchsen.AutoSize = true;
+            this.lblAnzAchsen.Location = new System.Drawing.Point(276, 230);
+            this.lblAnzAchsen.Name = "lblAnzAchsen";
+            this.lblAnzAchsen.Size = new System.Drawing.Size(81, 13);
+            this.lblAnzAchsen.TabIndex = 22;
+            this.lblAnzAchsen.Text = "Anzahl Achsen:";
+            // 
+            // lblSchadstoffklasse
+            // 
+            this.lblSchadstoffklasse.AutoSize = true;
+            this.lblSchadstoffklasse.Location = new System.Drawing.Point(274, 291);
+            this.lblSchadstoffklasse.Name = "lblSchadstoffklasse";
+            this.lblSchadstoffklasse.Size = new System.Drawing.Size(91, 13);
+            this.lblSchadstoffklasse.TabIndex = 20;
+            this.lblSchadstoffklasse.Text = "Schadstoffklasse:";
+            // 
+            // lblLeistung
+            // 
+            this.lblLeistung.AutoSize = true;
+            this.lblLeistung.Location = new System.Drawing.Point(276, 258);
+            this.lblLeistung.Name = "lblLeistung";
+            this.lblLeistung.Size = new System.Drawing.Size(50, 13);
+            this.lblLeistung.TabIndex = 19;
+            this.lblLeistung.Text = "Leistung:";
+            // 
+            // lblHubraum
+            // 
+            this.lblHubraum.AutoSize = true;
+            this.lblHubraum.Location = new System.Drawing.Point(276, 230);
+            this.lblHubraum.Name = "lblHubraum";
+            this.lblHubraum.Size = new System.Drawing.Size(53, 13);
+            this.lblHubraum.TabIndex = 18;
+            this.lblHubraum.Text = "Hubraum:";
+            // 
+            // lblPreis
+            // 
+            this.lblPreis.AutoSize = true;
+            this.lblPreis.Location = new System.Drawing.Point(26, 326);
+            this.lblPreis.Name = "lblPreis";
+            this.lblPreis.Size = new System.Drawing.Size(33, 13);
+            this.lblPreis.TabIndex = 12;
+            this.lblPreis.Text = "Preis:";
+            // 
+            // lblZulassung
+            // 
+            this.lblZulassung.AutoSize = true;
+            this.lblZulassung.Location = new System.Drawing.Point(26, 296);
+            this.lblZulassung.Name = "lblZulassung";
+            this.lblZulassung.Size = new System.Drawing.Size(59, 13);
+            this.lblZulassung.TabIndex = 11;
+            this.lblZulassung.Text = "Zulassung:";
+            // 
+            // lblKennzeichen
+            // 
+            this.lblKennzeichen.AutoSize = true;
+            this.lblKennzeichen.Location = new System.Drawing.Point(26, 263);
+            this.lblKennzeichen.Name = "lblKennzeichen";
+            this.lblKennzeichen.Size = new System.Drawing.Size(72, 13);
+            this.lblKennzeichen.TabIndex = 10;
+            this.lblKennzeichen.Text = "Kennzeichen:";
+            // 
+            // lblModell
+            // 
+            this.lblModell.AutoSize = true;
+            this.lblModell.Location = new System.Drawing.Point(26, 230);
+            this.lblModell.Name = "lblModell";
+            this.lblModell.Size = new System.Drawing.Size(41, 13);
+            this.lblModell.TabIndex = 9;
+            this.lblModell.Text = "Modell:";
+            // 
+            // lblHersteller
+            // 
+            this.lblHersteller.AutoSize = true;
+            this.lblHersteller.Location = new System.Drawing.Point(26, 202);
+            this.lblHersteller.Name = "lblHersteller";
+            this.lblHersteller.Size = new System.Drawing.Size(54, 13);
+            this.lblHersteller.TabIndex = 8;
+            this.lblHersteller.Text = "Hersteller:";
             // 
             // lBFahrzeugInformationen
             // 
@@ -616,7 +887,16 @@
             this.lBFahrzeugInformationen.ScrollAlwaysVisible = true;
             this.lBFahrzeugInformationen.Size = new System.Drawing.Size(431, 147);
             this.lBFahrzeugInformationen.TabIndex = 6;
-            this.lBFahrzeugInformationen.SelectedValueChanged += new System.EventHandler(this.changeStellplatz_Click);
+            this.lBFahrzeugInformationen.SelectedValueChanged += new System.EventHandler(this.showExtendedFahrzeugInformations_Click);
+            // 
+            // lblStellplatzÄndern
+            // 
+            this.lblStellplatzÄndern.AutoSize = true;
+            this.lblStellplatzÄndern.Location = new System.Drawing.Point(297, 369);
+            this.lblStellplatzÄndern.Name = "lblStellplatzÄndern";
+            this.lblStellplatzÄndern.Size = new System.Drawing.Size(85, 13);
+            this.lblStellplatzÄndern.TabIndex = 42;
+            this.lblStellplatzÄndern.Text = "Stellplatz ändern";
             // 
             // Fahrzeugverwaltung
             // 
@@ -671,11 +951,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fahrzeugSuchenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fahrzeugZuweisenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fahrzeugHinzufügenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem parkhausHinzufügenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fahrzeugeAusgebenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem steuerlastToolStripMenuItem;
         private System.Windows.Forms.ComboBox cBParkplatz;
         private System.Windows.Forms.ComboBox cBParkhaus;
         private System.Windows.Forms.Button btnSaveParkplatz;
@@ -685,9 +962,37 @@
         private System.Windows.Forms.TextBox tbs_Hen;
         private System.Windows.Forms.Panel pFahrzeugSuchen;
         private System.Windows.Forms.ListBox lBFahrzeugInformationen;
-        private System.Windows.Forms.Label lblStellplatzZuweisen;
         private System.Windows.Forms.Label lblFahrzeugTyp;
         private System.Windows.Forms.Label lblSchadstoff;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblStellplatz;
+        private System.Windows.Forms.Label lblStraße;
+        private System.Windows.Forms.Label lblPLZ;
+        private System.Windows.Forms.Label lblOrt;
+        private System.Windows.Forms.Label lblParkhaus;
+        private System.Windows.Forms.Label lblZuladung;
+        private System.Windows.Forms.Label lblAnzAchsen;
+        private System.Windows.Forms.Label lblSchadstoffklasse;
+        private System.Windows.Forms.Label lblLeistung;
+        private System.Windows.Forms.Label lblHubraum;
+        private System.Windows.Forms.Label lblPreis;
+        private System.Windows.Forms.Label lblZulassung;
+        private System.Windows.Forms.Label lblKennzeichen;
+        private System.Windows.Forms.Label lblModell;
+        private System.Windows.Forms.Label lblHersteller;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStellplatzÄndern;
     }
 }
 

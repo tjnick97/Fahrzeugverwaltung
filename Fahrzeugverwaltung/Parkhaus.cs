@@ -8,10 +8,10 @@ namespace Fahrzeugverwaltung
 {
     class Parkhaus
     {
-        private string Ort { get; set; }
-        private int PLZ { get; set; }
-        private string Straße { get; set; }
-        List<Parkplaetze> parkplaetze = new List<Parkplaetze>();
+        public string Ort { get; set; }
+        public int PLZ { get; set; }
+        public string Straße { get; set; }
+        public List<Parkplaetze> parkplaetze = new List<Parkplaetze>();
 
         public Parkhaus(string Ort, int PLZ, string Straße, int anzPKW, int anzMotorrad, int anzLKW)
         {
@@ -49,7 +49,7 @@ namespace Fahrzeugverwaltung
             {
                 if(kennzeichen == parkplatz.getKennzeichen())
                 {
-                    result = "Parkplatz Nummer: " + parkplatz.getParkplatz();
+                    result = parkplatz.getParkplatz().ToString();
                     break;
                 }
             }

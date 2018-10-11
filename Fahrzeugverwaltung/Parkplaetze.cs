@@ -8,9 +8,9 @@ namespace Fahrzeugverwaltung
 {
     class Parkplaetze
     {
-        private int Parkplatz { get; set; }
-        private int Stellplatztyp { get; set; }
-        private string Kennzeichen { get; set; }
+        public int Parkplatz { get; set; }
+        public int Stellplatztyp { get; set; }
+        public string Kennzeichen { get; set; }
         
         public Parkplaetze(int Parkplatz, int Stellplatztyp)
         {
