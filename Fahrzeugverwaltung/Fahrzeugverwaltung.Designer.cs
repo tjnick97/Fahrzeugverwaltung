@@ -72,8 +72,8 @@
             this.pFahrzeugSuchen = new System.Windows.Forms.Panel();
             this.lBFahrzeugInformationen = new System.Windows.Forms.ListBox();
             this.lblStellplatzZuweisen = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblSchadstoff = new System.Windows.Forms.Label();
+            this.lblFahrzeugTyp = new System.Windows.Forms.Label();
             this.pFahrzeugHinzufügen.SuspendLayout();
             this.pParkhausHinzufügen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -83,8 +83,8 @@
             // pFahrzeugHinzufügen
             // 
             this.pFahrzeugHinzufügen.AutoSize = true;
-            this.pFahrzeugHinzufügen.Controls.Add(this.label2);
-            this.pFahrzeugHinzufügen.Controls.Add(this.label1);
+            this.pFahrzeugHinzufügen.Controls.Add(this.lblFahrzeugTyp);
+            this.pFahrzeugHinzufügen.Controls.Add(this.lblSchadstoff);
             this.pFahrzeugHinzufügen.Controls.Add(this.cBSchadstoffklasse);
             this.pFahrzeugHinzufügen.Controls.Add(this.tB_Leistung);
             this.pFahrzeugHinzufügen.Controls.Add(this.tB_Hubraum);
@@ -532,7 +532,7 @@
             this.tbs_Ken.Size = new System.Drawing.Size(67, 20);
             this.tbs_Ken.TabIndex = 1;
             this.tbs_Ken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbs_Ken.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tbs_Ken.TextChanged += new System.EventHandler(this.filterTextForLBFahrzeugInformationen);
             this.tbs_Ken.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
             // 
             // tbs_Zei
@@ -599,23 +599,23 @@
             this.lblStellplatzZuweisen.TabIndex = 7;
             this.lblStellplatzZuweisen.Text = "Stellplatz zuweisen";
             // 
-            // label1
+            // lblSchadstoff
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(276, 174);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Schadstoff:";
+            this.lblSchadstoff.AutoSize = true;
+            this.lblSchadstoff.Location = new System.Drawing.Point(276, 174);
+            this.lblSchadstoff.Name = "lblSchadstoff";
+            this.lblSchadstoff.Size = new System.Drawing.Size(61, 13);
+            this.lblSchadstoff.TabIndex = 18;
+            this.lblSchadstoff.Text = "Schadstoff:";
             // 
-            // label2
+            // lblFahrzeugTyp
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(276, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Fahrzeugtyp:";
+            this.lblFahrzeugTyp.AutoSize = true;
+            this.lblFahrzeugTyp.Location = new System.Drawing.Point(276, 42);
+            this.lblFahrzeugTyp.Name = "lblFahrzeugTyp";
+            this.lblFahrzeugTyp.Size = new System.Drawing.Size(68, 13);
+            this.lblFahrzeugTyp.TabIndex = 19;
+            this.lblFahrzeugTyp.Text = "Fahrzeugtyp:";
             // 
             // Fahrzeugverwaltung
             // 
@@ -685,8 +685,8 @@
         private System.Windows.Forms.Panel pFahrzeugSuchen;
         private System.Windows.Forms.ListBox lBFahrzeugInformationen;
         private System.Windows.Forms.Label lblStellplatzZuweisen;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFahrzeugTyp;
+        private System.Windows.Forms.Label lblSchadstoff;
     }
 }
 

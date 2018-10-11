@@ -103,15 +103,17 @@ namespace Fahrzeugverwaltung
             {
                 clearFahrzeugtyp();
                 tBM_Hubraum.BringToFront();
+                tB_Leistung.BringToFront();
                 tBM_Hubraum.Show();
+                tB_Leistung.Show();
+                lblSchadstoff.Show();
+                cBSchadstoffklasse.Show();
             }
             else if (cBFahrzeugTyp.Text == "Motorrad")
             {
                 clearFahrzeugtyp();
                 tB_Hubraum.BringToFront();
-                tB_Leistung.BringToFront();
                 tB_Hubraum.Show();
-                tB_Leistung.Show();
             }
             else if (cBFahrzeugTyp.Text == "LKW")
             {
@@ -130,6 +132,8 @@ namespace Fahrzeugverwaltung
             tB_Leistung.Hide();
             tB_AnzAchsen.Hide();
             tB_Zuladung.Hide();
+            cBSchadstoffklasse.Hide();
+            lblSchadstoff.Hide();
         }
 
         private void btnSaveNewFahrzeug_Click(object sender, EventArgs e)
@@ -286,6 +290,11 @@ namespace Fahrzeugverwaltung
             //lBFahrzeugInformationen.SelectedItem.ToString()
 
             //FP.weiseStellplatzZu(((ListBox)sender).SelectedItem.ToString());
+        }
+
+        private void filterTextForLBFahrzeugInformationen(object sender, EventArgs e)
+        {
+
         }
     }
 }
