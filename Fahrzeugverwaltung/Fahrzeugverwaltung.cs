@@ -102,9 +102,9 @@ namespace Fahrzeugverwaltung
             if (cBFahrzeugTyp.Text == "PKW")
             {
                 clearFahrzeugtyp();
-                tBM_Hubraum.BringToFront();
+                tB_Hubraum.BringToFront();
                 tB_Leistung.BringToFront();
-                tBM_Hubraum.Show();
+                tB_Hubraum.Show();
                 tB_Leistung.Show();
                 lblSchadstoff.Show();
                 cBSchadstoffklasse.Show();
@@ -112,8 +112,8 @@ namespace Fahrzeugverwaltung
             else if (cBFahrzeugTyp.Text == "Motorrad")
             {
                 clearFahrzeugtyp();
-                tB_Hubraum.BringToFront();
-                tB_Hubraum.Show();
+                tBM_Hubraum.BringToFront();
+                tBM_Hubraum.Show();
             }
             else if (cBFahrzeugTyp.Text == "LKW")
             {
@@ -152,7 +152,7 @@ namespace Fahrzeugverwaltung
                 string hubraumA = tB_Hubraum.Text;
                 string leistung = tB_Leistung.Text;
                 string schadstoff = cBSchadstoffklasse.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToDouble(preis), Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
             }
             //Motorrad
             else if (cBFahrzeugTyp.Text == "Motorrad")
@@ -294,7 +294,12 @@ namespace Fahrzeugverwaltung
 
         private void filterTextForLBFahrzeugInformationen(object sender, EventArgs e)
         {
-
+            List<String> Fahrzeuginformationen = new List<string>();
+            for (int i = 0; i < lBFahrzeugInformationen.Items.Count; i++)
+            {
+                string cbFahrzeugInformationen = lBFahrzeugInformationen.Items[i].ToString();
+                Fahrzeuginformationen.Add(cbFahrzeugInformationen);
+            }
         }
     }
 }

@@ -321,7 +321,6 @@
             this.tB_Strasse.Text = "Straße";
             this.tB_Strasse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tB_Strasse.Enter += new System.EventHandler(this.deleteTextOnClick);
-            this.tB_Strasse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
             this.tB_Strasse.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // tB_PLZ
