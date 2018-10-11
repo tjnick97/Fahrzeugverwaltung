@@ -157,20 +157,20 @@ namespace Fahrzeugverwaltung
                 string hubraumA = tB_Hubraum.Text;
                 string leistung = tB_Leistung.Text;
                 string schadstoff = cBSchadstoffklasse.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToDouble(preis), Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToDouble(preis), 0, 0, Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
             }
             //Motorrad
             else if (cBFahrzeugTyp.Text == "Motorrad")
             {
                 string hubraumM = tBM_Hubraum.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), Convert.ToInt32(hubraumM));
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis),0,0, Convert.ToInt32(hubraumM));
             }
             //LKW
             else if (cBFahrzeugTyp.Text == "LKW")
             {
                 string anzAchsen = tB_AnzAchsen.Text;
                 string zuladung = tB_Zuladung.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), Convert.ToInt32(anzAchsen), Convert.ToDouble(zuladung));
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis),0,0, Convert.ToInt32(anzAchsen), Convert.ToDouble(zuladung));
             }
         }
 

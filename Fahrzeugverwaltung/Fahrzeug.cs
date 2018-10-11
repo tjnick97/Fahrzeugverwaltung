@@ -19,12 +19,13 @@ namespace Fahrzeugverwaltung
         public int Stellplatz { get; set; } //HINZU
 
         // Konstruktor
-        public Fahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer)
+        public Fahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz)
         {
             this.Herseller = hersteller;
             this.jahrDerErstzulassung = erstzulassung;
             this.Modell = modell;
-            this.steuerBezahlt = steuer;
+            this.Parkhaus = parkhaus;
+            this.Stellplatz = stellplatz;
             this.Kennzeichen = kennzeichen;
             this.Anschaffungspreis = preis;
         }

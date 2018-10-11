@@ -12,8 +12,8 @@ namespace Fahrzeugverwaltung
         private int Hubraum { get; set; }
 
         // Konstruktor, aufruf des Superkunstruktors von Fahrzeug
-        public Motorrad(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer, int hubraum)
-            : base (hersteller, modell, kennzeichen, erstzulassung, preis, steuer)
+        public Motorrad(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int hubraum)
+            : base (hersteller, modell, kennzeichen, erstzulassung, preis, parkhaus, stellplatz)
         {
             this.Hubraum = hubraum;
         }

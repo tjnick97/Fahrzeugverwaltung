@@ -14,8 +14,8 @@ namespace Fahrzeugverwaltung
         private int Schadstoffklasse { get; set; }
 
         // Konstruktor, aufruf des Superkunstruktors von Fahrzeug
-        public PKW(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer, int hubraum, int leistung, int schadstoffklasse) 
-            : base(hersteller,  modell, kennzeichen, erstzulassung, preis, steuer)
+        public PKW(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int hubraum, int leistung, int schadstoffklasse) 
+            : base(hersteller,  modell, kennzeichen, erstzulassung, preis, parkhaus, stellplatz)
         {
             this.Hubraum = hubraum;
             this.Leistung = leistung;

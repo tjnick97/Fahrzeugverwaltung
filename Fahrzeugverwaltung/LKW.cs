@@ -13,8 +13,8 @@ namespace Fahrzeugverwaltung
         private double zuladungInTonnen { get; set; }
 
         // Konstruktor, aufruf des Superkunstruktors von Fahrzeug
-        public LKW(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer, int achsen, double nutzlast)
-            : base(hersteller, modell, kennzeichen, erstzulassung, preis, steuer)
+        public LKW(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int achsen, double nutzlast)
+            : base(hersteller, modell, kennzeichen, erstzulassung, preis, parkhaus, stellplatz)
         {
             this.zuladungInTonnen = nutzlast;
             this.anzahlDerAchsen = achsen;
