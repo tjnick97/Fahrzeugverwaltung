@@ -170,7 +170,7 @@ namespace Fahrzeugverwaltung
             {
                 string anzAchsen = tB_AnzAchsen.Text;
                 string zuladung = tB_Zuladung.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), Convert.ToInt32(anzAchsen), Convert.ToInt32(zuladung));
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), Convert.ToInt32(anzAchsen), Convert.ToDouble(zuladung));
             }
         }
 
@@ -329,9 +329,12 @@ namespace Fahrzeugverwaltung
             {
                 int charCount = filterTextBox.Length;
                 string[] help = item.Split('-');
-                if (filterTextBox.ToString() == help[count].Substring(0, charCount))
+                if (help[count].Length >= charCount)
                 {
-                    FahrzeuginformationenNew.Add(item);
+                    if (filterTextBox.ToString() == help[count].Substring(0, charCount))
+                    {
+                        FahrzeuginformationenNew.Add(item);
+                    }
                 }
             }
             lBFahrzeugInformationen.Items.Clear();
