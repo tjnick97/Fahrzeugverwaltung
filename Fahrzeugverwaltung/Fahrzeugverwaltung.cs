@@ -74,10 +74,15 @@ namespace Fahrzeugverwaltung
 
             FP.loadFahrzeuge();
             FP.loadParkhaus();
-            List<Fahrzeug> fahrzeuge = FP.getFahrzeuge();
-            List<Parkhaus> parkhaus = FP.getParkhaus();
-            lBFahrzeugInformationen.Items.Clear();
+            //List<Fahrzeug> fahrzeuge = FP.getFahrzeuge();
+            //List<Parkhaus> parkhaus = FP.getParkhaus();
+            fillLabelBoxWithFahrzeuge();
+        }
 
+        private void fillLabelBoxWithFahrzeuge()
+        {
+            lBFahrzeugInformationen.Items.Clear();
+            List<Fahrzeug> fahrzeuge = FP.getFahrzeuge();
             foreach (var item in fahrzeuge)
             {
                 string stellplatz = FP.getParkplatzParkhausForKennzeichen(item.Kennzeichen);
@@ -219,7 +224,7 @@ namespace Fahrzeugverwaltung
 
         private void filterIncomingDigits(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != ',')
             {
                 e.Handled = true;
             }
@@ -292,13 +297,47 @@ namespace Fahrzeugverwaltung
             //FP.weiseStellplatzZu(((ListBox)sender).SelectedItem.ToString());
         }
 
-        private void filterTextForLBFahrzeugInformationen(object sender, EventArgs e)
+        private void ortFilterTextForLBFahrzeugInformationen(object sender, KeyEventArgs e)
         {
-            List<String> Fahrzeuginformationen = new List<string>();
+            if (e.KeyCode == Keys.Back)
+            {
+                fillLabelBoxWithFahrzeuge();
+            }
+
+            List<String> FahrzeuginformationenOld = new List<string>();
+            List<String> FahrzeuginformationenNew = new List<string>();
             for (int i = 0; i < lBFahrzeugInformationen.Items.Count; i++)
             {
                 string cbFahrzeugInformationen = lBFahrzeugInformationen.Items[i].ToString();
-                Fahrzeuginformationen.Add(cbFahrzeugInformationen);
+                FahrzeuginformationenOld.Add(cbFahrzeugInformationen);
+            }
+            string filterTextBox = "";
+            int count;
+            if (((TextBox)sender) == tbs_Ken)
+            {
+                filterTextBox = tbs_Ken.Text;
+                count = 0;
+            } else if (((TextBox)sender) == tbs_Zei)
+            {
+                filterTextBox = tbs_Zei.Text;
+                count = 1;
+            } else {
+                filterTextBox = tbs_Hen.Text;
+                count = 2;
+            }
+            foreach (var item in FahrzeuginformationenOld)
+            {
+                int charCount = filterTextBox.Length;
+                string[] help = item.Split('-');
+                if (filterTextBox.ToString() == help[count].Substring(0, charCount))
+                {
+                    FahrzeuginformationenNew.Add(item);
+                }
+            }
+            lBFahrzeugInformationen.Items.Clear();
+            foreach (var item in FahrzeuginformationenNew)
+            {
+                lBFahrzeugInformationen.Items.Add(item);
             }
         }
     }

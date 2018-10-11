@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.pFahrzeugHinzufügen = new System.Windows.Forms.Panel();
-            this.tBM_Hubraum = new System.Windows.Forms.TextBox();
+            this.lblFahrzeugTyp = new System.Windows.Forms.Label();
+            this.lblSchadstoff = new System.Windows.Forms.Label();
+            this.cBSchadstoffklasse = new System.Windows.Forms.ComboBox();
+            this.tB_Leistung = new System.Windows.Forms.TextBox();
+            this.tB_Hubraum = new System.Windows.Forms.TextBox();
             this.tB_Zuladung = new System.Windows.Forms.TextBox();
+            this.tBM_Hubraum = new System.Windows.Forms.TextBox();
             this.tB_AnzAchsen = new System.Windows.Forms.TextBox();
             this.tBK_Hen = new System.Windows.Forms.TextBox();
             this.tBK_Zei = new System.Windows.Forms.TextBox();
             this.tBK_Ken = new System.Windows.Forms.TextBox();
             this.btnSaveNewFahrzeug = new System.Windows.Forms.Button();
-            this.tB_Hubraum = new System.Windows.Forms.TextBox();
-            this.tB_Leistung = new System.Windows.Forms.TextBox();
-            this.cBSchadstoffklasse = new System.Windows.Forms.ComboBox();
             this.tB_Preis = new System.Windows.Forms.TextBox();
             this.tB_Erstzulassung = new System.Windows.Forms.TextBox();
             this.tB_Modell = new System.Windows.Forms.TextBox();
@@ -70,10 +72,8 @@
             this.tbs_Zei = new System.Windows.Forms.TextBox();
             this.tbs_Hen = new System.Windows.Forms.TextBox();
             this.pFahrzeugSuchen = new System.Windows.Forms.Panel();
-            this.lBFahrzeugInformationen = new System.Windows.Forms.ListBox();
             this.lblStellplatzZuweisen = new System.Windows.Forms.Label();
-            this.lblSchadstoff = new System.Windows.Forms.Label();
-            this.lblFahrzeugTyp = new System.Windows.Forms.Label();
+            this.lBFahrzeugInformationen = new System.Windows.Forms.ListBox();
             this.pFahrzeugHinzufügen.SuspendLayout();
             this.pParkhausHinzufügen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -107,17 +107,61 @@
             this.pFahrzeugHinzufügen.TabIndex = 1;
             this.pFahrzeugHinzufügen.Visible = false;
             // 
-            // tBM_Hubraum
+            // lblFahrzeugTyp
             // 
-            this.tBM_Hubraum.Location = new System.Drawing.Point(285, 83);
-            this.tBM_Hubraum.Name = "tBM_Hubraum";
-            this.tBM_Hubraum.Size = new System.Drawing.Size(183, 20);
-            this.tBM_Hubraum.TabIndex = 5;
-            this.tBM_Hubraum.Text = "Hubraum";
-            this.tBM_Hubraum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tBM_Hubraum.Enter += new System.EventHandler(this.deleteTextOnClick);
-            this.tBM_Hubraum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
-            this.tBM_Hubraum.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
+            this.lblFahrzeugTyp.AutoSize = true;
+            this.lblFahrzeugTyp.Location = new System.Drawing.Point(276, 42);
+            this.lblFahrzeugTyp.Name = "lblFahrzeugTyp";
+            this.lblFahrzeugTyp.Size = new System.Drawing.Size(68, 13);
+            this.lblFahrzeugTyp.TabIndex = 19;
+            this.lblFahrzeugTyp.Text = "Fahrzeugtyp:";
+            // 
+            // lblSchadstoff
+            // 
+            this.lblSchadstoff.AutoSize = true;
+            this.lblSchadstoff.Location = new System.Drawing.Point(276, 174);
+            this.lblSchadstoff.Name = "lblSchadstoff";
+            this.lblSchadstoff.Size = new System.Drawing.Size(61, 13);
+            this.lblSchadstoff.TabIndex = 18;
+            this.lblSchadstoff.Text = "Schadstoff:";
+            // 
+            // cBSchadstoffklasse
+            // 
+            this.cBSchadstoffklasse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBSchadstoffklasse.FormattingEnabled = true;
+            this.cBSchadstoffklasse.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cBSchadstoffklasse.Location = new System.Drawing.Point(350, 171);
+            this.cBSchadstoffklasse.MaxLength = 1;
+            this.cBSchadstoffklasse.Name = "cBSchadstoffklasse";
+            this.cBSchadstoffklasse.Size = new System.Drawing.Size(118, 21);
+            this.cBSchadstoffklasse.TabIndex = 6;
+            // 
+            // tB_Leistung
+            // 
+            this.tB_Leistung.Location = new System.Drawing.Point(285, 127);
+            this.tB_Leistung.Name = "tB_Leistung";
+            this.tB_Leistung.Size = new System.Drawing.Size(183, 20);
+            this.tB_Leistung.TabIndex = 5;
+            this.tB_Leistung.Text = "Leistung";
+            this.tB_Leistung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Leistung.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Leistung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_Leistung.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
+            // 
+            // tB_Hubraum
+            // 
+            this.tB_Hubraum.Location = new System.Drawing.Point(285, 83);
+            this.tB_Hubraum.Name = "tB_Hubraum";
+            this.tB_Hubraum.Size = new System.Drawing.Size(183, 20);
+            this.tB_Hubraum.TabIndex = 4;
+            this.tB_Hubraum.Text = "Hubraum";
+            this.tB_Hubraum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tB_Hubraum.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tB_Hubraum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tB_Hubraum.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // tB_Zuladung
             // 
@@ -130,6 +174,18 @@
             this.tB_Zuladung.Enter += new System.EventHandler(this.deleteTextOnClick);
             this.tB_Zuladung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
             this.tB_Zuladung.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
+            // 
+            // tBM_Hubraum
+            // 
+            this.tBM_Hubraum.Location = new System.Drawing.Point(285, 83);
+            this.tBM_Hubraum.Name = "tBM_Hubraum";
+            this.tBM_Hubraum.Size = new System.Drawing.Size(183, 20);
+            this.tBM_Hubraum.TabIndex = 5;
+            this.tBM_Hubraum.Text = "Hubraum";
+            this.tBM_Hubraum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tBM_Hubraum.Enter += new System.EventHandler(this.deleteTextOnClick);
+            this.tBM_Hubraum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tBM_Hubraum.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
             // 
             // tB_AnzAchsen
             // 
@@ -194,44 +250,6 @@
             this.btnSaveNewFahrzeug.Text = "Fahrzeug speichern";
             this.btnSaveNewFahrzeug.UseVisualStyleBackColor = true;
             this.btnSaveNewFahrzeug.Click += new System.EventHandler(this.btnSaveNewFahrzeug_Click);
-            // 
-            // tB_Hubraum
-            // 
-            this.tB_Hubraum.Location = new System.Drawing.Point(285, 83);
-            this.tB_Hubraum.Name = "tB_Hubraum";
-            this.tB_Hubraum.Size = new System.Drawing.Size(183, 20);
-            this.tB_Hubraum.TabIndex = 4;
-            this.tB_Hubraum.Text = "Hubraum";
-            this.tB_Hubraum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tB_Hubraum.Enter += new System.EventHandler(this.deleteTextOnClick);
-            this.tB_Hubraum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
-            this.tB_Hubraum.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
-            // 
-            // tB_Leistung
-            // 
-            this.tB_Leistung.Location = new System.Drawing.Point(285, 127);
-            this.tB_Leistung.Name = "tB_Leistung";
-            this.tB_Leistung.Size = new System.Drawing.Size(183, 20);
-            this.tB_Leistung.TabIndex = 5;
-            this.tB_Leistung.Text = "Leistung";
-            this.tB_Leistung.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tB_Leistung.Enter += new System.EventHandler(this.deleteTextOnClick);
-            this.tB_Leistung.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
-            this.tB_Leistung.Leave += new System.EventHandler(this.setPreviousTextIfEmpty);
-            // 
-            // cBSchadstoffklasse
-            // 
-            this.cBSchadstoffklasse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBSchadstoffklasse.FormattingEnabled = true;
-            this.cBSchadstoffklasse.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.cBSchadstoffklasse.Location = new System.Drawing.Point(350, 171);
-            this.cBSchadstoffklasse.MaxLength = 1;
-            this.cBSchadstoffklasse.Name = "cBSchadstoffklasse";
-            this.cBSchadstoffklasse.Size = new System.Drawing.Size(118, 21);
-            this.cBSchadstoffklasse.TabIndex = 6;
             // 
             // tB_Preis
             // 
@@ -531,8 +549,8 @@
             this.tbs_Ken.Size = new System.Drawing.Size(67, 20);
             this.tbs_Ken.TabIndex = 1;
             this.tbs_Ken.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbs_Ken.TextChanged += new System.EventHandler(this.filterTextForLBFahrzeugInformationen);
             this.tbs_Ken.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
+            this.tbs_Ken.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ortFilterTextForLBFahrzeugInformationen);
             // 
             // tbs_Zei
             // 
@@ -545,6 +563,7 @@
             this.tbs_Zei.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbs_Zei.Enter += new System.EventHandler(this.deleteTextOnClick);
             this.tbs_Zei.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingString);
+            this.tbs_Zei.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ortFilterTextForLBFahrzeugInformationen);
             // 
             // tbs_Hen
             // 
@@ -557,6 +576,7 @@
             this.tbs_Hen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbs_Hen.Enter += new System.EventHandler(this.deleteTextOnClick);
             this.tbs_Hen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.filterIncomingDigits);
+            this.tbs_Hen.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ortFilterTextForLBFahrzeugInformationen);
             // 
             // pFahrzeugSuchen
             // 
@@ -576,6 +596,16 @@
             this.pFahrzeugSuchen.TabIndex = 0;
             this.pFahrzeugSuchen.Visible = false;
             // 
+            // lblStellplatzZuweisen
+            // 
+            this.lblStellplatzZuweisen.AutoSize = true;
+            this.lblStellplatzZuweisen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStellplatzZuweisen.Location = new System.Drawing.Point(161, 202);
+            this.lblStellplatzZuweisen.Name = "lblStellplatzZuweisen";
+            this.lblStellplatzZuweisen.Size = new System.Drawing.Size(139, 16);
+            this.lblStellplatzZuweisen.TabIndex = 7;
+            this.lblStellplatzZuweisen.Text = "Stellplatz zuweisen";
+            // 
             // lBFahrzeugInformationen
             // 
             this.lBFahrzeugInformationen.FormattingEnabled = true;
@@ -587,34 +617,6 @@
             this.lBFahrzeugInformationen.Size = new System.Drawing.Size(431, 147);
             this.lBFahrzeugInformationen.TabIndex = 6;
             this.lBFahrzeugInformationen.SelectedValueChanged += new System.EventHandler(this.changeStellplatz_Click);
-            // 
-            // lblStellplatzZuweisen
-            // 
-            this.lblStellplatzZuweisen.AutoSize = true;
-            this.lblStellplatzZuweisen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStellplatzZuweisen.Location = new System.Drawing.Point(161, 202);
-            this.lblStellplatzZuweisen.Name = "lblStellplatzZuweisen";
-            this.lblStellplatzZuweisen.Size = new System.Drawing.Size(139, 16);
-            this.lblStellplatzZuweisen.TabIndex = 7;
-            this.lblStellplatzZuweisen.Text = "Stellplatz zuweisen";
-            // 
-            // lblSchadstoff
-            // 
-            this.lblSchadstoff.AutoSize = true;
-            this.lblSchadstoff.Location = new System.Drawing.Point(276, 174);
-            this.lblSchadstoff.Name = "lblSchadstoff";
-            this.lblSchadstoff.Size = new System.Drawing.Size(61, 13);
-            this.lblSchadstoff.TabIndex = 18;
-            this.lblSchadstoff.Text = "Schadstoff:";
-            // 
-            // lblFahrzeugTyp
-            // 
-            this.lblFahrzeugTyp.AutoSize = true;
-            this.lblFahrzeugTyp.Location = new System.Drawing.Point(276, 42);
-            this.lblFahrzeugTyp.Name = "lblFahrzeugTyp";
-            this.lblFahrzeugTyp.Size = new System.Drawing.Size(68, 13);
-            this.lblFahrzeugTyp.TabIndex = 19;
-            this.lblFahrzeugTyp.Text = "Fahrzeugtyp:";
             // 
             // Fahrzeugverwaltung
             // 
