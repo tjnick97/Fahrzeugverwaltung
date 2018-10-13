@@ -12,6 +12,8 @@ namespace Fahrzeugverwaltung
 {
     public partial class Fahrzeugverwaltung : Form
     {
+
+        // Für alle Steuern: public double steuerAlle()
         // Erstellung des Fuhrparkobjektes. 
         Fuhrpark FP = new Fuhrpark();
         public Fahrzeugverwaltung()
@@ -297,6 +299,7 @@ namespace Fahrzeugverwaltung
                     label8.Text = parkhausObj.PLZ.ToString();   //PLZ
                     label9.Text = parkhausObj.Straße;           //Straße
                     label10.Text = splitchar[6];                //Stellplatz
+                    // Steuer? bsp label14.Text = FP.steuerEinzeln(splitchar[2]);
                     if (splitchar.Length == 8)
                     {
                         label11.Text = splitchar[7];

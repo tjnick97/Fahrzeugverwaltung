@@ -31,11 +31,13 @@ namespace Fahrzeugverwaltung
                 fahrzeuge[2] = "BMW;R1200r;K-GS-03;1999;6000;1;200;1170";
                 fahrzeuge[3] = "Mercedes;LG 315;K-GS-04;1960;23000;1;300;2;5,5";
 
-                string[] parkhaus = new string[1];
-                parkhaus[0] = "Köln;51105;Westerwaldstr. 99;500;100;50";
+                //string[] parkhaus = new string[1];
+                //parkhaus[0] = "Köln;51105;Westerwaldstr. 99;500;100;50";
 
+                string parkhaus = "Köln;51105;Westerwaldstr. 99;500;100;50";
                 File.WriteAllLines(@"Fahrzeuge.txt", fahrzeuge);
-                File.WriteAllLines(@"Parkhaus.txt", parkhaus); // voher war es writealltext, jetzt macht es probleme
+                //File.WriteAllLines(@"Parkhaus.txt", parkhaus); // voher war es writealltext, jetzt macht es probleme
+                File.WriteAllText(@"Parkhaus.txt", parkhaus);
             }
         }
 
@@ -70,7 +72,7 @@ namespace Fahrzeugverwaltung
             while ((line = Convert.ToString(file.ReadLine())) != null)
             {
                 string[] splitchar = line.Split(';');
-                string s = splitchar[0];
+                //string s = splitchar[0];
                 //int i = Convert.ToInt32(splitchar[1]); // Außerhalb des bereiches
                 // string s2 = splitchar[2]; // außerbalb des Bereiches
                 //int i2 = Convert.ToInt32(splitchar[3]);// außerbalb des Bereiches
