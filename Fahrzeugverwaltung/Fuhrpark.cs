@@ -26,23 +26,24 @@ namespace Fahrzeugverwaltung
             if((File.Exists(@"Fahrzeuge.txt") && File.Exists(@"Parkhaus.txt")) == false)
             {
                 string[] fahrzeuge = new string[4];
-                fahrzeuge[0] = "VW;Käfer;K-GS-01;1965;9999;1000;30;1;1;100";
-                fahrzeuge[1] = "Opel;Kadett;K-GS-02;1964;12000;1600;60;2;1;101";
-                fahrzeuge[2] = "BMW;R1200r;K-GS-03;1999;6000;1170;1;200";
-                fahrzeuge[3] = "Mercedes;LG 315;K-GS-04;1960;23000;2;5.5;1;300";
+                fahrzeuge[0] = "VW;Käfer;K-GS-01;1965;9999;1;100;1000;30;1";
+                fahrzeuge[1] = "Opel;Kadett;K-GS-02;1964;12000;1;101;1600;60;2";
+                fahrzeuge[2] = "BMW;R1200r;K-GS-03;1999;6000;1;200;1170";
+                fahrzeuge[3] = "Mercedes;LG 315;K-GS-04;1960;23000;1;300;2;5,5";
 
-                string parkhaus = "Köln;51105;Westerwaldstr. 99;500;100;50\n";
+                string[] parkhaus = new string[1];
+                parkhaus[0] = "Köln;51105;Westerwaldstr. 99;500;100;50";
 
                 File.WriteAllLines(@"Fahrzeuge.txt", fahrzeuge);
-                File.WriteAllText(@"Parkhaus.txt", parkhaus);
+                File.WriteAllLines(@"Parkhaus.txt", parkhaus); // voher war es writealltext, jetzt macht es probleme
             }
         }
 
 
-        // Methode zum Erstellen und Speichern von neuangelgegten Parkhäusern.
+        // Methode zum Erstellen und Speichern von neuangelgegten Parkhäusern.zugriff nicht mögloich da geöffnet???
         public void newParkhaus(string ort, int plz, string straße, int anzpkw, int anzmotorrad, int anzlkw)
         {
-            string line = ort + ";" + plz + ";" + straße + ";" + anzpkw + ";" + anzmotorrad + ";" + anzlkw + "\n";
+            string line = "\n" + ort + ";" + plz + ";" + straße + ";" + anzpkw + ";" + anzmotorrad + ";" + anzlkw;
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Parkhaus.txt", true))
             {
@@ -62,8 +63,8 @@ namespace Fahrzeugverwaltung
             while ((line = Convert.ToString(file.ReadLine())) != null)
             {
                 string[] splitchar = line.Split(';');
-                // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW
-                parkhaeuser.Add(new Parkhaus(splitchar[0], Convert.ToInt32(splitchar[1]), splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToInt32(splitchar[4]), Convert.ToInt32(splitchar[5]))); // Hat das falsche Format
+                // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW Aktuell ein Problem // Hat das falsche Formataußerhalb des Arraybereichens
+                parkhaeuser.Add(new Parkhaus(splitchar[0], Convert.ToInt32(splitchar[1]), splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToInt32(splitchar[4]), Convert.ToInt32(splitchar[5]))); 
             }
             file.Close();
 
