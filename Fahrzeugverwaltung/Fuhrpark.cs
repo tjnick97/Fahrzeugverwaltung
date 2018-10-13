@@ -52,9 +52,16 @@ namespace Fahrzeugverwaltung
         }
 
 
-        // Methode zum Laden der gespeicherten Parkhäuser.
+        // Methode zum Laden der gespeicherten Parkhäuser. Laden funktioniert nicht
         public void loadParkhaus()
         {
+            /*fahrzeuge.Clear();
+            System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeuge.txt", true);
+            string line = "";
+            while((line = Convert.ToString(file.ReadLine())) != null)
+            {
+            string[] splitchar = line.Split(';'); */
+
             //clear for init
             parkhaeuser.Clear();
 
@@ -63,6 +70,12 @@ namespace Fahrzeugverwaltung
             while ((line = Convert.ToString(file.ReadLine())) != null)
             {
                 string[] splitchar = line.Split(';');
+                string s = splitchar[0];
+                //int i = Convert.ToInt32(splitchar[1]); // Außerhalb des bereiches
+                // string s2 = splitchar[2]; // außerbalb des Bereiches
+                //int i2 = Convert.ToInt32(splitchar[3]);// außerbalb des Bereiches
+                //int i3 = Convert.ToInt32(splitchar[4]);// außerbalb des Bereiches
+                // int i4 = Convert.ToInt32(splitchar[5]); // außerbalb des Bereiches
                 // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW Aktuell ein Problem // Hat das falsche Formataußerhalb des Arraybereichens
                 parkhaeuser.Add(new Parkhaus(splitchar[0], Convert.ToInt32(splitchar[1]), splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToInt32(splitchar[4]), Convert.ToInt32(splitchar[5]))); 
             }
@@ -151,7 +164,7 @@ namespace Fahrzeugverwaltung
                 {
                     fahrzeuge.Add(new Motorrad(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToInt32(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToInt32(splitchar[7])));
                 }
-                else if (splitchar.Length == 13) // error
+                else if (splitchar.Length == 9) 
                 {
                     fahrzeuge.Add(new LKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToInt32(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToInt32(splitchar[7]), Convert.ToDouble(splitchar[8])));
                 }
