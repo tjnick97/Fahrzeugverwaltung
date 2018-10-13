@@ -8,11 +8,13 @@ namespace Fahrzeugverwaltung
 {
     class Parkhaus
     {
+        // Attrubute.
         public string Ort { get; set; }
         public int PLZ { get; set; }
         public string Straße { get; set; }
         public List<Parkplaetze> parkplaetze = new List<Parkplaetze>();
 
+        // Konstruktor.
         public Parkhaus(string Ort, int PLZ, string Straße, int anzPKW, int anzMotorrad, int anzLKW)
         {
             this.Ort = Ort;
@@ -22,6 +24,7 @@ namespace Fahrzeugverwaltung
             addFahrzeugeToParkplatz(anzPKW, anzMotorrad, anzLKW);
         }
 
+        // Methode zur Erstellung der Parkplätze.
         private void addFahrzeugeToParkplatz(int anzPKW, int anzMotorrad, int anzLKW)
         {
             int helper = 0;
@@ -42,6 +45,7 @@ namespace Fahrzeugverwaltung
             }
         }
 
+        // Methode zur Suche nach einem Fahrzeug in dem Parkhaus.
         public string searchForFahrzeug(string kennzeichen)
         {
             string result = null;
@@ -56,11 +60,13 @@ namespace Fahrzeugverwaltung
             return result;
         }
 
+        // Ausgabe der Parkhausdaten.
         public string toString()
         {
             return Straße + ", " + PLZ + " " + Ort;
         }
 
+        // Methode zur zuweisung eines Parkplatzes.
         public void weiseParkplatzZu(int parkplatznummer, string kennzeichen)
         {
             // Die Parkplatznummer wird interm mit 1 subtrahiert, wegen der position in der Liste

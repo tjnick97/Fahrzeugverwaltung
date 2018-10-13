@@ -8,17 +8,17 @@ namespace Fahrzeugverwaltung
 {
     abstract class Fahrzeug
     {
-        // Attribute
+        // Attribute.
         public string Herseller {get; set;}
         public string Modell { get; set; }
         public string Kennzeichen { get; set; }
         public int jahrDerErstzulassung { get; set; }
         public double Anschaffungspreis { get; set; }
-        public bool steuerBezahlt { get; set; } //WEG
+        // public bool steuerBezahlt { get; set; } //WEG
         public int Parkhaus { get; set; } //HINZU
         public int Stellplatz { get; set; } //HINZU
 
-        // Konstruktor
+        // Konstruktor.
         public Fahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz)
         {
             this.Herseller = hersteller;
@@ -30,19 +30,19 @@ namespace Fahrzeugverwaltung
             this.Anschaffungspreis = preis;
         }
 
-        // Methode zur berechnung der Steuern (wird von allen erbenden Klassen überschrieben)
-        public virtual string berechneSteuer()
+        // Methode zur berechnung der Steuern (wird von allen erbenden Klassen überschrieben).
+        public virtual double berechneSteuer()
         {
-            return "";
+            return 0;
         }
 
-        // Methode, die die Daten eines Fahrzeuges ausgibt
+        // Methode, die die Daten eines Fahrzeuges ausgibt.
         public virtual string ToString()
         {
             return "";
         }
 
-        // Methode zur Rückgabe des Kennzeichens
+        // Methode zur Rückgabe des Kennzeichens.
         public string kennzeichen()
         {
             return Kennzeichen;

@@ -9,26 +9,19 @@ namespace Fahrzeugverwaltung
 {
     class Fuhrpark
     {
+        // Listen mit den Parkhäusern und der Fahrzeuge.
         private List<Fahrzeug> fahrzeuge = new List<Fahrzeug> { };
         private List<Parkhaus> parkhaeuser = new List<Parkhaus> { };
 
+        // Konstruktor, der die txt Dokumente mit den vorgegebenen Anfangsdaten füllt, sollten diese noch nicht vorhanden sein.
         public Fuhrpark()
         {
-            //VW, Käfer, K - GS - 01, 1965, 9999, 1000, 30, 1 , Parkhaus 1, Stellplatz 100
-
-            //Opel, Kadett, K - GS - 02, 1964, 12000, 1600, 60, 2, Parkhaus 1, Stellplatz 101
-
-            // BMW, R1200r, K-GS-03, 1999, 6000, 1170, Parkhaus 1, Stellplatz 200
-
-            // Mercedes, LG 315, K-GS-04, 1960, 23000, 2, 5.5t, Parkhaus 1, Stellplatz 300
-
-            // Parkhaus1 (Ort, Plz, Straße): Köln, 51105, Westerwaldstr. 99
-            //erstelleAnfangsDaten(); -BUGGY
+            erstelleAnfangsDaten(); //-BUGGY
 
         }
 
-        // Methode zum erstellen der am Anfang enthaltenen Fahrzeuge und Parkhüuser
-        public static void erstelleAnfangsDaten()
+        // Methode zum erstellen der am Anfang enthaltenen Fahrzeuge und Parkhüuser.
+        private static void erstelleAnfangsDaten()
         {
             if((File.Exists(@"Fahrzeuge.txt") && File.Exists(@"Parkhaus.txt")) == false)
             {
@@ -36,9 +29,9 @@ namespace Fahrzeugverwaltung
                 fahrzeuge[0] = "VW;Käfer;K-GS-01;1965;9999;1000;30;1;1;100";
                 fahrzeuge[1] = "Opel;Kadett;K-GS-02;1964;12000;1600;60;2;1;101";
                 fahrzeuge[2] = "BMW;R1200r;K-GS-03;1999;6000;1170;1;200";
-                fahrzeuge[3] = "Mercedes;LG 315;K-GS-04;1960;23000;2;5,5;1;300";
+                fahrzeuge[3] = "Mercedes;LG 315;K-GS-04;1960;23000;2;5.5;1;300";
 
-                string parkhaus = "Köln;51105;Westerwaldstr. 99;500;100;50";
+                string parkhaus = "Köln;51105;Westerwaldstr. 99;500;100;50\n";
 
                 File.WriteAllLines(@"Fahrzeuge.txt", fahrzeuge);
                 File.WriteAllText(@"Parkhaus.txt", parkhaus);
@@ -46,7 +39,7 @@ namespace Fahrzeugverwaltung
         }
 
 
-        // Methode zum Erstellen und Speichern von neuangelgegten Parkhäusern
+        // Methode zum Erstellen und Speichern von neuangelgegten Parkhäusern.
         public void newParkhaus(string ort, int plz, string straße, int anzpkw, int anzmotorrad, int anzlkw)
         {
             string line = ort + ";" + plz + ";" + straße + ";" + anzpkw + ";" + anzmotorrad + ";" + anzlkw + "\n";
@@ -58,36 +51,41 @@ namespace Fahrzeugverwaltung
         }
 
 
-        // Methode zum Laden der gespeicherten Parkhäuser
+        // Methode zum Laden der gespeicherten Parkhäuser.
         public void loadParkhaus()
         {
             //clear for init
             parkhaeuser.Clear();
-            // Dateipfad noch ändern
+
             System.IO.StreamReader file = new System.IO.StreamReader(@"Parkhaus.txt", true);
             string line = "";
             while ((line = Convert.ToString(file.ReadLine())) != null)
             {
                 string[] splitchar = line.Split(';');
                 // Ort, PLZ, Straße,  int anzPKW, int anzMotorrad, int anzLKW
-                parkhaeuser.Add(new Parkhaus(splitchar[0], Convert.ToInt32(splitchar[1]), splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToInt32(splitchar[4]), Convert.ToInt32(splitchar[5])));
+                parkhaeuser.Add(new Parkhaus(splitchar[0], Convert.ToInt32(splitchar[1]), splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToInt32(splitchar[4]), Convert.ToInt32(splitchar[5]))); // Hat das falsche Format
             }
             file.Close();
 
         }
 
-        // Methode zur Erstellung neuer Fahrzeuge des Types PKW
+        // Methode zur Erstellung neuer Fahrzeuge des Types PKW.
         public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int hubraum, int leistung, int schadstoffklasse)
         {
             string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + parkhaus + ";" + stellplatz + ";" + hubraum + ";" + leistung + ";" + schadstoffklasse + "\n";
-
+            // fehler wegen eienm anderen zugriff
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
                 file.WriteLine(line);
             }
+            /*
+            StreamWriter f = new StreamWriter(@"fahrzeuge.txt", true);
+            f.WriteLine(line, true);
+            f.Close();
+            */
         }
 
-        // Methode zur Erstellung neuer Fahrzeuge des Types LKW
+        // Methode zur Erstellung neuer Fahrzeuge des Types LKW.
         public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int achse, double nutzlast)
         {
             string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + parkhaus + ";" + stellplatz + ";" + achse + ";" + nutzlast + "\n";
@@ -98,10 +96,10 @@ namespace Fahrzeugverwaltung
             }
         }
 
-        // Methode zur Erstellung neuer Fahrzeuge des Types Motorrad
+        // Methode zur Erstellung neuer Fahrzeuge des Types Motorrad.
         public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int hubraum)
         {
-            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + parkhaus + ";" + stellplatz + ";" + hubraum;
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + parkhaus + ";" + stellplatz + ";" + hubraum + "\n";
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
@@ -109,7 +107,7 @@ namespace Fahrzeugverwaltung
             }
         }
 
-        // Methode zum Laden der gespeicherten Fahrzeuge
+        // Methode zum Laden der gespeicherten Fahrzeuge.
         public void loadFahrzeuge()
         {
             fahrzeuge.Clear();
@@ -118,12 +116,41 @@ namespace Fahrzeugverwaltung
             while((line = Convert.ToString(file.ReadLine())) != null)
             {
                 string[] splitchar = line.Split(';');
+                // string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz
+                // pkw int leistung, int schadstoffklasse
+                // lkw int achsen, double nutzlast)
+                // motorrad int hubraum
+
+                /*
+                string s1 = splitchar[0];
+                string s2 = splitchar[1];
+                string s3 = splitchar[2];
+                int i = Convert.ToInt32(splitchar[3]);
+                double d = Convert.ToDouble(splitchar[4]);
+                int i2 = Convert.ToInt32(splitchar[5]);
+                //int i3 = Convert.ToInt32(splitchar[6]); // da ist der fehler
+
+                if(splitchar.Length == 8)
+                {
+                    int i4 = Convert.ToInt32(splitchar[7]);
+                }
+                if (splitchar.Length == 9)
+                {
+                    int i5 = Convert.ToInt32(splitchar[7]);
+                    double d4 = Convert.ToDouble(splitchar[8]);
+                }
+                if (splitchar.Length == 10)
+                {
+                    int i5 = Convert.ToInt32(splitchar[7]);
+                    int i6 = Convert.ToInt32(splitchar[8]);
+                    int i7 = Convert.ToInt32(splitchar[9]);
+                }*/
 
                 if (splitchar.Length == 8)
                 {
                     fahrzeuge.Add(new Motorrad(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToInt32(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToInt32(splitchar[7])));
                 }
-                else if (splitchar.Length == 9)
+                else if (splitchar.Length == 13) // error
                 {
                     fahrzeuge.Add(new LKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToInt32(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToInt32(splitchar[7]), Convert.ToDouble(splitchar[8])));
                 }
@@ -135,7 +162,7 @@ namespace Fahrzeugverwaltung
             file.Close();
         }
 
-        // Methode für die Suche nach einem Fahrzeug
+        // Methode für die Suche nach einem Fahrzeug.
         public string sucheFahrzeug(string kennzeichen)
         {
             loadParkhaus();//init
@@ -153,13 +180,24 @@ namespace Fahrzeugverwaltung
             return ergebnis;
         }
 
-        // Methode für die zu zahlende Steuer eines Fahrzeuges
-        public string steuerEinzeln(string kennzeichen)
+        // Methode für die zu zahlende Steuer eines Fahrzeuges.
+        public double steuerEinzeln(string kennzeichen)
         {
             int stelle = fahrzeugstelleInListe(kennzeichen);
             return fahrzeuge[stelle].berechneSteuer();
         }
-        // Methode zum durchsuchen der Fahrzeugliste mit einem Kennzeichen
+
+        // Methode zur berechnung aller Steuern für alle Fahrzeuge.
+        public double steuerAlle()
+        {
+            double steuer = 0;
+            foreach(Fahrzeug f in fahrzeuge)
+            {
+                steuer += f.berechneSteuer();
+            }
+            return steuer;
+        }
+        // Methode zum durchsuchen der Fahrzeugliste mit einem Kennzeichen.
         public int fahrzeugstelleInListe(string kennzeichen)
         {
             int stelle = 0;
@@ -173,10 +211,10 @@ namespace Fahrzeugverwaltung
             return stelle;
         }
 
-        // Methode für das zuweisen eines Stellplatzes
+        // Methode für das zuweisen eines Stellplatzes.
         public void weiseStellplatzZu(string kennzeichen, int parkhaus, int stellplatz)
         {
-            // Parkhaus wird intern mit 1 subtrahiert, wegen der Stelle in der Liste
+            // Parkhaus wird intern mit 1 subtrahiert, wegen der Stelle in der Liste.
             parkhaeuser[parkhaus - 1].weiseParkplatzZu(stellplatz, kennzeichen);
             return;
         }
@@ -193,6 +231,7 @@ namespace Fahrzeugverwaltung
             return parkhaeuser;
         }
 
+        // Methode 
         public string getParkplatzParkhausForKennzeichen(string kennzeichen)
         {
             foreach(var item1 in parkhaeuser)
@@ -211,26 +250,5 @@ namespace Fahrzeugverwaltung
             }
             return "\t\t";
         }
-
-        /*
-        // Methode zur Erstellung der Parkhäuser
-        private void parkhausHinzufuegen(string ort, int plz, string straße, int anzPKW, int anzMotorrad, int anzLKW)
-        {
-            parkhaeuser.Add(new Parkhaus(ort, plz, straße, anzPKW, anzMotorrad, anzLKW));
-        }
-
-        // Methoden zur Erstellung der Fahrzeuge
-        private void fahrzeugHinzufügen(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer, int hubraum)
-        {
-            fahrzeuge.Add(new Motorrad(hersteller, modell, kennzeichen, erstzulassung, preis, steuer, hubraum));
-        }
-        public void fahrzeugHinzufügen(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer, int achsen, double nutzlast)
-        {
-            fahrzeuge.Add(new LKW(hersteller, modell, kennzeichen, erstzulassung, preis, steuer, achsen, nutzlast));
-        }
-        public void fahrzeugHinzufügen(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, bool steuer, int hubraum, int leistung, int schadstoffklasse)
-        {
-            fahrzeuge.Add(new PKW(hersteller, modell, kennzeichen, erstzulassung, preis, steuer, hubraum, leistung, schadstoffklasse));
-        }*/
     }
 }

@@ -12,18 +12,12 @@ namespace Fahrzeugverwaltung
 {
     public partial class Fahrzeugverwaltung : Form
     {
+        // Erstellung des Fuhrparkobjektes.
         Fuhrpark FP = new Fuhrpark();
         public Fahrzeugverwaltung()
         {
-
-            // steuerEinzeln(string kennzeichen) rückgabe: string mit der zu zahlenden summe: (Die steuer beträgt xx Euro)
-
-            // weiseStellplatzZu(string kennzeichen, int parkhaus, int stellplatz) rückgabe: nix
-
-            // fahrzeugstelleInListe(string kennzeichen) rückgabe: stelle in der liste mit den fahrzeugen. hab ich für die steuer gemacht, falls du das noch brauchen solltest
-
             InitializeComponent();
-            // Laden der bisherigen Daten
+            // Laden der bisherigen Daten, Fehlermeldung falls es keine bisherigen Dateien geben sollte.
             Fuhrpark fuhrpark = new Fuhrpark();
             try
             {
@@ -33,7 +27,6 @@ namespace Fahrzeugverwaltung
             {
                 Console.WriteLine("No information found!");
             }
-            //fuhrpark.loadFahrzeuge(fuhrpark);
             clearWindow();
             hideFahrzeugInformationen();
         }

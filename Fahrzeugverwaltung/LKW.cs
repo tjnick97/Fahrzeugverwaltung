@@ -8,11 +8,11 @@ namespace Fahrzeugverwaltung
 {
     class LKW : Fahrzeug
     {
-        // Attrubute
+        // Attrubute.
         private int anzahlDerAchsen { get; set; }
         private double zuladungInTonnen { get; set; }
 
-        // Konstruktor, aufruf des Superkunstruktors von Fahrzeug
+        // Konstruktor, aufruf des Superkunstruktors von Fahrzeug.
         public LKW(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int achsen, double nutzlast)
             : base(hersteller, modell, kennzeichen, erstzulassung, preis, parkhaus, stellplatz)
         {
@@ -20,17 +20,17 @@ namespace Fahrzeugverwaltung
             this.anzahlDerAchsen = achsen;
         }
 
-        // Methode zur Berechnung der Steuern
-        public override string berechneSteuer()
+        // Methode zur Berechnung der Steuern.
+        public override double berechneSteuer()
         {
             double Steuern = zuladungInTonnen * 100;
-            return "Die Steuern für den LKW " + base.Kennzeichen + " betragen " + Steuern + " Euro.";
+            return Steuern;
         }
 
-        // Methode zur Ausgabe der LKWdaten
+        // Methode zur Ausgabe der LKWdaten.
         public override string ToString()
         {
-             return "Hersteller: " + base.Herseller + ", Modell: " + base.Modell + ", Kennzeichen: " + base.Kennzeichen + ", Erstzulassung: " + base.jahrDerErstzulassung + ", Preis: " + base.Anschaffungspreis + ", Steuer bezahlt? " + base.steuerBezahlt + ", Anzahl der Achsen: " + anzahlDerAchsen + ", Nutzlast in Tonnen: "  + zuladungInTonnen;
+             return "Hersteller: " + base.Herseller + ", Modell: " + base.Modell + ", Kennzeichen: " + base.Kennzeichen + ", Erstzulassung: " + base.jahrDerErstzulassung + ", Preis: " + base.Anschaffungspreis + ", Parkhaus: " + base.Parkhaus + ", Stellplatz: " + base.Stellplatz + ", Anzahl der Achsen: " + anzahlDerAchsen + ", Nutzlast in Tonnen: "  + zuladungInTonnen;
         }
     }
 }

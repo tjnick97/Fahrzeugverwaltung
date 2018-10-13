@@ -8,27 +8,27 @@ namespace Fahrzeugverwaltung
 {
     class Motorrad : Fahrzeug
     {
-        // Attribut
+        // Attribut.
         private int Hubraum { get; set; }
 
-        // Konstruktor, aufruf des Superkunstruktors von Fahrzeug
+        // Konstruktor, aufruf des Superkunstruktors von Fahrzeug.
         public Motorrad(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int hubraum)
             : base (hersteller, modell, kennzeichen, erstzulassung, preis, parkhaus, stellplatz)
         {
             this.Hubraum = hubraum;
         }
 
-        // Methode zur Berechnung der Steuern
-        public override string berechneSteuer()
+        // Methode zur Berechnung der Steuern.
+        public override double berechneSteuer()
         {
             double Steuern = (Hubraum * 99) / 100 * 20;
-            return "Die Steuern für das Motorrad " + base.Kennzeichen + " betragen " + Steuern + " Euro.";
+            return Steuern;
         }
 
-        // Methode zur Ausgabe der Motorraddaten
+        // Methode zur Ausgabe der Motorraddaten.
         public override string ToString()
         {
-            return "Hersteller: " + base.Herseller + ", Modell: " + base.Modell + ", Kennzeichen: " + base.Kennzeichen + ", Erstzulassung: " + base.jahrDerErstzulassung + ", Preis: " + base.Anschaffungspreis + ", Steuer bezahlt? " + base.steuerBezahlt + ", Hubraum: " + Hubraum;
+            return "Hersteller: " + base.Herseller + ", Modell: " + base.Modell + ", Kennzeichen: " + base.Kennzeichen + ", Erstzulassung: " + base.jahrDerErstzulassung + ", Preis: " + base.Anschaffungspreis + ", Parkhaus: " + base.Parkhaus + ", Stellplatz: " + base.Stellplatz + ", Hubraum: " + Hubraum;
         }
     }
 }
