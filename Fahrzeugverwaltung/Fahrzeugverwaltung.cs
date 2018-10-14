@@ -314,7 +314,7 @@ namespace Fahrzeugverwaltung
                     label15.Text = FP.steuerAlle().ToString();
                     if (splitchar[5] != "")
                     {
-                        Parkhaus parkhausObj = parkhaus[Convert.ToInt32(splitchar[5]) - 1];
+                        Parkhaus parkhausObj = parkhaus[Convert.ToInt32(splitchar[5])];
                         
                         label7.Text = parkhausObj.Ort;              //Ort
                         label8.Text = parkhausObj.PLZ.ToString();   //PLZ
