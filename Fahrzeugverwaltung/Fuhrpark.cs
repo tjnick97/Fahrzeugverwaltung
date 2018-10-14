@@ -228,7 +228,15 @@ namespace Fahrzeugverwaltung
         public void weiseStellplatzZu(string kennzeichen, int parkhaus, int stellplatz)
         {
             // Parkhaus wird intern mit 1 subtrahiert, wegen der Stelle in der Liste.
-            parkhaeuser[parkhaus].weiseParkplatzZu(stellplatz, kennzeichen); //Fehler!!
+            parkhaeuser[parkhaus-1].weiseParkplatzZu(stellplatz, kennzeichen); //Fehler!!
+
+            foreach (Fahrzeug f in fahrzeuge)
+            {
+                if (f.kennzeichen() == kennzeichen)
+                {
+                    f.andererStellplatz(parkhaus, stellplatz);
+                }
+            }
             return;
         }
 

@@ -47,6 +47,13 @@ namespace Fahrzeugverwaltung
             return Kennzeichen;
         }
 
+        // Methode zurÄnderung des Stellplatzes
+        public void andererStellplatz(int parkhaus, int stellplatz)
+        {
+            this.Parkhaus = parkhaus;
+            this.Stellplatz = stellplatz;
+        }
+
         
     }
 }
