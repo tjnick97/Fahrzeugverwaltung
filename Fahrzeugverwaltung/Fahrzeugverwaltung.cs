@@ -87,8 +87,8 @@ namespace Fahrzeugverwaltung
             pParkhausHinzufügen.BringToFront();
             pFahrzeugSuchen.Show();
 
-            FP.loadFahrzeuge();
             FP.loadParkhaus();
+            FP.loadFahrzeuge();
             //List<Fahrzeug> fahrzeuge = FP.getFahrzeuge();
             //List<Parkhaus> parkhaus = FP.getParkhaus();
             fillLabelBoxWithFahrzeuge();
@@ -257,8 +257,8 @@ namespace Fahrzeugverwaltung
 
         private void loadParkplaetze(object sender, EventArgs e) 
         {
-            FP.loadFahrzeuge();
             FP.loadParkhaus();
+            FP.loadFahrzeuge();
 
             cBParkplatz.Items.Clear();
 
@@ -314,7 +314,7 @@ namespace Fahrzeugverwaltung
                     label15.Text = FP.steuerAlle().ToString();
                     if (splitchar[5] != "")
                     {
-                        Parkhaus parkhausObj = parkhaus[Convert.ToInt32(splitchar[5])];
+                        Parkhaus parkhausObj = parkhaus[Convert.ToInt32(splitchar[5]) - 1]; // -1 von mir hinzugefügt, wegen der Erstellung
                         
                         label7.Text = parkhausObj.Ort;              //Ort
                         label8.Text = parkhausObj.PLZ.ToString();   //PLZ
