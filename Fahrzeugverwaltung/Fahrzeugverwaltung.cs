@@ -26,12 +26,33 @@ namespace Fahrzeugverwaltung
             {
                 FP.loadParkhaus();
                 FP.loadFahrzeuge();
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 Console.WriteLine("No information found!");
             }
             clearWindow();
             hideFahrzeugInformationen();
+        }
+
+        private void resetFahrzeugInformationen()
+        {
+            hideFahrzeugInformationen();
+            label1.Text = "";
+            label2.Text = "";
+            label3.Text = "";
+            label4.Text = "";
+            label5.Text = "";
+            label6.Text = "";
+            label7.Text = "";
+            label8.Text = "";
+            label9.Text = "";
+            label10.Text = "";
+            label11.Text = "";
+            label12.Text = "";
+            label13.Text = "";
+            label14.Text = "";
+            label15.Text = "";
         }
 
         private void clearWindow()
@@ -42,13 +63,9 @@ namespace Fahrzeugverwaltung
             pParkhausHinzufügen.Hide();
         }
 
-        private void fahrzeugartenAusgeben_Click(object sender, EventArgs e)
-        {
-            clearWindow();
-        }
-
         private void parkhausHinzufügen_Click(object sender, EventArgs e)
         {
+            resetFahrzeugInformationen();
             clearWindow();
             pParkhausHinzufügen.BringToFront();
             pParkhausHinzufügen.Show();
@@ -56,6 +73,7 @@ namespace Fahrzeugverwaltung
 
         private void fahrzeugHinzufügen_Click(object sender, EventArgs e)
         {
+            resetFahrzeugInformationen();
             clearWindow();
             clearFahrzeugtyp();
             pParkhausHinzufügen.BringToFront();
@@ -64,6 +82,7 @@ namespace Fahrzeugverwaltung
 
         private void fahrzeugSuchen_Click(object sender, EventArgs e)
         {
+            resetFahrzeugInformationen();
             clearWindow();
             pParkhausHinzufügen.BringToFront();
             pFahrzeugSuchen.Show();
@@ -81,21 +100,9 @@ namespace Fahrzeugverwaltung
             List<Fahrzeug> fahrzeuge = FP.getFahrzeuge();
             foreach (var item in fahrzeuge)
             {
-                string stellplatz = FP.getParkplatzParkhausForKennzeichen(item.Kennzeichen);
-                string textOutput = item.Kennzeichen + "\t" + stellplatz + "\t" + item.Herseller + "\t" + item.Modell;
+                string textOutput = item.Kennzeichen + "\t" + (item.Parkhaus == 0 ? " " : item.Parkhaus.ToString() + "-" + item.Stellplatz) + "\t" + item.Herseller + "\t" + item.Modell;
                 lBFahrzeugInformationen.Items.Add(textOutput);
             }
-        }
-
-        private void überprüfeSteuerlast_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fahrzeugZuweisen_Click(object sender, EventArgs e)
-        {
-            clearWindow();
-            loadInformations();
         }
 
         private void ShowFahrzeugTypPanel(object sender, EventArgs e)
@@ -120,9 +127,9 @@ namespace Fahrzeugverwaltung
             {
                 clearFahrzeugtyp();
                 tB_AnzAchsen.BringToFront();
-                tB_Zuladung.BringToFront();
+                tB_Zuladung_t.BringToFront();
                 tB_AnzAchsen.Show();
-                tB_Zuladung.Show();
+                tB_Zuladung_t.Show();
             }
         }
 
@@ -132,7 +139,7 @@ namespace Fahrzeugverwaltung
             tB_Hubraum.Hide();
             tB_Leistung.Hide();
             tB_AnzAchsen.Hide();
-            tB_Zuladung.Hide();
+            tB_Zuladung_t.Hide();
             cBSchadstoffklasse.Hide();
             lblSchadstoff.Hide();
         }
@@ -154,20 +161,20 @@ namespace Fahrzeugverwaltung
                 string hubraumA = tB_Hubraum.Text;
                 string leistung = tB_Leistung.Text;
                 string schadstoff = cBSchadstoffklasse.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToDouble(preis), 0, 0, Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToDouble(preis), Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
             }
             //Motorrad
             else if (cBFahrzeugTyp.Text == "Motorrad")
             {
                 string hubraumM = tBM_Hubraum.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis),0,0, Convert.ToInt32(hubraumM));
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis),Convert.ToInt32(hubraumM));
             }
             //LKW
             else if (cBFahrzeugTyp.Text == "LKW")
             {
                 string anzAchsen = tB_AnzAchsen.Text;
-                string zuladung = tB_Zuladung.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis),0,0, Convert.ToInt32(anzAchsen), Convert.ToDouble(zuladung));
+                string zuladung = tB_Zuladung_t.Text;
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis),Convert.ToInt32(anzAchsen), Convert.ToDouble(zuladung));
             }
         }
 
@@ -257,7 +264,7 @@ namespace Fahrzeugverwaltung
 
             List<Parkhaus> parkhaus = FP.getParkhaus();
             int id = Convert.ToInt32(cBParkhaus.Text);
-            List<Parkplaetze> parkplatz = parkhaus[id].getParkplatz();
+            List<Parkplaetze> parkplatz = parkhaus[id-1].getParkplatz();
 
             //HIA Differenzierung, welcher Fahrzeugtyp das ausgewählte Kennzeichen in cbKennzeichen hat, fehlt noch. = pkw 1 motorrad 2 lkw
             foreach (var item in parkplatz)
@@ -294,25 +301,41 @@ namespace Fahrzeugverwaltung
 
                 if (splitchar[2] == kennzeichen[0])
                 {
-                    Parkhaus parkhausObj = parkhaus[Convert.ToInt32(splitchar[5])];
                     label1.Text = splitchar[0];                 //Marke
                     label2.Text = splitchar[1];                 //Modell
                     label3.Text = splitchar[2];                 //Kennzeichen
                     label4.Text = splitchar[3];                 //Erstzulassung
                     label5.Text = splitchar[4];                 //Preis
                     label6.Text = splitchar[5];                 //Parkhaus
-                    label7.Text = parkhausObj.Ort;              //Ort
-                    label8.Text = parkhausObj.PLZ.ToString();   //PLZ
-                    label9.Text = parkhausObj.Straße;           //Straße
+                    //--
                     label10.Text = splitchar[6];                //Stellplatz
-                    // Steuer? bsp label14.Text = FP.steuerEinzeln(splitchar[2]);
+                                                                // Steuer? bsp label14.Text = FP.steuerEinzeln(splitchar[2]);
                     label14.Text = (FP.steuerEinzeln(splitchar[2])).ToString(); // Steuer, von mir
                     label15.Text = FP.steuerAlle().ToString();
+                    if (splitchar[5] != "")
+                    {
+                        Parkhaus parkhausObj = parkhaus[Convert.ToInt32(splitchar[5]) - 1];
+                        
+                        label7.Text = parkhausObj.Ort;              //Ort
+                        label8.Text = parkhausObj.PLZ.ToString();   //PLZ
+                        label9.Text = parkhausObj.Straße;           //Straße
+                    } else
+                    {
+                        label7.Text = "";
+                        label8.Text = "";
+                        label9.Text = "";
+                    }
                     if (splitchar.Length == 8)
                     {
                         label11.Text = splitchar[7];
                         lblHubraum.Show();
+                        lblZuladung.Hide();
+                        lblAnzAchsen.Hide();
+                        lblLeistung.Hide();
+                        lblSchadstoffklasse.Hide();
                         label11.Show();
+                        label12.Hide();
+                        label13.Hide();
                         break;
                     }
                     else if (splitchar.Length == 9)
@@ -321,8 +344,12 @@ namespace Fahrzeugverwaltung
                         label12.Text = splitchar[8];
                         lblAnzAchsen.Show();
                         lblZuladung.Show();
+                        lblHubraum.Hide();
+                        lblLeistung.Hide();
+                        lblSchadstoffklasse.Hide();
                         label11.Show();
                         label12.Show();
+                        label13.Hide();
                         break;
                     }
                     else if (splitchar.Length == 10)
@@ -333,6 +360,8 @@ namespace Fahrzeugverwaltung
                         lblHubraum.Show();
                         lblLeistung.Show();
                         lblSchadstoffklasse.Show();
+                        lblAnzAchsen.Hide();
+                        lblZuladung.Hide();
                         label11.Show();
                         label12.Show();
                         label13.Show();
@@ -342,10 +371,11 @@ namespace Fahrzeugverwaltung
             }
             file.Close();
             showFahrzeugInformationen();
-            
+
+            cBParkhaus.Items.Clear();
             for (int i = 0; i < parkhaus.Count(); i++)
             {
-                cBParkhaus.Items.Add(i);
+                cBParkhaus.Items.Add(i+1);
             }
         }
 

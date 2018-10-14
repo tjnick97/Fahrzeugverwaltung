@@ -86,9 +86,9 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur Erstellung neuer Fahrzeuge des Types PKW.
-        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int hubraum, int leistung, int schadstoffklasse)
+        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int hubraum, int leistung, int schadstoffklasse)
         {
-            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + parkhaus + ";" + stellplatz + ";" + hubraum + ";" + leistung + ";" + schadstoffklasse + "\n";
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + hubraum + ";" + leistung + ";" + schadstoffklasse + "\n";
             // fehler wegen eienm anderen zugriff
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
@@ -102,9 +102,9 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur Erstellung neuer Fahrzeuge des Types LKW.
-        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int achse, double nutzlast)
+        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int achse, double nutzlast)
         {
-            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + parkhaus + ";" + stellplatz + ";" + achse + ";" + nutzlast + "\n";
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + achse + ";" + nutzlast + "\n";
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
@@ -113,9 +113,9 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur Erstellung neuer Fahrzeuge des Types Motorrad.
-        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int hubraum)
+        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int hubraum)
         {
-            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + parkhaus + ";" + stellplatz + ";" + hubraum + "\n";
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + hubraum + "\n";
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
@@ -164,15 +164,15 @@ namespace Fahrzeugverwaltung
 
                 if (splitchar.Length == 8)
                 {
-                    fahrzeuge.Add(new Motorrad(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToInt32(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToInt32(splitchar[7])));
+                    fahrzeuge.Add(new Motorrad(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), splitchar[5] != "" ? Convert.ToInt32(splitchar[5]) : Convert.ToInt32(null), splitchar[6] != "" ? Convert.ToInt32(splitchar[6]) : Convert.ToInt32(null), Convert.ToInt32(splitchar[7])));
                 }
                 else if (splitchar.Length == 9) 
                 {
-                    fahrzeuge.Add(new LKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToInt32(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToInt32(splitchar[7]), Convert.ToDouble(splitchar[8])));
+                    fahrzeuge.Add(new LKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), splitchar[5] != "" ? Convert.ToInt32(splitchar[5]) : Convert.ToInt32(null), splitchar[6] != "" ? Convert.ToInt32(splitchar[6]) : Convert.ToInt32(null), Convert.ToInt32(splitchar[7]), Convert.ToDouble(splitchar[8])));
                 }
                 else if (splitchar.Length == 10)
                 {
-                    fahrzeuge.Add(new PKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), Convert.ToInt32(splitchar[5]), Convert.ToInt32(splitchar[6]), Convert.ToInt32(splitchar[7]), Convert.ToInt32(splitchar[8]), Convert.ToInt32(splitchar[9])));
+                    fahrzeuge.Add(new PKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), splitchar[5] != "" ? Convert.ToInt32(splitchar[5]) : Convert.ToInt32(null), splitchar[6] != "" ? Convert.ToInt32(splitchar[6]) : Convert.ToInt32(null), Convert.ToInt32(splitchar[7]), Convert.ToInt32(splitchar[8]), Convert.ToInt32(splitchar[9])));
                 }
             }
             file.Close();
