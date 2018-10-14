@@ -34,10 +34,11 @@ namespace Fahrzeugverwaltung
                 //string[] parkhaus = new string[1];
                 //parkhaus[0] = "Köln;51105;Westerwaldstr. 99;500;100;50";
 
-                string parkhaus = "Köln;51105;Westerwaldstr. 99;500;100;50";
+                string[] parkhaus = new string[1];
+                parkhaus[0] = "Köln;51105;Westerwaldstr. 99;500;100;50";
                 File.WriteAllLines(@"Fahrzeuge.txt", fahrzeuge);
                 //File.WriteAllLines(@"Parkhaus.txt", parkhaus); // voher war es writealltext, jetzt macht es probleme
-                File.WriteAllText(@"Parkhaus.txt", parkhaus);
+                File.WriteAllLines(@"Parkhaus.txt", parkhaus);
             }
         }
 
@@ -45,7 +46,7 @@ namespace Fahrzeugverwaltung
         // Methode zum Erstellen und Speichern von neuangelgegten Parkhäusern.zugriff nicht mögloich da geöffnet???
         public void newParkhaus(string ort, int plz, string straße, int anzpkw, int anzmotorrad, int anzlkw)
         {
-            string line = "\n" + ort + ";" + plz + ";" + straße + ";" + anzpkw + ";" + anzmotorrad + ";" + anzlkw;
+            string line = ort + ";" + plz + ";" + straße + ";" + anzpkw + ";" + anzmotorrad + ";" + anzlkw;
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Parkhaus.txt", true))
             {
@@ -88,7 +89,7 @@ namespace Fahrzeugverwaltung
         // Methode zur Erstellung neuer Fahrzeuge des Types PKW.
         public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int hubraum, int leistung, int schadstoffklasse)
         {
-            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + hubraum + ";" + leistung + ";" + schadstoffklasse + "\n";
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + hubraum + ";" + leistung + ";" + schadstoffklasse;
             // fehler wegen eienm anderen zugriff
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
@@ -104,7 +105,7 @@ namespace Fahrzeugverwaltung
         // Methode zur Erstellung neuer Fahrzeuge des Types LKW.
         public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int achse, double nutzlast)
         {
-            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + achse + ";" + nutzlast + "\n";
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + achse + ";" + nutzlast;
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
@@ -115,7 +116,7 @@ namespace Fahrzeugverwaltung
         // Methode zur Erstellung neuer Fahrzeuge des Types Motorrad.
         public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int hubraum)
         {
-            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + hubraum + "\n";
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + hubraum;
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
