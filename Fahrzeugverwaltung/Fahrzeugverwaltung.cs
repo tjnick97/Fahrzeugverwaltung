@@ -33,6 +33,7 @@ namespace Fahrzeugverwaltung
             hideFahrzeugInformationen();
         }
 
+        // Methode zum löschen der erweiterten Fahrzeuginformationen.
         private void resetFahrzeugInformationen()
         {
             hideFahrzeugInformationen();
@@ -53,24 +54,30 @@ namespace Fahrzeugverwaltung
             label15.Text = "";
         }
 
+        // Methode zum leeren der Form.
         private void clearWindow()
         {
-            //Clear all elements in curretn window
             pFahrzeugSuchen.Hide();
             pFahrzeugHinzufügen.Hide();
             pParkhausHinzufügen.Hide();
         }
 
+        // Methode für den Menüpunkt Parkhaus Hinzufügen.
         private void parkhausHinzufügen_Click(object sender, EventArgs e)
         {
+            lblWillkommen.Hide();
+            lblEinweisung.Hide();
             resetFahrzeugInformationen();
             clearWindow();
             pParkhausHinzufügen.BringToFront();
             pParkhausHinzufügen.Show();
         }
 
+        // Methode für den Menüpunkt Fahrzeug Hinzufügen.
         private void fahrzeugHinzufügen_Click(object sender, EventArgs e)
         {
+            lblWillkommen.Hide();
+            lblEinweisung.Hide();
             resetFahrzeugInformationen();
             clearWindow();
             clearFahrzeugtyp();
@@ -85,8 +92,11 @@ namespace Fahrzeugverwaltung
             }
         }
 
-        private void fahrzeugSuchen_Click(object sender, EventArgs e)
+        // Methode für den Menüpunkt Fahrzeug verwalten.
+        private void fahrzeugVerwalten_Click(object sender, EventArgs e)
         {
+            lblWillkommen.Hide();
+            lblEinweisung.Hide();
             resetFahrzeugInformationen();
             clearWindow();
             pParkhausHinzufügen.BringToFront();
@@ -95,6 +105,7 @@ namespace Fahrzeugverwaltung
             fillLabelBoxWithFahrzeuge();
         }
 
+        // Methode um die labelBox mit den Fahrzeuginformationen zu füllen.
         private void fillLabelBoxWithFahrzeuge()
         {
             lBFahrzeugInformationen.Items.Clear();
@@ -107,6 +118,7 @@ namespace Fahrzeugverwaltung
             }
         }
 
+        // Methode um für die jeweiligen Fahrzeugtypen das richtige Panel anzeigen zu lassen.
         private void ShowFahrzeugTypPanel(object sender, EventArgs e)
         {
             cbH_Parkhaus.Text = "Parkhaus";
@@ -137,6 +149,7 @@ namespace Fahrzeugverwaltung
             }
         }
 
+        // Methode zum verstecken.
         private void clearFahrzeugtyp()
         {
             tBM_Hubraum.Hide();
@@ -165,37 +178,45 @@ namespace Fahrzeugverwaltung
 
             if (!exists)
             {
-
-                //Call function to save input for new Vehicle
-                string hersteller = tB_Hersteller.Text;
-                string modell = tB_Modell.Text;
-                string erstzulassung = tB_Erstzulassung.Text;
-                string preis = tB_Preis.Text;
-                int parkhaus = Convert.ToInt32(cbH_Parkhaus.Text);
-                int stellplatz = Convert.ToInt32(cbH_Stellplatz.Text);
-
-                // PKW
-                if (cBFahrzeugTyp.Text == "PKW")
+                try
                 {
-                    string hubraumA = tB_Hubraum.Text;
-                    string leistung = tB_Leistung.Text;
-                    string schadstoff = cBSchadstoffklasse.Text;
-                    FP.newFahrzeug(hersteller, modell, kennzeichen, Convert.ToInt32(erstzulassung), Convert.ToDouble(preis), parkhaus, stellplatz, Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
-                }
+                    string hersteller = tB_Hersteller.Text;
+                    string modell = tB_Modell.Text;
+                    string erstzulassung = tB_Erstzulassung.Text;
+                    string preis = tB_Preis.Text;
+                    int parkhaus = Convert.ToInt32(cbH_Parkhaus.Text);
+                    int stellplatz = Convert.ToInt32(cbH_Stellplatz.Text);
 
-                //Motorrad
-                else if (cBFahrzeugTyp.Text == "Motorrad")
-                {
-                    string hubraumM = tBM_Hubraum.Text;
-                    FP.newFahrzeug(hersteller, modell, kennzeichen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), parkhaus, stellplatz, Convert.ToInt32(hubraumM));
-                }
+                    // PKW.
+                    if (cBFahrzeugTyp.Text == "PKW")
+                    {
+                        string hubraumA = tB_Hubraum.Text;
+                        string leistung = tB_Leistung.Text;
+                        string schadstoff = cBSchadstoffklasse.Text;
+                        FP.newFahrzeug(hersteller, modell, kennzeichen, Convert.ToInt32(erstzulassung), Convert.ToDouble(preis), parkhaus, stellplatz, Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
+                    }
 
-                //LKW
-                else if (cBFahrzeugTyp.Text == "LKW")
+                    // Motorrad.
+                    else if (cBFahrzeugTyp.Text == "Motorrad")
+                    {
+                        string hubraumM = tBM_Hubraum.Text;
+                        FP.newFahrzeug(hersteller, modell, kennzeichen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), parkhaus, stellplatz, Convert.ToInt32(hubraumM));
+                    }
+
+                    // LKW.
+                    else if (cBFahrzeugTyp.Text == "LKW")
+                    {
+                        string anzAchsen = tB_AnzAchsen.Text;
+                        string zuladung = tB_Zuladung_t.Text;
+                        FP.newFahrzeug(hersteller, modell, kennzeichen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), parkhaus, stellplatz, Convert.ToInt32(anzAchsen), Convert.ToDouble(zuladung));
+                    }
+                    menuStrip1.BackColor = Color.LightGreen;
+                    tmBlink.Start();
+
+                } catch (Exception)
                 {
-                    string anzAchsen = tB_AnzAchsen.Text;
-                    string zuladung = tB_Zuladung_t.Text;
-                    FP.newFahrzeug(hersteller, modell, kennzeichen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), parkhaus, stellplatz, Convert.ToInt32(anzAchsen), Convert.ToDouble(zuladung));
+                    MessageBox.Show("Bitte überprüfe die Eingaben.");
+
                 }
             } else
             {
@@ -211,18 +232,25 @@ namespace Fahrzeugverwaltung
              *  LKW im Erdgeschoss max. 10
              *  Parkplätze p. Etage = AnzLKW * 6 (Wenn keine LKW, dann 60)
             **/
-
-            //Call function to save input for new Parkhaus
-            string Ort = tB_Ort.Text;
-            int PLZ = Convert.ToInt32(tB_PLZ.Text);
-            string Straße = tB_Strasse.Text;
-            int anzPKW = Convert.ToInt32(tB_PKW.Text);
-            int anzMotorrad = Convert.ToInt32(tB_Motorrad.Text);
-            int anzLKW = Convert.ToInt32(tB_LKW.Text);
-
-            FP.newParkhaus(Ort, PLZ, Straße, anzPKW, anzMotorrad, anzLKW);
+            try
+            {
+                string Ort = tB_Ort.Text;
+                int PLZ = Convert.ToInt32(tB_PLZ.Text);
+                string Straße = tB_Strasse.Text;
+                int anzPKW = Convert.ToInt32(tB_PKW.Text);
+                int anzMotorrad = Convert.ToInt32(tB_Motorrad.Text);
+                int anzLKW = Convert.ToInt32(tB_LKW.Text);
+                
+                FP.newParkhaus(Ort, PLZ, Straße, anzPKW, anzMotorrad, anzLKW);
+                menuStrip1.BackColor = Color.LightGreen;
+                tmBlink.Start();
+            } catch (Exception)
+            {
+                MessageBox.Show("Bitte überprüfe die Eingaben.");
+            }
         }
 
+        // Methoden um den Input zu vereinfachen.
         private void changeFocusToTBKZusatz(object sender, EventArgs e)
         {
             if (tBK_Ken.Text.Length == 3)
@@ -269,6 +297,7 @@ namespace Fahrzeugverwaltung
             }
         }
 
+        // Methode um die Verfügbaren Parkplätze zu laden.
         private void loadParkplaetze(object sender, EventArgs e) 
         {
             List<Parkhaus> parkhaus = FP.getParkhaus();
@@ -288,15 +317,9 @@ namespace Fahrzeugverwaltung
                 cbH_Stellplatz.Items.Clear();
                 stellplatzTyp = cBFahrzeugTyp.SelectedIndex;
             }
-
-            
-            
+                        
             List<Parkplaetze> parkplatz = parkhaus[id-1].getParkplatz();
             List<Parkplaetze> filteredParkplaetze = parkplatz.Where(x => x.Stellplatztyp == stellplatzTyp).ToList();
-
-
-
-            //HIA Differenzierung, welcher Fahrzeugtyp das ausgewählte Kennzeichen in cbKennzeichen hat, fehlt noch. = pkw 1 motorrad 2 lkw
             foreach (var item in filteredParkplaetze)
             {
                 if (item.Kennzeichen == null)
@@ -306,15 +329,15 @@ namespace Fahrzeugverwaltung
             }
         }
 
-        // Anzeige der Fahrzeugdaten.
+        // Anzeige der Fahrzeugdaten in der LabelBox.
         private void showExtendedFahrzeugInformations_Click(object sender, EventArgs e)
         {
             cBParkhaus.Text = "Parkhaus";
-            cbH_Stellplatz.Text = "Stellplatz";
+            cBParkplatz.Text = "Stellplatz";
             List<Parkhaus> parkhaus = FP.getParkhaus();
             System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeuge.txt", true);
             string line;
-            while ((line = Convert.ToString(file.ReadLine())) != null) //liest nur erste Zeile?
+            while ((line = Convert.ToString(file.ReadLine())) != null)
             {
                 string[] splitchar = line.Split(';');
                 string fahrzeugInformation = lBFahrzeugInformationen.SelectedItem.ToString();
@@ -330,8 +353,7 @@ namespace Fahrzeugverwaltung
                     label6.Text = splitchar[5];                 //Parkhaus
                     //--
                     label10.Text = splitchar[6];                //Stellplatz
-                                                                // Steuer? bsp label14.Text = FP.steuerEinzeln(splitchar[2]);
-                    label14.Text = (FP.steuerEinzeln(splitchar[2])).ToString(); // Steuer, von mir
+                    label14.Text = (FP.steuerEinzeln(splitchar[2])).ToString();
                     label15.Text = FP.steuerAlle().ToString();
 
                     int stellplatzTyp = parkhaus[Convert.ToInt32(label6.Text) - 1].parkplaetze[Convert.ToInt32(label10.Text) - 1].Stellplatztyp;
@@ -413,16 +435,27 @@ namespace Fahrzeugverwaltung
             }
         }
 
+        // Methode für den Knopfdruck um einen Parkplatz einem Fahrzeug zu zuweisen.
         private void btnSaveParkplatz_Click(object sender, EventArgs e)
         {
-            string selectedKennzeichen = lBFahrzeugInformationen.SelectedItem.ToString();
-            string[] helper = selectedKennzeichen.Split('\t');
-
-
-            FP.weiseStellplatzZu(helper[0], Convert.ToInt32(cBParkhaus.Text), Convert.ToInt32(cBParkplatz.Text));
+            try
+            {
+                string selectedKennzeichen = lBFahrzeugInformationen.SelectedItem.ToString();
+                string[] helper = selectedKennzeichen.Split('\t');
+                
+                FP.weiseStellplatzZu(helper[0], Convert.ToInt32(cBParkhaus.Text), Convert.ToInt32(cBParkplatz.Text));
+                menuStrip1.BackColor = Color.LightGreen;
+                tmBlink.Start();
+            } catch(Exception)
+            {
+                MessageBox.Show("Bitte überprüfe die Eingaben.");
+            }
             fillLabelBoxWithFahrzeuge();
+            cBParkhaus.Text = "Parkhaus";
+            cBParkplatz.Text = "Stellplatz";
         }
 
+        // Methode zum durchsuchen der labelBox Mittels des Kennzeichens.
         private void ortFilterTextForLBFahrzeugInformationen(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Back)
@@ -542,6 +575,12 @@ namespace Fahrzeugverwaltung
             cBParkhaus.Show();
             btnSaveParkplatz.Show();
             lblStellplatzÄndern.Show();
+        }
+
+        // Timer für Benutzerfeedback (grünes leuchten).
+        private void stopBlink(object sender, EventArgs e)
+        {
+            menuStrip1.BackColor = Color.Transparent;
         }
     }
 }

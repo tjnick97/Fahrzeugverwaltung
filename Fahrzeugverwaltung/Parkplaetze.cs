@@ -26,25 +26,16 @@ namespace Fahrzeugverwaltung
             this.Kennzeichen = Kennzeichen;
         }
 
-        // Methode zur entfernung des aktuellen Fahrzeuges von dem Stellplatz.
-        public void parkplatzZuweisungLöschen ()
-        {
-            Kennzeichen = "";
-        }
         // Methode, die das Kennzeichen des Fahrzeuges, das diesen Stellplatz zugewiesen bekommen hat, zurückgibt.
         public string getKennzeichen()
         {
             return Kennzeichen;
         }
+
         // Rückgabe der Stellplatznummer.
         public int getParkplatz()
         {
             return Parkplatz;
-        }
-        // Rückgabe des Parkplatztypes.
-        public int getParkplatzTyp()
-        {
-            return Stellplatztyp;
         }
     }
 }

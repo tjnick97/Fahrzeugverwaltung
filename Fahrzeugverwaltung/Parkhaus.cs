@@ -60,12 +60,6 @@ namespace Fahrzeugverwaltung
             return result;
         }
 
-        // Ausgabe der Parkhausdaten.
-        public string toString()
-        {
-            return Straße + ", " + PLZ + " " + Ort;
-        }
-
         // Methode zur zuweisung eines Parkplatzes.
         public void weiseParkplatzZu(int parkplatznummer, string kennzeichen)
         {

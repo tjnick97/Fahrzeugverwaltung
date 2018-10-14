@@ -8,7 +8,7 @@ namespace Fahrzeugverwaltung
 {
     class Motorrad : Fahrzeug
     {
-        // Attribut.
+        // Attribute.
         private int Hubraum { get; set; }
 
         // Konstruktor, aufruf des Superkunstruktors von Fahrzeug.

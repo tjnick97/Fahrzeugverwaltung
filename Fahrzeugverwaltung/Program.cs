@@ -14,7 +14,6 @@ namespace Fahrzeugverwaltung
        [STAThread]
         static void Main()
         {
-            TestClass test = new TestClass();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

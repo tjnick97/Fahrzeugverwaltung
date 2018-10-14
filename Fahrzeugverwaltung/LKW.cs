@@ -8,7 +8,7 @@ namespace Fahrzeugverwaltung
 {
     class LKW : Fahrzeug
     {
-        // Attrubute.
+        // Attribute.
         private int anzahlDerAchsen { get; set; }
         private double zuladungInTonnen { get; set; }
 
