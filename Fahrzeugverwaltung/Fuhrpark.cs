@@ -35,7 +35,10 @@ namespace Fahrzeugverwaltung
                 parkhaus[0] = "Köln;51105;Westerwaldstr. 99;500;100;50";
                 File.WriteAllLines(@"Fahrzeuge.txt", fahrzeuge);
                 File.WriteAllLines(@"Parkhaus.txt", parkhaus);
-                
+
+                // Zuweisund der Stellplätze und des Parkhauses in den Anfangsobjekten
+                loadParkhaus();
+                loadFahrzeuge();
                 zuweisenDerStellplätzeNachLadenAusDatei(fahrzeuge);
             }
         }
