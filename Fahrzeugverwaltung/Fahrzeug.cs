@@ -14,9 +14,8 @@ namespace Fahrzeugverwaltung
         public string Kennzeichen { get; set; }
         public int jahrDerErstzulassung { get; set; }
         public double Anschaffungspreis { get; set; }
-        // public bool steuerBezahlt { get; set; } //WEG
-        public int Parkhaus { get; set; } //HINZU
-        public int Stellplatz { get; set; } //HINZU
+        public int Parkhaus { get; set; }
+        public int Stellplatz { get; set; }
 
         // Konstruktor.
         public Fahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz)

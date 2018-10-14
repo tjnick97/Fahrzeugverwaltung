@@ -78,6 +78,13 @@ namespace Fahrzeugverwaltung
             clearFahrzeugtyp();
             pParkhausHinzufügen.BringToFront();
             pFahrzeugHinzufügen.Show();
+
+            cbH_Parkhaus.Items.Clear();
+            List<Parkhaus> parkhaus = FP.getParkhaus();
+            for (int i = 0; i < parkhaus.Count(); i++)
+            {
+                cbH_Parkhaus.Items.Add(i + 1);
+            }
         }
 
         private void fahrzeugSuchen_Click(object sender, EventArgs e)
@@ -89,8 +96,6 @@ namespace Fahrzeugverwaltung
 
             FP.loadFahrzeuge();
             FP.loadParkhaus();
-            //List<Fahrzeug> fahrzeuge = FP.getFahrzeuge();
-            //List<Parkhaus> parkhaus = FP.getParkhaus();
             fillLabelBoxWithFahrzeuge();
         }
 
@@ -155,6 +160,7 @@ namespace Fahrzeugverwaltung
             string hen = tBK_Hen.Text;
             string erstzulassung = tB_Erstzulassung.Text;
             string preis = tB_Preis.Text;
+
             // PKW
             if (cBFahrzeugTyp.Text == "PKW")
             {
@@ -163,12 +169,14 @@ namespace Fahrzeugverwaltung
                 string schadstoff = cBSchadstoffklasse.Text;
                 FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToDouble(preis), Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
             }
+
             //Motorrad
             else if (cBFahrzeugTyp.Text == "Motorrad")
             {
                 string hubraumM = tBM_Hubraum.Text;
                 FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis),Convert.ToInt32(hubraumM));
             }
+
             //LKW
             else if (cBFahrzeugTyp.Text == "LKW")
             {
@@ -260,36 +268,34 @@ namespace Fahrzeugverwaltung
             FP.loadFahrzeuge();
             FP.loadParkhaus();
 
-            cBParkplatz.Items.Clear();
+            ComboBox help;
+            int id;
+            if (((ComboBox)sender).Name.ToString() == "cBParkhaus")
+            {
+                 help = cBParkplatz;
+                id = Convert.ToInt32(cBParkhaus.Text);
+                cBParkplatz.Items.Clear();
+            } else
+            {
+                help = cbH_Stellplatz;
+                id = Convert.ToInt32(cbH_Parkhaus.Text);
+                cbH_Stellplatz.Items.Clear();
+            }
 
             List<Parkhaus> parkhaus = FP.getParkhaus();
-            int id = Convert.ToInt32(cBParkhaus.Text);
+            
             List<Parkplaetze> parkplatz = parkhaus[id-1].getParkplatz();
 
             //HIA Differenzierung, welcher Fahrzeugtyp das ausgewählte Kennzeichen in cbKennzeichen hat, fehlt noch. = pkw 1 motorrad 2 lkw
             foreach (var item in parkplatz)
             {
-                cBParkplatz.Items.Add(item.getParkplatz() + 1);
+                help.Items.Add(item.getParkplatz() + 1);
             }
-
         }
 
         // Anzeige der Fahrzeugdaten.
         private void showExtendedFahrzeugInformations_Click(object sender, EventArgs e)
         {
-            //cBParkhaus.Show();
-            //cBParkplatz.Show();
-            //btnSaveParkplatz.Show();
-            //List<Parkhaus> parkhaus = FP.getParkhaus();
-
-            //List<Fahrzeug> fahrzeuge = FP.getFahrzeuge();
-            //List<Parkhaus> parkhaus = FP.getParkhaus();
-            //string fahrzeugInformation = lBFahrzeugInformationen.SelectedItem.ToString();
-            //string[] kennzeichen = fahrzeugInformation.Split('\t');
-            //
-            //Fahrzeug foundFahrzeug = fahrzeuge.Find(x => x.Kennzeichen == kennzeichen[0]);
-            //Parkhaus stellplatz = parkhaus.Find(x => x.searchForFahrzeug == kennzeichen[0]);
-            
             List<Parkhaus> parkhaus = FP.getParkhaus();
             System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeuge.txt", true);
             string line;
@@ -407,8 +413,8 @@ namespace Fahrzeugverwaltung
                 fillLabelBoxWithFahrzeuge();
             }
 
-            List<String> FahrzeuginformationenOld = new List<string>();
-            List<String> FahrzeuginformationenNew = new List<string>();
+            List<string> FahrzeuginformationenOld = new List<string>();
+            List<string> FahrzeuginformationenNew = new List<string>();
             for (int i = 0; i < lBFahrzeugInformationen.Items.Count; i++)
             {
                 string cbFahrzeugInformationen = lBFahrzeugInformationen.Items[i].ToString();
@@ -464,8 +470,8 @@ namespace Fahrzeugverwaltung
             lblPLZ.Hide();
             lblStraße.Hide();
             lblStellplatz.Hide();
-            lblSteuerFürDasFahrzeug.Hide(); // von mir
-            lblSteuerFürAlle.Hide(); // von mir
+            lblSteuerFürDasFahrzeug.Hide();
+            lblSteuerFürAlle.Hide();
             label1.Hide();
             label2.Hide();
             label3.Hide();
@@ -479,8 +485,8 @@ namespace Fahrzeugverwaltung
             label11.Hide();
             label12.Hide();
             label13.Hide();
-            label14.Hide(); // von mir
-            label15.Hide(); // von mir
+            label14.Hide();
+            label15.Hide();
             cBParkplatz.Hide();
             cBParkhaus.Hide();
             btnSaveParkplatz.Hide();
@@ -499,8 +505,8 @@ namespace Fahrzeugverwaltung
             lblPLZ.Show();
             lblStraße.Show();
             lblStellplatz.Show();
-            lblSteuerFürDasFahrzeug.Show(); // von mir
-            lblSteuerFürAlle.Show(); // von mir
+            lblSteuerFürDasFahrzeug.Show();
+            lblSteuerFürAlle.Show();
             label1.Show();
             label2.Show();
             label3.Show();
@@ -511,8 +517,8 @@ namespace Fahrzeugverwaltung
             label8.Show();
             label9.Show();
             label10.Show();
-            label14.Show(); // von mir
-            label15.Show(); // von ir
+            label14.Show();
+            label15.Show();
             cBParkplatz.Show();
             cBParkhaus.Show();
             btnSaveParkplatz.Show();

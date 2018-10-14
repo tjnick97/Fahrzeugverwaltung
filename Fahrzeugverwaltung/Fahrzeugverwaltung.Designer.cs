@@ -105,6 +105,8 @@
             this.lBFahrzeugInformationen = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cbH_Parkhaus = new System.Windows.Forms.ComboBox();
+            this.cbH_Stellplatz = new System.Windows.Forms.ComboBox();
             this.pFahrzeugHinzufügen.SuspendLayout();
             this.pParkhausHinzufügen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -114,6 +116,8 @@
             // pFahrzeugHinzufügen
             // 
             this.pFahrzeugHinzufügen.AutoSize = true;
+            this.pFahrzeugHinzufügen.Controls.Add(this.cbH_Stellplatz);
+            this.pFahrzeugHinzufügen.Controls.Add(this.cbH_Parkhaus);
             this.pFahrzeugHinzufügen.Controls.Add(this.textBox1);
             this.pFahrzeugHinzufügen.Controls.Add(this.lblFahrzeugTyp);
             this.pFahrzeugHinzufügen.Controls.Add(this.lblSchadstoff);
@@ -151,7 +155,7 @@
             // lblSchadstoff
             // 
             this.lblSchadstoff.AutoSize = true;
-            this.lblSchadstoff.Location = new System.Drawing.Point(229, 230);
+            this.lblSchadstoff.Location = new System.Drawing.Point(229, 186);
             this.lblSchadstoff.Name = "lblSchadstoff";
             this.lblSchadstoff.Size = new System.Drawing.Size(61, 13);
             this.lblSchadstoff.TabIndex = 18;
@@ -165,7 +169,7 @@
             "1",
             "2",
             "3"});
-            this.cBSchadstoffklasse.Location = new System.Drawing.Point(303, 227);
+            this.cBSchadstoffklasse.Location = new System.Drawing.Point(303, 183);
             this.cBSchadstoffklasse.MaxLength = 1;
             this.cBSchadstoffklasse.Name = "cBSchadstoffklasse";
             this.cBSchadstoffklasse.Size = new System.Drawing.Size(118, 21);
@@ -173,7 +177,7 @@
             // 
             // tB_Leistung
             // 
-            this.tB_Leistung.Location = new System.Drawing.Point(238, 183);
+            this.tB_Leistung.Location = new System.Drawing.Point(238, 139);
             this.tB_Leistung.Name = "tB_Leistung";
             this.tB_Leistung.Size = new System.Drawing.Size(183, 20);
             this.tB_Leistung.TabIndex = 5;
@@ -185,7 +189,7 @@
             // 
             // tB_Hubraum
             // 
-            this.tB_Hubraum.Location = new System.Drawing.Point(238, 139);
+            this.tB_Hubraum.Location = new System.Drawing.Point(238, 95);
             this.tB_Hubraum.Name = "tB_Hubraum";
             this.tB_Hubraum.Size = new System.Drawing.Size(183, 20);
             this.tB_Hubraum.TabIndex = 4;
@@ -966,6 +970,25 @@
             this.textBox2.Text = "Fahrzeugsuche";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // cbH_Parkhaus
+            // 
+            this.cbH_Parkhaus.FormattingEnabled = true;
+            this.cbH_Parkhaus.Location = new System.Drawing.Point(232, 227);
+            this.cbH_Parkhaus.Name = "cbH_Parkhaus";
+            this.cbH_Parkhaus.Size = new System.Drawing.Size(94, 21);
+            this.cbH_Parkhaus.TabIndex = 21;
+            this.cbH_Parkhaus.Text = "Parkhaus";
+            this.cbH_Parkhaus.SelectedValueChanged += new System.EventHandler(this.loadParkplaetze);
+            // 
+            // cbH_Stellplatz
+            // 
+            this.cbH_Stellplatz.FormattingEnabled = true;
+            this.cbH_Stellplatz.Location = new System.Drawing.Point(327, 227);
+            this.cbH_Stellplatz.Name = "cbH_Stellplatz";
+            this.cbH_Stellplatz.Size = new System.Drawing.Size(94, 21);
+            this.cbH_Stellplatz.TabIndex = 22;
+            this.cbH_Stellplatz.Text = "Stellplatz";
+            // 
             // Fahrzeugverwaltung
             // 
             this.ClientSize = new System.Drawing.Size(465, 568);
@@ -1067,6 +1090,8 @@
         private System.Windows.Forms.Label lblSteuerFürAlle;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox cbH_Stellplatz;
+        private System.Windows.Forms.ComboBox cbH_Parkhaus;
     }
 }
 
