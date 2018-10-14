@@ -380,9 +380,6 @@ namespace Fahrzeugverwaltung
 
         private void btnSaveParkplatz_Click(object sender, EventArgs e)
         {
-            cBParkhaus.Hide();
-            cBParkplatz.Hide();
-            btnSaveParkplatz.Hide();
             string selectedKennzeichen = lBFahrzeugInformationen.SelectedItem.ToString();
             string[] helper = selectedKennzeichen.Split('\t');
 

@@ -53,7 +53,7 @@ namespace Fahrzeugverwaltung
             foreach (string s in fahrzeugdaten)
             {
                 string[] splitstring = s.Split(';');
-                parkhaeuser[Convert.ToInt32(splitstring[5]) - 1].weiseParkplatzZu(Convert.ToInt32(splitstring[6]) - 1, splitstring[2]);
+                parkhaeuser[Convert.ToInt32(splitstring[5]) - 1].weiseParkplatzZu(Convert.ToInt32(splitstring[6]), splitstring[2]);
             }
         }
 
@@ -161,7 +161,7 @@ namespace Fahrzeugverwaltung
                 {
                     fahrzeuge.Add(new PKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), splitchar[5] != "" ? Convert.ToInt32(splitchar[5]) : Convert.ToInt32(null), splitchar[6] != "" ? Convert.ToInt32(splitchar[6]) : Convert.ToInt32(null), Convert.ToInt32(splitchar[7]), Convert.ToInt32(splitchar[8]), Convert.ToInt32(splitchar[9])));
                 }
-                parkhaeuser[Convert.ToInt32(splitchar[5]) - 1].weiseParkplatzZu(Convert.ToInt32(splitchar[6]) - 1, splitchar[2]); // Zuweisung des Stellplatzes beim Laden des Fahrzeuges
+                parkhaeuser[Convert.ToInt32(splitchar[5]) - 1].weiseParkplatzZu(Convert.ToInt32(splitchar[6]), splitchar[2]); // Zuweisung des Stellplatzes beim Laden des Fahrzeuges
             }
             file.Close();
         }
