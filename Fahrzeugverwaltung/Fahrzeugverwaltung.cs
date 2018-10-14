@@ -160,6 +160,8 @@ namespace Fahrzeugverwaltung
             string hen = tBK_Hen.Text;
             string erstzulassung = tB_Erstzulassung.Text;
             string preis = tB_Preis.Text;
+            int parkhaus = Convert.ToInt32(cbH_Parkhaus.Text);
+            int stellplatz = Convert.ToInt32(cbH_Stellplatz.Text);
 
             // PKW
             if (cBFahrzeugTyp.Text == "PKW")
@@ -167,14 +169,14 @@ namespace Fahrzeugverwaltung
                 string hubraumA = tB_Hubraum.Text;
                 string leistung = tB_Leistung.Text;
                 string schadstoff = cBSchadstoffklasse.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToDouble(preis), Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToDouble(preis), parkhaus, stellplatz, Convert.ToInt32(hubraumA), Convert.ToInt32(leistung), Convert.ToInt32(schadstoff));
             }
 
             //Motorrad
             else if (cBFahrzeugTyp.Text == "Motorrad")
             {
                 string hubraumM = tBM_Hubraum.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis),Convert.ToInt32(hubraumM));
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis), parkhaus, stellplatz, Convert.ToInt32(hubraumM));
             }
 
             //LKW
@@ -182,7 +184,7 @@ namespace Fahrzeugverwaltung
             {
                 string anzAchsen = tB_AnzAchsen.Text;
                 string zuladung = tB_Zuladung_t.Text;
-                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis),Convert.ToInt32(anzAchsen), Convert.ToDouble(zuladung));
+                FP.newFahrzeug(hersteller, modell, ken + "-" + zei + "-" + hen, Convert.ToInt32(erstzulassung), Convert.ToInt32(preis),parkhaus, stellplatz, Convert.ToInt32(anzAchsen), Convert.ToDouble(zuladung));
             }
         }
 
@@ -252,17 +254,6 @@ namespace Fahrzeugverwaltung
             }
         }
 
-        private void loadInformations()
-        {
-            //Load info to ComboBoxes
-            List<Parkhaus> parkhaus = FP.getParkhaus();
-            
-            for (int i = 0; i < parkhaus.Count(); i++)
-            {
-                cBParkhaus.Items.Add(i+1);
-            }
-        }
-
         private void loadParkplaetze(object sender, EventArgs e) 
         {
             FP.loadFahrzeuge();
@@ -320,7 +311,7 @@ namespace Fahrzeugverwaltung
                     label15.Text = FP.steuerAlle().ToString();
                     if (splitchar[5] != "")
                     {
-                        Parkhaus parkhausObj = parkhaus[Convert.ToInt32(splitchar[5])];
+                        Parkhaus parkhausObj = parkhaus[Convert.ToInt32(splitchar[5])-1];
                         
                         label7.Text = parkhausObj.Ort;              //Ort
                         label8.Text = parkhausObj.PLZ.ToString();   //PLZ
@@ -392,18 +383,10 @@ namespace Fahrzeugverwaltung
             btnSaveParkplatz.Hide();
             string selectedKennzeichen = lBFahrzeugInformationen.SelectedItem.ToString();
             string[] helper = selectedKennzeichen.Split('\t');
-            selectedKennzeichen = helper[0];
-
-            FP.weiseStellplatzZu(selectedKennzeichen, Convert.ToInt32(cBParkhaus.Text), Convert.ToInt32(cBParkplatz.Text));
-            loadInformations();
-
-            // Fehlt noch 
 
 
-            //MessageBox.Show(lBFahrzeugInformationen.SelectedItem.ToString());
-            //lBFahrzeugInformationen.SelectedItem.ToString()
-
-            //FP.weiseStellplatzZu(((ListBox)sender).SelectedItem.ToString());
+            FP.weiseStellplatzZu(helper[0], Convert.ToInt32(cBParkhaus.Text), Convert.ToInt32(cBParkplatz.Text));
+            fillLabelBoxWithFahrzeuge();
         }
 
         private void ortFilterTextForLBFahrzeugInformationen(object sender, KeyEventArgs e)

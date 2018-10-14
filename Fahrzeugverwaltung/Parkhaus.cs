@@ -69,8 +69,7 @@ namespace Fahrzeugverwaltung
         // Methode zur zuweisung eines Parkplatzes.
         public void weiseParkplatzZu(int parkplatznummer, string kennzeichen)
         {
-            // Die Parkplatznummer wird interm mit 1 subtrahiert, wegen der position in der Liste
-            parkplaetze[parkplatznummer - 1].parkplatzZuweisen(kennzeichen);
+            parkplaetze[parkplatznummer-1].parkplatzZuweisen(kennzeichen);
             return;
         }
 

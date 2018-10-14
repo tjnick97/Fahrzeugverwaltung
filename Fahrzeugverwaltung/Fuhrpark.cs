@@ -87,9 +87,9 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur Erstellung neuer Fahrzeuge des Types PKW.
-        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int hubraum, int leistung, int schadstoffklasse)
+        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int hubraum, int leistung, int schadstoffklasse)
         {
-            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + hubraum + ";" + leistung + ";" + schadstoffklasse;
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + parkhaus + ";" + stellplatz + ";" + hubraum + ";" + leistung + ";" + schadstoffklasse;
             // fehler wegen eienm anderen zugriff
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
@@ -103,9 +103,9 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur Erstellung neuer Fahrzeuge des Types LKW.
-        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int achse, double nutzlast)
+        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int achse, double nutzlast)
         {
-            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + achse + ";" + nutzlast;
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + parkhaus + ";" + stellplatz + ";" + achse + ";" + nutzlast;
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
@@ -114,9 +114,9 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zur Erstellung neuer Fahrzeuge des Types Motorrad.
-        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int hubraum)
+        public void newFahrzeug(string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz, int hubraum)
         {
-            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + ";" + ";" + hubraum;
+            string line = hersteller + ";" + modell + ";" + kennzeichen + ";" + erstzulassung + ";" + preis + ";" + parkhaus + ";" + stellplatz + ";" + hubraum;
 
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"Fahrzeuge.txt", true))
             {
@@ -133,35 +133,6 @@ namespace Fahrzeugverwaltung
             while((line = Convert.ToString(file.ReadLine())) != null)
             {
                 string[] splitchar = line.Split(';');
-                // string hersteller, string modell, string kennzeichen, int erstzulassung, double preis, int parkhaus, int stellplatz
-                // pkw int leistung, int schadstoffklasse
-                // lkw int achsen, double nutzlast)
-                // motorrad int hubraum
-
-                /*
-                string s1 = splitchar[0];
-                string s2 = splitchar[1];
-                string s3 = splitchar[2];
-                int i = Convert.ToInt32(splitchar[3]);
-                double d = Convert.ToDouble(splitchar[4]);
-                int i2 = Convert.ToInt32(splitchar[5]);
-                //int i3 = Convert.ToInt32(splitchar[6]); // da ist der fehler
-
-                if(splitchar.Length == 8)
-                {
-                    int i4 = Convert.ToInt32(splitchar[7]);
-                }
-                if (splitchar.Length == 9)
-                {
-                    int i5 = Convert.ToInt32(splitchar[7]);
-                    double d4 = Convert.ToDouble(splitchar[8]);
-                }
-                if (splitchar.Length == 10)
-                {
-                    int i5 = Convert.ToInt32(splitchar[7]);
-                    int i6 = Convert.ToInt32(splitchar[8]);
-                    int i7 = Convert.ToInt32(splitchar[9]);
-                }*/
 
                 if (splitchar.Length == 8)
                 {
@@ -228,15 +199,43 @@ namespace Fahrzeugverwaltung
         public void weiseStellplatzZu(string kennzeichen, int parkhaus, int stellplatz)
         {
             // Parkhaus wird intern mit 1 subtrahiert, wegen der Stelle in der Liste.
-            parkhaeuser[parkhaus-1].weiseParkplatzZu(stellplatz, kennzeichen); //Fehler!!
+            parkhaeuser[parkhaus-1].weiseParkplatzZu(stellplatz, kennzeichen);
 
             foreach (Fahrzeug f in fahrzeuge)
             {
                 if (f.kennzeichen() == kennzeichen)
                 {
                     f.andererStellplatz(parkhaus, stellplatz);
+                    break;
                 }
             }
+            //HIA
+            System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeuge.txt", true);
+            string line = "";
+            List<string> lines = new List<string>(); 
+            while ((line = Convert.ToString(file.ReadLine())) != null)
+            {
+                var help = line.Split(';');
+                if (help[2] == kennzeichen)
+                {
+                    help[5] = parkhaus.ToString();
+                    help[6] = stellplatz.ToString();
+                    line = "";
+                    for (int i = 0; i < help.Length; i++)
+                    {
+                        if (i != help.Length - 1)
+                        {
+                            line += help[i] + ";";
+                        } else
+                        {
+                            line += help[i];
+                        }
+                    }
+                }
+                lines.Add(line);
+            }
+            file.Close();
+            File.WriteAllLines(@"Fahrzeuge.txt", lines);
             return;
         }
 
