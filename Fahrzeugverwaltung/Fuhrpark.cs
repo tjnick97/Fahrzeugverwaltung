@@ -21,7 +21,7 @@ namespace Fahrzeugverwaltung
         }
 
         // Methode zum erstellen der am Anfang enthaltenen Fahrzeuge und Parkhüuser.
-        private static void erstelleAnfangsDaten()
+        private void erstelleAnfangsDaten()
         {
             if((File.Exists(@"Fahrzeuge.txt") && File.Exists(@"Parkhaus.txt")) == false)
             {
@@ -31,6 +31,8 @@ namespace Fahrzeugverwaltung
                 fahrzeuge[2] = "BMW;R1200r;K-GS-03;1999;6000;1;200;1170";
                 fahrzeuge[3] = "Mercedes;LG 315;K-GS-04;1960;23000;1;300;2;5,5";
 
+                
+
                 //string[] parkhaus = new string[1];
                 //parkhaus[0] = "Köln;51105;Westerwaldstr. 99;500;100;50";
 
@@ -39,6 +41,19 @@ namespace Fahrzeugverwaltung
                 File.WriteAllLines(@"Fahrzeuge.txt", fahrzeuge);
                 //File.WriteAllLines(@"Parkhaus.txt", parkhaus); // voher war es writealltext, jetzt macht es probleme
                 File.WriteAllLines(@"Parkhaus.txt", parkhaus);
+
+                // Zuweisund der Stellplätze und des Parkhauses in den Anfangsobjekten
+                zuweisenDerStellplätzeNachLadenAusDatei(fahrzeuge);
+            }
+        }
+  
+        // Methode, die die Stellplätze nach dem neuladen aus der txt Datei zuweisen
+        public void zuweisenDerStellplätzeNachLadenAusDatei(string [] fahrzeugdaten)
+        {
+            foreach (string s in fahrzeugdaten)
+            {
+                string[] splitstring = s.Split(';');
+                parkhaeuser[Convert.ToInt32(splitstring[5]) - 1].weiseParkplatzZu(Convert.ToInt32(splitstring[6]) - 1, splitstring[2]);
             }
         }
 
@@ -146,6 +161,7 @@ namespace Fahrzeugverwaltung
                 {
                     fahrzeuge.Add(new PKW(splitchar[0], splitchar[1], splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToDouble(splitchar[4]), splitchar[5] != "" ? Convert.ToInt32(splitchar[5]) : Convert.ToInt32(null), splitchar[6] != "" ? Convert.ToInt32(splitchar[6]) : Convert.ToInt32(null), Convert.ToInt32(splitchar[7]), Convert.ToInt32(splitchar[8]), Convert.ToInt32(splitchar[9])));
                 }
+                parkhaeuser[Convert.ToInt32(splitchar[5]) - 1].weiseParkplatzZu(Convert.ToInt32(splitchar[6]) - 1, splitchar[2]); // Zuweisung des Stellplatzes beim Laden des Fahrzeuges
             }
             file.Close();
         }

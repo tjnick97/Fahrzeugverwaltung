@@ -94,8 +94,10 @@ namespace Fahrzeugverwaltung
             pParkhausHinzufügen.BringToFront();
             pFahrzeugSuchen.Show();
 
-            FP.loadFahrzeuge();
             FP.loadParkhaus();
+            FP.loadFahrzeuge();
+            //List<Fahrzeug> fahrzeuge = FP.getFahrzeuge();
+            //List<Parkhaus> parkhaus = FP.getParkhaus();
             fillLabelBoxWithFahrzeuge();
         }
 
@@ -256,8 +258,8 @@ namespace Fahrzeugverwaltung
 
         private void loadParkplaetze(object sender, EventArgs e) 
         {
-            FP.loadFahrzeuge();
             FP.loadParkhaus();
+            FP.loadFahrzeuge();
 
             ComboBox help;
             int id;
