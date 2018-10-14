@@ -26,10 +26,10 @@ namespace Fahrzeugverwaltung
             if((File.Exists(@"Fahrzeuge.txt") && File.Exists(@"Parkhaus.txt")) == false)
             {
                 string[] fahrzeuge = new string[4];
-                fahrzeuge[0] = "VW;Käfer;K-GS-01;1965;9999;1;100;1000;30;1";
-                fahrzeuge[1] = "Opel;Kadett;K-GS-02;1964;12000;1;101;1600;60;2";
-                fahrzeuge[2] = "BMW;R1200r;K-GS-03;1999;6000;1;200;1170";
-                fahrzeuge[3] = "Mercedes;LG 315;K-GS-04;1960;23000;1;300;2;5,5";
+                fahrzeuge[0] = "VW;Käfer;K-GS-01;1965;9999;1;151;1000;30;1";
+                fahrzeuge[1] = "Opel;Kadett;K-GS-02;1964;12000;1;152;1600;60;2";
+                fahrzeuge[2] = "BMW;R1200r;K-GS-03;1999;6000;1;51;1170";
+                fahrzeuge[3] = "Mercedes;LG 315;K-GS-04;1960;23000;1;1;2;5,5";
 
                 
 
@@ -56,9 +56,7 @@ namespace Fahrzeugverwaltung
                 parkhaeuser[Convert.ToInt32(splitstring[5]) - 1].weiseParkplatzZu(Convert.ToInt32(splitstring[6]), splitstring[2]);
             }
         }
-
-
-        // Methode zum Erstellen und Speichern von neuangelgegten Parkhäusern.zugriff nicht mögloich da geöffnet???
+        
         public void newParkhaus(string ort, int plz, string straße, int anzpkw, int anzmotorrad, int anzlkw)
         {
             string line = ort + ";" + plz + ";" + straße + ";" + anzpkw + ";" + anzmotorrad + ";" + anzlkw;
@@ -67,6 +65,7 @@ namespace Fahrzeugverwaltung
             {
                 file.WriteLine(line);
             }
+            loadParkhaus();
         }
 
 
@@ -98,7 +97,7 @@ namespace Fahrzeugverwaltung
                 parkhaeuser.Add(new Parkhaus(splitchar[0], Convert.ToInt32(splitchar[1]), splitchar[2], Convert.ToInt32(splitchar[3]), Convert.ToInt32(splitchar[4]), Convert.ToInt32(splitchar[5]))); 
             }
             file.Close();
-
+            loadFahrzeuge();
         }
 
         // Methode zur Erstellung neuer Fahrzeuge des Types PKW.
@@ -169,8 +168,6 @@ namespace Fahrzeugverwaltung
         // Methode für die Suche nach einem Fahrzeug.
         public string sucheFahrzeug(string kennzeichen)
         {
-            loadParkhaus();//init
-            loadFahrzeuge();//init
             string ergebnis = "";
             string stellplatz = "";
             for(int i = 0; i < parkhaeuser.Count(); i++)
@@ -257,13 +254,11 @@ namespace Fahrzeugverwaltung
 
         public List<Fahrzeug> getFahrzeuge()
         {
-            loadFahrzeuge();
             return fahrzeuge;
         }
 
         public List<Parkhaus> getParkhaus()
         {
-            loadParkhaus();
             return parkhaeuser;
         }
 
