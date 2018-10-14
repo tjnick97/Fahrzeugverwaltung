@@ -41,5 +41,10 @@ namespace Fahrzeugverwaltung
         {
             return Parkplatz;
         }
+        // Rückgabe des Parkplatztypes.
+        public int getParkplatzTyp()
+        {
+            return Stellplatztyp;
+        }
     }
 }

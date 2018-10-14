@@ -13,9 +13,10 @@ namespace Fahrzeugverwaltung
     public partial class Fahrzeugverwaltung : Form
     {
 
-        // Für alle Steuern: public double steuerAlle()
         // Erstellung des Fuhrparkobjektes. 
         Fuhrpark FP = new Fuhrpark();
+
+        // Konstroktor, der die gespeicherten Textdateien lädt.
         public Fahrzeugverwaltung()
         {
             InitializeComponent();
@@ -136,6 +137,7 @@ namespace Fahrzeugverwaltung
             lblSchadstoff.Hide();
         }
 
+        // Abspeichern eines neuangelegten Fahrzeugobjektes.
         private void btnSaveNewFahrzeug_Click(object sender, EventArgs e)
         {
             //Call function to save input for new Vehicle
@@ -169,6 +171,7 @@ namespace Fahrzeugverwaltung
             }
         }
 
+        // Abspeichen eines neuen Parkhausobjektes.
         private void btnParkhaus_Click(object sender, EventArgs e)
         {
             /** 
@@ -245,23 +248,26 @@ namespace Fahrzeugverwaltung
             }
         }
 
-        private void loadParkplaetze(object sender, EventArgs e)
+        private void loadParkplaetze(object sender, EventArgs e) 
         {
             FP.loadFahrzeuge();
             FP.loadParkhaus();
 
             cBParkplatz.Items.Clear();
+
             List<Parkhaus> parkhaus = FP.getParkhaus();
             int id = Convert.ToInt32(cBParkhaus.Text);
             List<Parkplaetze> parkplatz = parkhaus[id].getParkplatz();
 
-            //HIA Differenzierung, welcher Fahrzeugtyp das ausgewählte Kennzeichen in cbKennzeichen hat, fehlt noch.
+            //HIA Differenzierung, welcher Fahrzeugtyp das ausgewählte Kennzeichen in cbKennzeichen hat, fehlt noch. = pkw 1 motorrad 2 lkw
             foreach (var item in parkplatz)
             {
                 cBParkplatz.Items.Add(item.getParkplatz() + 1);
             }
+
         }
 
+        // Anzeige der Fahrzeugdaten.
         private void showExtendedFahrzeugInformations_Click(object sender, EventArgs e)
         {
             //cBParkhaus.Show();
@@ -300,6 +306,8 @@ namespace Fahrzeugverwaltung
                     label9.Text = parkhausObj.Straße;           //Straße
                     label10.Text = splitchar[6];                //Stellplatz
                     // Steuer? bsp label14.Text = FP.steuerEinzeln(splitchar[2]);
+                    label14.Text = (FP.steuerEinzeln(splitchar[2])).ToString(); // Steuer, von mir
+                    label15.Text = FP.steuerAlle().ToString();
                     if (splitchar.Length == 8)
                     {
                         label11.Text = splitchar[7];
@@ -352,6 +360,10 @@ namespace Fahrzeugverwaltung
 
             FP.weiseStellplatzZu(selectedKennzeichen, Convert.ToInt32(cBParkhaus.Text), Convert.ToInt32(cBParkplatz.Text));
             loadInformations();
+
+            // Fehlt noch 
+
+
             //MessageBox.Show(lBFahrzeugInformationen.SelectedItem.ToString());
             //lBFahrzeugInformationen.SelectedItem.ToString()
 
@@ -422,6 +434,8 @@ namespace Fahrzeugverwaltung
             lblPLZ.Hide();
             lblStraße.Hide();
             lblStellplatz.Hide();
+            lblSteuerFürDasFahrzeug.Hide(); // von mir
+            lblSteuerFürAlle.Hide(); // von mir
             label1.Hide();
             label2.Hide();
             label3.Hide();
@@ -435,6 +449,8 @@ namespace Fahrzeugverwaltung
             label11.Hide();
             label12.Hide();
             label13.Hide();
+            label14.Hide(); // von mir
+            label15.Hide(); // von mir
             cBParkplatz.Hide();
             cBParkhaus.Hide();
             btnSaveParkplatz.Hide();
@@ -453,6 +469,8 @@ namespace Fahrzeugverwaltung
             lblPLZ.Show();
             lblStraße.Show();
             lblStellplatz.Show();
+            lblSteuerFürDasFahrzeug.Show(); // von mir
+            lblSteuerFürAlle.Show(); // von mir
             label1.Show();
             label2.Show();
             label3.Show();
@@ -463,6 +481,8 @@ namespace Fahrzeugverwaltung
             label8.Show();
             label9.Show();
             label10.Show();
+            label14.Show(); // von mir
+            label15.Show(); // von ir
             cBParkplatz.Show();
             cBParkhaus.Show();
             btnSaveParkplatz.Show();

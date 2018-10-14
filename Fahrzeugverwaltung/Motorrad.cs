@@ -21,7 +21,7 @@ namespace Fahrzeugverwaltung
         // Methode zur Berechnung der Steuern.
         public override double berechneSteuer()
         {
-            double Steuern = (Hubraum * 99) / 100 * 20;
+            double Steuern = (Hubraum + 99) / 100 * 20;
             return Steuern;
         }
 

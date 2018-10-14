@@ -199,8 +199,17 @@ namespace Fahrzeugverwaltung
         // Methode für die zu zahlende Steuer eines Fahrzeuges.
         public double steuerEinzeln(string kennzeichen)
         {
-            int stelle = fahrzeugstelleInListe(kennzeichen);
-            return fahrzeuge[stelle].berechneSteuer();
+            //int stelle = fahrzeugstelleInListe(kennzeichen);
+            //return fahrzeuge[stelle].berechneSteuer();
+            double steuer = 0;
+            foreach(Fahrzeug f in fahrzeuge)
+            {
+                if(f.kennzeichen() == kennzeichen)
+                {
+                    steuer = f.berechneSteuer();
+                }
+            }
+            return steuer;
         }
 
         // Methode zur berechnung aller Steuern für alle Fahrzeuge.
@@ -213,25 +222,12 @@ namespace Fahrzeugverwaltung
             }
             return steuer;
         }
-        // Methode zum durchsuchen der Fahrzeugliste mit einem Kennzeichen.
-        public int fahrzeugstelleInListe(string kennzeichen)
-        {
-            int stelle = 0;
-            for(int i = 0; i < fahrzeuge.Count(); i++)
-            {
-                if(kennzeichen == fahrzeuge[i].kennzeichen())
-                {
-                    break;
-                }
-            }
-            return stelle;
-        }
 
         // Methode für das zuweisen eines Stellplatzes.
         public void weiseStellplatzZu(string kennzeichen, int parkhaus, int stellplatz)
         {
             // Parkhaus wird intern mit 1 subtrahiert, wegen der Stelle in der Liste.
-            parkhaeuser[parkhaus - 1].weiseParkplatzZu(stellplatz, kennzeichen);
+            parkhaeuser[parkhaus].weiseParkplatzZu(stellplatz, kennzeichen); //Fehler!!
             return;
         }
 

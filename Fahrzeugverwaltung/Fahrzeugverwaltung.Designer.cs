@@ -69,6 +69,7 @@
             this.tbs_Zei = new System.Windows.Forms.TextBox();
             this.tbs_Hen = new System.Windows.Forms.TextBox();
             this.pFahrzeugSuchen = new System.Windows.Forms.Panel();
+            this.lblStellplatzÄndern = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -98,7 +99,10 @@
             this.lblModell = new System.Windows.Forms.Label();
             this.lblHersteller = new System.Windows.Forms.Label();
             this.lBFahrzeugInformationen = new System.Windows.Forms.ListBox();
-            this.lblStellplatzÄndern = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblSteuerFürDasFahrzeug = new System.Windows.Forms.Label();
+            this.lblSteuerFürAlle = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.pFahrzeugHinzufügen.SuspendLayout();
             this.pParkhausHinzufügen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -581,6 +585,10 @@
             // 
             // pFahrzeugSuchen
             // 
+            this.pFahrzeugSuchen.Controls.Add(this.label15);
+            this.pFahrzeugSuchen.Controls.Add(this.lblSteuerFürAlle);
+            this.pFahrzeugSuchen.Controls.Add(this.lblSteuerFürDasFahrzeug);
+            this.pFahrzeugSuchen.Controls.Add(this.label14);
             this.pFahrzeugSuchen.Controls.Add(this.lblStellplatzÄndern);
             this.pFahrzeugSuchen.Controls.Add(this.label13);
             this.pFahrzeugSuchen.Controls.Add(this.label12);
@@ -624,6 +632,15 @@
             this.pFahrzeugSuchen.Size = new System.Drawing.Size(589, 565);
             this.pFahrzeugSuchen.TabIndex = 0;
             this.pFahrzeugSuchen.Visible = false;
+            // 
+            // lblStellplatzÄndern
+            // 
+            this.lblStellplatzÄndern.AutoSize = true;
+            this.lblStellplatzÄndern.Location = new System.Drawing.Point(297, 369);
+            this.lblStellplatzÄndern.Name = "lblStellplatzÄndern";
+            this.lblStellplatzÄndern.Size = new System.Drawing.Size(85, 13);
+            this.lblStellplatzÄndern.TabIndex = 42;
+            this.lblStellplatzÄndern.Text = "Stellplatz ändern";
             // 
             // label13
             // 
@@ -889,14 +906,41 @@
             this.lBFahrzeugInformationen.TabIndex = 6;
             this.lBFahrzeugInformationen.SelectedValueChanged += new System.EventHandler(this.showExtendedFahrzeugInformations_Click);
             // 
-            // lblStellplatzÄndern
+            // label14
             // 
-            this.lblStellplatzÄndern.AutoSize = true;
-            this.lblStellplatzÄndern.Location = new System.Drawing.Point(297, 369);
-            this.lblStellplatzÄndern.Name = "lblStellplatzÄndern";
-            this.lblStellplatzÄndern.Size = new System.Drawing.Size(85, 13);
-            this.lblStellplatzÄndern.TabIndex = 42;
-            this.lblStellplatzÄndern.Text = "Stellplatz ändern";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(405, 317);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "label14";
+            // 
+            // lblSteuerFürDasFahrzeug
+            // 
+            this.lblSteuerFürDasFahrzeug.AutoSize = true;
+            this.lblSteuerFürDasFahrzeug.Location = new System.Drawing.Point(276, 317);
+            this.lblSteuerFürDasFahrzeug.Name = "lblSteuerFürDasFahrzeug";
+            this.lblSteuerFürDasFahrzeug.Size = new System.Drawing.Size(123, 13);
+            this.lblSteuerFürDasFahrzeug.TabIndex = 44;
+            this.lblSteuerFürDasFahrzeug.Text = "Steuer für das Fahrzeug:";
+            // 
+            // lblSteuerFürAlle
+            // 
+            this.lblSteuerFürAlle.AutoSize = true;
+            this.lblSteuerFürAlle.Location = new System.Drawing.Point(276, 343);
+            this.lblSteuerFürAlle.Name = "lblSteuerFürAlle";
+            this.lblSteuerFürAlle.Size = new System.Drawing.Size(128, 13);
+            this.lblSteuerFürAlle.TabIndex = 45;
+            this.lblSteuerFürAlle.Text = "Steuer für alle Fahrzeuge:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(407, 343);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(41, 13);
+            this.label15.TabIndex = 46;
+            this.label15.Text = "label17";
             // 
             // Fahrzeugverwaltung
             // 
@@ -993,6 +1037,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblStellplatzÄndern;
+        private System.Windows.Forms.Label lblSteuerFürDasFahrzeug;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblSteuerFürAlle;
     }
 }
 
