@@ -164,7 +164,7 @@ namespace Fahrzeugverwaltung
         // Abspeichern eines neuangelegten Fahrzeugobjektes.
         private void btnSaveNewFahrzeug_Click(object sender, EventArgs e)
         {
-            string kennzeichen = tBK_Ken.Text + "-" + tBK_Zei.Text + "-" + tBK_Hen.Text;
+            string kennzeichen = tBK_Ken.Text.ToUpper() + "-" + tBK_Zei.Text.ToUpper() + "-" + tBK_Hen.Text.ToUpper();
             var fahrzeuge = FP.getFahrzeuge();
             bool exists = false;
             foreach (var item in fahrzeuge)
@@ -212,6 +212,7 @@ namespace Fahrzeugverwaltung
                     }
                     menuStrip1.BackColor = Color.LightGreen;
                     tmBlink.Start();
+                    FP.loadParkhaus();
 
                 } catch (Exception)
                 {
@@ -332,106 +333,112 @@ namespace Fahrzeugverwaltung
         // Anzeige der Fahrzeugdaten in der LabelBox.
         private void showExtendedFahrzeugInformations_Click(object sender, EventArgs e)
         {
-            cBParkhaus.Text = "Parkhaus";
-            cBParkplatz.Text = "Stellplatz";
-            List<Parkhaus> parkhaus = FP.getParkhaus();
-            System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeuge.txt", true);
-            string line;
-            while ((line = Convert.ToString(file.ReadLine())) != null)
+            if (lBFahrzeugInformationen.SelectedItem.ToString() != "")
             {
-                string[] splitchar = line.Split(';');
-                string fahrzeugInformation = lBFahrzeugInformationen.SelectedItem.ToString();
-                string[] kennzeichen = fahrzeugInformation.Split('\t');
-
-                if (splitchar[2] == kennzeichen[0])
+                cBParkhaus.Text = "Parkhaus";
+                cBParkplatz.Text = "Stellplatz";
+                List<Parkhaus> parkhaus = FP.getParkhaus();
+                System.IO.StreamReader file = new System.IO.StreamReader(@"Fahrzeuge.txt", true);
+                string line;
+                while ((line = Convert.ToString(file.ReadLine())) != null)
                 {
-                    label1.Text = splitchar[0];                 //Marke
-                    label2.Text = splitchar[1];                 //Modell
-                    label3.Text = splitchar[2];                 //Kennzeichen
-                    label4.Text = splitchar[3];                 //Erstzulassung
-                    label5.Text = splitchar[4];                 //Preis
-                    label6.Text = splitchar[5];                 //Parkhaus
-                    //--
-                    label10.Text = splitchar[6];                //Stellplatz
-                    label14.Text = (FP.steuerEinzeln(splitchar[2])).ToString();
-                    label15.Text = FP.steuerAlle().ToString();
+                    string[] splitchar = line.Split(';');
+                    string fahrzeugInformation = lBFahrzeugInformationen.SelectedItem.ToString();
+                    string[] kennzeichen = fahrzeugInformation.Split('\t');
 
-                    int stellplatzTyp = parkhaus[Convert.ToInt32(label6.Text) - 1].parkplaetze[Convert.ToInt32(label10.Text) - 1].Stellplatztyp;
-                    if (stellplatzTyp == 0)
+                    if (splitchar[2] == kennzeichen[0])
                     {
-                        lblHeader.Text = "PKW";
-                    } else if (stellplatzTyp == 1)
-                    {
-                        lblHeader.Text = "Motorrad";
-                    } else
-                    {
-                        lblHeader.Text = "LKW";
-                    }
+                        label1.Text = splitchar[0];                 //Marke
+                        label2.Text = splitchar[1];                 //Modell
+                        label3.Text = splitchar[2];                 //Kennzeichen
+                        label4.Text = splitchar[3];                 //Erstzulassung
+                        label5.Text = splitchar[4];                 //Preis
+                        label6.Text = splitchar[5];                 //Parkhaus
+                                                                    //--
+                        label10.Text = splitchar[6];                //Stellplatz
+                        label14.Text = (FP.steuerEinzeln(splitchar[2])).ToString();
+                        label15.Text = FP.steuerAlle().ToString();
 
-                    if (splitchar[5] != "")
-                    {
-                        Parkhaus parkhausObj = parkhaus[Convert.ToInt32(splitchar[5])-1];
-                        
-                        label7.Text = parkhausObj.Ort;              //Ort
-                        label8.Text = parkhausObj.PLZ.ToString();   //PLZ
-                        label9.Text = parkhausObj.Straße;           //Straße
-                    } else
-                    {
-                        label7.Text = "";
-                        label8.Text = "";
-                        label9.Text = "";
-                    }
-                    if (splitchar.Length == 8)
-                    {
-                        label11.Text = splitchar[7];
-                        lblHubraum.Show();
-                        lblZuladung.Hide();
-                        lblAnzAchsen.Hide();
-                        lblLeistung.Hide();
-                        lblSchadstoffklasse.Hide();
-                        label11.Show();
-                        label12.Hide();
-                        label13.Hide();
-                        break;
-                    }
-                    else if (splitchar.Length == 9)
-                    {
-                        label11.Text = splitchar[7];
-                        label12.Text = splitchar[8];
-                        lblAnzAchsen.Show();
-                        lblZuladung.Show();
-                        lblHubraum.Hide();
-                        lblLeistung.Hide();
-                        lblSchadstoffklasse.Hide();
-                        label11.Show();
-                        label12.Show();
-                        label13.Hide();
-                        break;
-                    }
-                    else if (splitchar.Length == 10)
-                    {
-                        label11.Text = splitchar[7];
-                        label12.Text = splitchar[8];
-                        label13.Text = splitchar[9];
-                        lblHubraum.Show();
-                        lblLeistung.Show();
-                        lblSchadstoffklasse.Show();
-                        lblAnzAchsen.Hide();
-                        lblZuladung.Hide();
-                        label11.Show();
-                        label12.Show();
-                        label13.Show();
-                        break;
+                        int stellplatzTyp = parkhaus[Convert.ToInt32(label6.Text) - 1].parkplaetze[Convert.ToInt32(label10.Text) - 1].Stellplatztyp;
+                        if (stellplatzTyp == 0)
+                        {
+                            lblHeader.Text = "PKW";
+                        }
+                        else if (stellplatzTyp == 1)
+                        {
+                            lblHeader.Text = "Motorrad";
+                        }
+                        else
+                        {
+                            lblHeader.Text = "LKW";
+                        }
+
+                        if (splitchar[5] != "")
+                        {
+                            Parkhaus parkhausObj = parkhaus[Convert.ToInt32(splitchar[5]) - 1];
+
+                            label7.Text = parkhausObj.Ort;              //Ort
+                            label8.Text = parkhausObj.PLZ.ToString();   //PLZ
+                            label9.Text = parkhausObj.Straße;           //Straße
+                        }
+                        else
+                        {
+                            label7.Text = "";
+                            label8.Text = "";
+                            label9.Text = "";
+                        }
+                        if (splitchar.Length == 8)
+                        {
+                            label11.Text = splitchar[7];
+                            lblHubraum.Show();
+                            lblZuladung.Hide();
+                            lblAnzAchsen.Hide();
+                            lblLeistung.Hide();
+                            lblSchadstoffklasse.Hide();
+                            label11.Show();
+                            label12.Hide();
+                            label13.Hide();
+                            break;
+                        }
+                        else if (splitchar.Length == 9)
+                        {
+                            label11.Text = splitchar[7];
+                            label12.Text = splitchar[8];
+                            lblAnzAchsen.Show();
+                            lblZuladung.Show();
+                            lblHubraum.Hide();
+                            lblLeistung.Hide();
+                            lblSchadstoffklasse.Hide();
+                            label11.Show();
+                            label12.Show();
+                            label13.Hide();
+                            break;
+                        }
+                        else if (splitchar.Length == 10)
+                        {
+                            label11.Text = splitchar[7];
+                            label12.Text = splitchar[8];
+                            label13.Text = splitchar[9];
+                            lblHubraum.Show();
+                            lblLeistung.Show();
+                            lblSchadstoffklasse.Show();
+                            lblAnzAchsen.Hide();
+                            lblZuladung.Hide();
+                            label11.Show();
+                            label12.Show();
+                            label13.Show();
+                            break;
+                        }
                     }
                 }
-            }
-            file.Close();
-            showFahrzeugInformationen();
+                file.Close();
+                showFahrzeugInformationen();
 
-            cBParkhaus.Items.Clear();
-            for (int i = 0; i < parkhaus.Count(); i++)
-            {
-                cBParkhaus.Items.Add(i+1);
+                cBParkhaus.Items.Clear();
+                for (int i = 0; i < parkhaus.Count(); i++)
+                {
+                    cBParkhaus.Items.Add(i + 1);
+                }
             }
         }
 
@@ -450,6 +457,7 @@ namespace Fahrzeugverwaltung
             {
                 MessageBox.Show("Bitte überprüfe die Eingaben.");
             }
+            FP.loadParkhaus();
             fillLabelBoxWithFahrzeuge();
             cBParkhaus.Text = "Parkhaus";
             cBParkplatz.Text = "Stellplatz";
@@ -474,14 +482,14 @@ namespace Fahrzeugverwaltung
             int count;
             if (((TextBox)sender) == tbs_Ken)
             {
-                filterTextBox = tbs_Ken.Text;
+                filterTextBox = tbs_Ken.Text.ToUpper();
                 count = 0;
             } else if (((TextBox)sender) == tbs_Zei)
             {
-                filterTextBox = tbs_Zei.Text;
+                filterTextBox = tbs_Zei.Text.ToUpper();
                 count = 1;
             } else {
-                filterTextBox = tbs_Hen.Text;
+                filterTextBox = tbs_Hen.Text.ToUpper();
                 count = 2;
             }
             foreach (var item in FahrzeuginformationenOld)
@@ -538,6 +546,8 @@ namespace Fahrzeugverwaltung
             label14.Hide();
             label15.Hide();
             lblHeader.Hide();
+            lblStellpl.Hide();
+            lblParkhau.Hide();
             cBParkplatz.Hide();
             cBParkhaus.Hide();
             btnSaveParkplatz.Hide();
@@ -571,6 +581,8 @@ namespace Fahrzeugverwaltung
             label14.Show();
             label15.Show();
             lblHeader.Show();
+            lblStellpl.Show();
+            lblParkhau.Show();
             cBParkplatz.Show();
             cBParkhaus.Show();
             btnSaveParkplatz.Show();

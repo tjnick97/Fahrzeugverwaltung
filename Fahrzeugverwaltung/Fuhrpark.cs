@@ -36,9 +36,8 @@ namespace Fahrzeugverwaltung
                 File.WriteAllLines(@"Fahrzeuge.txt", fahrzeuge);
                 File.WriteAllLines(@"Parkhaus.txt", parkhaus);
 
-                // Zuweisund der Stellplätze und des Parkhauses in den Anfangsobjekten
+                // Zuweisung der Stellplätze und des Parkhauses in den Anfangsobjekten.
                 loadParkhaus();
-                loadFahrzeuge();
                 zuweisenDerStellplätzeNachLadenAusDatei(fahrzeuge);
             }
         }

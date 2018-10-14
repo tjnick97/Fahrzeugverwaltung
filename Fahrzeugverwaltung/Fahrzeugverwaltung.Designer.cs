@@ -112,6 +112,10 @@
             this.lblWillkommen = new System.Windows.Forms.Label();
             this.lblEinweisung = new System.Windows.Forms.Label();
             this.tmBlink = new System.Windows.Forms.Timer(this.components);
+            this.lblParkha = new System.Windows.Forms.Label();
+            this.lblStellp = new System.Windows.Forms.Label();
+            this.lblParkhau = new System.Windows.Forms.Label();
+            this.lblStellpl = new System.Windows.Forms.Label();
             this.pFahrzeugHinzufügen.SuspendLayout();
             this.pParkhausHinzufügen.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -121,6 +125,8 @@
             // pFahrzeugHinzufügen
             // 
             this.pFahrzeugHinzufügen.AutoSize = true;
+            this.pFahrzeugHinzufügen.Controls.Add(this.lblStellp);
+            this.pFahrzeugHinzufügen.Controls.Add(this.lblParkha);
             this.pFahrzeugHinzufügen.Controls.Add(this.cbH_Stellplatz);
             this.pFahrzeugHinzufügen.Controls.Add(this.cbH_Parkhaus);
             this.pFahrzeugHinzufügen.Controls.Add(this.textBox1);
@@ -150,21 +156,21 @@
             // 
             // cbH_Stellplatz
             // 
+            this.cbH_Stellplatz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbH_Stellplatz.FormattingEnabled = true;
             this.cbH_Stellplatz.Location = new System.Drawing.Point(327, 227);
             this.cbH_Stellplatz.Name = "cbH_Stellplatz";
             this.cbH_Stellplatz.Size = new System.Drawing.Size(94, 21);
             this.cbH_Stellplatz.TabIndex = 22;
-            this.cbH_Stellplatz.Text = "Stellplatz";
             // 
             // cbH_Parkhaus
             // 
+            this.cbH_Parkhaus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbH_Parkhaus.FormattingEnabled = true;
             this.cbH_Parkhaus.Location = new System.Drawing.Point(232, 227);
             this.cbH_Parkhaus.Name = "cbH_Parkhaus";
             this.cbH_Parkhaus.Size = new System.Drawing.Size(94, 21);
             this.cbH_Parkhaus.TabIndex = 21;
-            this.cbH_Parkhaus.Text = "Parkhaus";
             this.cbH_Parkhaus.SelectedValueChanged += new System.EventHandler(this.loadParkplaetze);
             // 
             // textBox1
@@ -336,6 +342,7 @@
             // tB_Erstzulassung
             // 
             this.tB_Erstzulassung.Location = new System.Drawing.Point(29, 183);
+            this.tB_Erstzulassung.MaxLength = 4;
             this.tB_Erstzulassung.Name = "tB_Erstzulassung";
             this.tB_Erstzulassung.Size = new System.Drawing.Size(183, 20);
             this.tB_Erstzulassung.TabIndex = 5;
@@ -394,9 +401,9 @@
             this.pParkhausHinzufügen.Controls.Add(this.tB_PKW);
             this.pParkhausHinzufügen.Controls.Add(this.tBParkhaus);
             this.pParkhausHinzufügen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pParkhausHinzufügen.Location = new System.Drawing.Point(0, 24);
+            this.pParkhausHinzufügen.Location = new System.Drawing.Point(0, 0);
             this.pParkhausHinzufügen.Name = "pParkhausHinzufügen";
-            this.pParkhausHinzufügen.Size = new System.Drawing.Size(465, 544);
+            this.pParkhausHinzufügen.Size = new System.Drawing.Size(465, 568);
             this.pParkhausHinzufügen.TabIndex = 1;
             this.pParkhausHinzufügen.Visible = false;
             // 
@@ -545,7 +552,7 @@
             // 
             // btnSaveParkplatz
             // 
-            this.btnSaveParkplatz.Location = new System.Drawing.Point(205, 485);
+            this.btnSaveParkplatz.Location = new System.Drawing.Point(314, 479);
             this.btnSaveParkplatz.Name = "btnSaveParkplatz";
             this.btnSaveParkplatz.Size = new System.Drawing.Size(121, 21);
             this.btnSaveParkplatz.TabIndex = 3;
@@ -556,22 +563,22 @@
             // 
             // cBParkplatz
             // 
+            this.cBParkplatz.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBParkplatz.FormattingEnabled = true;
-            this.cBParkplatz.Location = new System.Drawing.Point(205, 458);
+            this.cBParkplatz.Location = new System.Drawing.Point(314, 452);
             this.cBParkplatz.Name = "cBParkplatz";
             this.cBParkplatz.Size = new System.Drawing.Size(121, 21);
             this.cBParkplatz.TabIndex = 2;
-            this.cBParkplatz.Text = "Parkplatz";
             this.cBParkplatz.Visible = false;
             // 
             // cBParkhaus
             // 
+            this.cBParkhaus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBParkhaus.FormattingEnabled = true;
-            this.cBParkhaus.Location = new System.Drawing.Point(205, 429);
+            this.cBParkhaus.Location = new System.Drawing.Point(314, 425);
             this.cBParkhaus.Name = "cBParkhaus";
             this.cBParkhaus.Size = new System.Drawing.Size(121, 21);
             this.cBParkhaus.TabIndex = 1;
-            this.cBParkhaus.Text = "Parkhaus";
             this.cBParkhaus.Visible = false;
             this.cBParkhaus.SelectedValueChanged += new System.EventHandler(this.loadParkplaetze);
             // 
@@ -627,6 +634,8 @@
             // 
             // pFahrzeugSuchen
             // 
+            this.pFahrzeugSuchen.Controls.Add(this.lblStellpl);
+            this.pFahrzeugSuchen.Controls.Add(this.lblParkhau);
             this.pFahrzeugSuchen.Controls.Add(this.lblHeader);
             this.pFahrzeugSuchen.Controls.Add(this.textBox2);
             this.pFahrzeugSuchen.Controls.Add(this.label15);
@@ -736,7 +745,7 @@
             // lblStellplatzÄndern
             // 
             this.lblStellplatzÄndern.AutoSize = true;
-            this.lblStellplatzÄndern.Location = new System.Drawing.Point(223, 410);
+            this.lblStellplatzÄndern.Location = new System.Drawing.Point(296, 401);
             this.lblStellplatzÄndern.Name = "lblStellplatzÄndern";
             this.lblStellplatzÄndern.Size = new System.Drawing.Size(85, 13);
             this.lblStellplatzÄndern.TabIndex = 42;
@@ -1033,15 +1042,52 @@
             this.tmBlink.Interval = 500;
             this.tmBlink.Tick += new System.EventHandler(this.stopBlink);
             // 
+            // lblParkha
+            // 
+            this.lblParkha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblParkha.Location = new System.Drawing.Point(253, 212);
+            this.lblParkha.Name = "lblParkha";
+            this.lblParkha.Size = new System.Drawing.Size(55, 13);
+            this.lblParkha.TabIndex = 0;
+            this.lblParkha.Text = "Parkhaus:";
+            // 
+            // lblStellp
+            // 
+            this.lblStellp.Location = new System.Drawing.Point(347, 212);
+            this.lblStellp.Name = "lblStellp";
+            this.lblStellp.Size = new System.Drawing.Size(52, 13);
+            this.lblStellp.TabIndex = 0;
+            this.lblStellp.Text = "Stellplatz:";
+            // 
+            // lblParkhau
+            // 
+            this.lblParkhau.AutoSize = true;
+            this.lblParkhau.Location = new System.Drawing.Point(258, 428);
+            this.lblParkhau.Name = "lblParkhau";
+            this.lblParkhau.Size = new System.Drawing.Size(55, 13);
+            this.lblParkhau.TabIndex = 49;
+            this.lblParkhau.Text = "Parkhaus:";
+            this.lblParkhau.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblStellpl
+            // 
+            this.lblStellpl.AutoSize = true;
+            this.lblStellpl.Location = new System.Drawing.Point(258, 455);
+            this.lblStellpl.Name = "lblStellpl";
+            this.lblStellpl.Size = new System.Drawing.Size(52, 13);
+            this.lblStellpl.TabIndex = 50;
+            this.lblStellpl.Text = "Stellplatz:";
+            // 
             // Fahrzeugverwaltung
             // 
             this.ClientSize = new System.Drawing.Size(465, 568);
             this.Controls.Add(this.lblEinweisung);
             this.Controls.Add(this.lblWillkommen);
             this.Controls.Add(this.pFahrzeugHinzufügen);
-            this.Controls.Add(this.pParkhausHinzufügen);
             this.Controls.Add(this.pFahrzeugSuchen);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pParkhausHinzufügen);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Fahrzeugverwaltung";
             this.Text = "Fahrzeug verwalten";
@@ -1142,6 +1188,10 @@
         private System.Windows.Forms.Label lblWillkommen;
         private System.Windows.Forms.Label lblEinweisung;
         private System.Windows.Forms.Timer tmBlink;
+        private System.Windows.Forms.Label lblStellp;
+        private System.Windows.Forms.Label lblParkha;
+        private System.Windows.Forms.Label lblStellpl;
+        private System.Windows.Forms.Label lblParkhau;
     }
 }
 
